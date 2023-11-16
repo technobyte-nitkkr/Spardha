@@ -1,3 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
