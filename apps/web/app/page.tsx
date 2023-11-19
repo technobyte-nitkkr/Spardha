@@ -3,7 +3,8 @@ import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three'; // npm install three @types/three
 import myImage from '../public/assets/abstractimage.jpg'
 import stars from '../public/assets/stars.jpg'
-import mars from '../public/assets/mars.jpg'
+import Navbar from '../components/navbar';
+import Landing from '../components/landing';
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,7 +55,7 @@ const ThreeScene: React.FC = () => {
       //   renderer.render(scene, camera);
       // });
 
-      // const bgGeometry = new THREE.SphereGeometry(5000, 64, 32);
+      // const bgGeometry = new THREE.SphereGeometry(200, 64, 32);
       // bgGeometry.scale(-1, 1, 1);
       // const bgMaterial = new THREE.MeshBasicMaterial({ map: bgTexture });
       // const bg = new THREE.Mesh(bgGeometry, bgMaterial);
@@ -150,7 +151,10 @@ const ThreeScene: React.FC = () => {
     <>
       <div className='w-screen h-screen m-0 p-0 bg-cover bg-center' ref={containerRef}>
         <div className='absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory' ref={parentDiv} onScroll={handleScroll}>
-          <section className='h-screen w-full snap-center' ref={sec1ref}>Section 1</section>
+          <section className='h-screen w-full snap-center' ref={sec1ref}>
+            <Navbar/>
+            <Landing/>
+          </section>
           <section className='h-screen w-full snap-center' ref={sec2ref}>Section 2</section>
           <section className='h-screen w-full snap-center' ref={sec3ref}>Section 3</section>
           <section className='h-screen w-full snap-center' ref={sec4ref}>Section 4</section>
