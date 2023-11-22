@@ -4,7 +4,21 @@
 
 ::-webkit-scrollbar {
   width: 0px;
+  height: 0px;
 }
+
+.CardScrollDiv::-webkit-scrollbar {
+  width: 4px;
+}
+
+.CardScrollDiv::-webkit-scrollbar-thumb {
+  background-color: #3182ce;
+  border-radius: 4px;
+}
+
+/* .CardScrollDiv::-webkit-scrollbar-track {
+  border-radius: 4px;
+} */
 
 :root {
   --max-width: 1100px;
