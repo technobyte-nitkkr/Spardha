@@ -4,6 +4,7 @@ import * as THREE from 'three'; // npm install three @types/three
 import myImage from '../public/assets/abstractimage.jpg'
 import stars from '../public/assets/stars.jpg'
 import mars from '../public/assets/mars.jpg'
+import GuestLectures from '../components/GuestLectures/GuestLectures';
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,15 +51,15 @@ const ThreeScene: React.FC = () => {
 
       // scene.background = spaceTexture;
 
-      // const bgTexture = textureLoader.load(stars.src, () => {
-      //   renderer.render(scene, camera);
-      // });
+      const bgTexture = textureLoader.load(stars.src, () => {
+        renderer.render(scene, camera);
+      });
 
-      // const bgGeometry = new THREE.SphereGeometry(5000, 64, 32);
-      // bgGeometry.scale(-1, 1, 1);
-      // const bgMaterial = new THREE.MeshBasicMaterial({ map: bgTexture });
-      // const bg = new THREE.Mesh(bgGeometry, bgMaterial);
-      // scene.add(bg);
+      const bgGeometry = new THREE.SphereGeometry(5000, 64, 32);
+      bgGeometry.scale(-1, 1, 1);
+      const bgMaterial = new THREE.MeshBasicMaterial({ map: bgTexture });
+      const bg = new THREE.Mesh(bgGeometry, bgMaterial);
+      scene.add(bg);
 
       const animate = () => {
         requestAnimationFrame(animate);
@@ -152,7 +153,7 @@ const ThreeScene: React.FC = () => {
         <div className='absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory' ref={parentDiv} onScroll={handleScroll}>
           <section className='h-screen w-full snap-center' ref={sec1ref}>Section 1</section>
           <section className='h-screen w-full snap-center' ref={sec2ref}>Section 2</section>
-          <section className='h-screen w-full snap-center' ref={sec3ref}>Section 3</section>
+          <section className='h-screen w-full snap-center flex items-center' ref={sec3ref}> <GuestLectures /> </section>
           <section className='h-screen w-full snap-center' ref={sec4ref}>Section 4</section>
         </div>
       </div>
