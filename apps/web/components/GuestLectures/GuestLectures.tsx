@@ -1,12 +1,12 @@
-import React, {useRef, useEffect} from 'react'
+import React, { useRef, useEffect } from 'react'
 import GLcard from './GLcard'
 
 const GuestLectures = () => {
   const scrollRef = useRef<HTMLDivElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
-  
+
   const scrollNext = () => {
-    if(scrollRef.current && scrollRef.current.offsetWidth - scrollRef.current.scrollLeft > 8 ){
+    if (scrollRef.current && scrollRef.current.offsetWidth - scrollRef.current.scrollLeft > 8) {
       console.log(scrollRef.current.scrollLeft)
       scrollRef.current.scroll({
         left: scrollRef.current.scrollLeft + (cardRef.current?.offsetWidth! + 8),
@@ -16,7 +16,7 @@ const GuestLectures = () => {
   };
 
   const scrollPrev = () => {
-    if(scrollRef.current && scrollRef.current.scrollLeft>=cardRef.current?.clientWidth!){
+    if (scrollRef.current && scrollRef.current.scrollLeft >= cardRef.current?.clientWidth!) {
       console.log(scrollRef.current.scrollLeft)
       scrollRef.current.scroll({
         left: scrollRef.current.scrollLeft - (cardRef.current?.offsetWidth! + 8),
@@ -26,14 +26,19 @@ const GuestLectures = () => {
   }
 
   useEffect(() => {
-    if(scrollRef.current)
+    if (scrollRef.current) {
       scrollRef.current.scrollLeft = 8;
+
+      scrollRef.current.addEventListener('wheel', (e) => {
+        e.preventDefault();
+      }, { passive: false }); // remove this event listener to enable scrolling
+    }
   }, [scrollRef.current])
-  
+
 
   return (
     <div className='w-full h-4/5 flex flex-col items-center justify-between'>
-      <div className='text-4xl sm:text-5xl md:text-7xl xl:text-9xl'>Guest Lectures</div>
+      <div className='text-4xl sm:text-5xl md:text-6xl xl:text-9xl'>Guest Lectures</div>
 
       <div className='h-4/6 w-4/5 flex overflow-x-auto gap-2 px-2 gCardResponsive' ref={scrollRef}>
         <GLcard forwardedRef={cardRef} />
