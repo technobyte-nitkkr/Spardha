@@ -5,6 +5,7 @@ import myImage from '../public/assets/abstractimage.jpg'
 import stars from '../public/assets/stars.jpg'
 import mars from '../public/assets/mars.jpg'
 import GuestLectures from '../components/GuestLectures/GuestLectures';
+import OurSponsors from '../components/OurSponsors/OurSponsors';
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -143,6 +144,10 @@ const ThreeScene: React.FC = () => {
       camera.fov = 30 + (45 - 30) * (scroll - sec3!) / height; // 30 to 45
 
       camera.updateProjectionMatrix();
+    } else {
+      camera.position.set(0, 30, 60);
+      directionalLight.position.set(0, 40, 0);
+      camera.fov = 45;
     }
   };
   renderer.render(scene, camera);
@@ -154,7 +159,8 @@ const ThreeScene: React.FC = () => {
           <section className='h-screen w-full snap-center' ref={sec1ref}>Section 1</section>
           <section className='h-screen w-full snap-center' ref={sec2ref}>Section 2</section>
           <section className='h-screen w-full snap-center flex items-center' ref={sec3ref}> <GuestLectures /> </section>
-          <section className='h-screen w-full snap-center' ref={sec4ref}>Section 4</section>
+          <section className='h-screen w-full snap-center flex items-center' ref={sec4ref}> <OurSponsors /> </section>
+          <section className='h-1/3 w-full snap-center bg-black'>Footer</section>
         </div>
       </div>
     </>
