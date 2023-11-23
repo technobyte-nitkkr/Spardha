@@ -31,7 +31,7 @@ const GuestLectures = () => {
 
       scrollRef.current.addEventListener('wheel', (e) => {
         e.preventDefault();
-      }, { passive: false }); // remove this event listener to enable scrolling
+      }, { passive: false }); // remove this event listener to enable scrolling;;;; iski wajah se 1 baar se jyada baar scroll nhi ho rha h
     }
   }, [scrollRef.current])
 
