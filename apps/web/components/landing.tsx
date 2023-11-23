@@ -3,6 +3,7 @@ import Image from "next/image";
 import title from "../public/assets/title.png";
 import panel from "../public/assets/PANEL.png";
 import presented from "../public/assets/presented.png";
+import dates from './dates.json'
 import '../app/page.module.css'
 const Landing = () => {
   return (
@@ -23,11 +24,13 @@ const Landing = () => {
         backgroundPosition: "center",
       }}>
           <div className="w-[70%] h-[70%] text-2xl overflow-hidden font-orbitron-l">
-            <div className="py-2.5"> &gt;&gt;<span className="ml-10">date1 - date2 Month</span></div>
-            <div className="py-2.5"> &gt;&gt;<span className="ml-10">date1 - date2 Month</span></div>
-            <div className="py-2.5"> &gt;&gt;<span className="ml-10">date1 - date2 Month</span></div>
-            <div className="py-2.5"> &gt;&gt;<span className="ml-10">date1 - date2 Month</span></div>
-            <div className="py-2.5"> &gt;&gt;<span className="ml-10">date1 - date2 Month</span></div>
+            {
+              dates.data.map((item) => {
+                return (
+                  <div className="py-2.5"> &gt;&gt;<span className="ml-5 text-md text-center">{item.date1} - {item.date2} {item.month}</span></div>
+                )
+              })
+            }
           </div>
         </div>
         <button className="border-t-2 border-x-2 border-b-8 border-[#367CFF] rounded-tl-[16px] text-center py-[5px] px-[8px] font-orbitron-l">
