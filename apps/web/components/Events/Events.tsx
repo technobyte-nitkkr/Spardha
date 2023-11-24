@@ -9,7 +9,7 @@ const Events = () => {
       Events Categories
       </div>
 
-      <div className="h-4/6 w-4/6 flex overflow-x-auto snap-x snap-mandatory">
+      <div className="h-4/6 w-1/2 flex overflow-x-auto snap-x snap-mandatory">
         <EventsCard image={myImage}/>
         <EventsCard image={myImage}/>
         <EventsCard image={myImage}/>

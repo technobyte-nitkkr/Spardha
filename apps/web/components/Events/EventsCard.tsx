@@ -10,9 +10,9 @@ const EventsCard: React.FC <any> = ({image}) => {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
         backgroundPosition: 'center',
-    }} className={`snap-center w-full min-w-full p-10 flex flex-col justify-center items-center`}>
-        <Image src={image} alt="" className='max-w-[60%] max-h-[80%]'/>
-        <h1 className='relative mt-[-90px] ml-[-250px] text-5xl font-bold'>Papyrus-Vitae</h1>
+    }} className={`snap-center w-full min-w-full pb-10 flex flex-col justify-center items-center`}>
+        <Image src={image} alt="" className='eventimg max-w-[80%] max-h-[70%]'/>
+        <h1 className='relative mt-[-90px] text-5xl font-bold'>Papyrus-Vitae</h1>
     </div>
   )
 }
