@@ -5,8 +5,8 @@ import myImage from '../public/assets/abstractimage.jpg'
 import stars from '../public/assets/stars.jpg'
 import mars from '../public/assets/mars.jpg'
 import GuestLectures from '../components/GuestLectures/GuestLectures';
-import Landing from '../components/landing';
-import Navbar from '../components/navbar';
+import Landing from '../components/Landing/landing';
+import Navbar from '../components/Landing/navbar';
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);

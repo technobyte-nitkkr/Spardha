@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import title from "../public/assets/title.png";
-import panel from "../public/assets/PANEL.png";
-import presented from "../public/assets/presented.png";
+import title from "../../public/assets/title.png";
+import panel from "../../public/assets/PANEL.png";
+import presented from "../../public/assets/presented.png";
 import dates from './dates.json'
-import '../app/page.module.css'
+import '../../app/page.module.css'
 const Landing = () => {
   return (
     <div className="w-screen h-full flex justify-center items-center font-orbitron">

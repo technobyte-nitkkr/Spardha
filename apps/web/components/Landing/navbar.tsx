@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../public/assets/logo.png"
+import logo from "../../public/assets/logo.png"
 const Navbar = () => {
   return (
     <div className="w-screen flex flex-row justify-center p-10">
