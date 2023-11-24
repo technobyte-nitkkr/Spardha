@@ -8,13 +8,13 @@ import Image from 'next/image'
 const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement> }> = ({ forwardedRef }) => {
 
   return (
-    <div className='h-full lg:w-1/3 md:w-1/2 w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3' style={{backgroundColor: 'rgb(54, 124, 255, 0.25)', border: '1px solid rgb(54, 124, 255)'}} ref={forwardedRef}>
+    <div className='h-full lg:w-1/3 md:w-1/2 w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3 snap-center' style={{backgroundColor: 'rgb(54, 124, 255, 0.25)', border: '1px solid rgb(54, 124, 255)'}} ref={forwardedRef}>
 
       <div className='w-full h-[20%] flex'>
         <Image src={myImage} alt='abstract' className='rounded-tl-2xl mr-1 h-full w-1/3' />
         <div className='h-full flex-1'>
           <div className='text-2xl h-1/2'>Name</div>
-          <div className='text-lg h-1/2'>Title</div>
+          <div className='text-lg h-1/2 opacity-60'>Title</div>
         </div>
       </div>
 

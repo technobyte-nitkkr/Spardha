@@ -4,7 +4,7 @@ import SponsorCategory from './SponsorCategory'
 const OurSponsors = () => {
   return (
     <div className='w-full h-full flex flex-col items-center justify-evenly'>
-      <div className='text-5xl'>Our Sponsors</div>
+      <div className='text-5xl font-starlord-1'>Our Sponsors</div>
 
       <div className='h-4/6 w-4/5 flex justify-center flex-wrap gap-y-2'>
         <SponsorCategory category='Title Sponsors' sponsors={8} />
