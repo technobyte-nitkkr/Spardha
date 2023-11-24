@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -12,7 +11,7 @@
 }
 
 .CardScrollDiv::-webkit-scrollbar-thumb {
-  background-color: #3182ce;
+  background-color: #ce7831;
   border-radius: 4px;
 }
 
