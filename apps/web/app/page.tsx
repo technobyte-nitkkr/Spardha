@@ -6,6 +6,7 @@ import stars from '../public/assets/stars.jpg'
 import mars from '../public/assets/mars.jpg'
 import GuestLectures from '../components/GuestLectures/GuestLectures';
 import OurSponsors from '../components/OurSponsors/OurSponsors';
+import Footer from '../components/Footer';
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -160,7 +161,7 @@ const ThreeScene: React.FC = () => {
           <section className='h-screen w-full snap-center' ref={sec2ref}>Section 2</section>
           <section className='h-screen w-full snap-center flex items-center' ref={sec3ref}> <GuestLectures /> </section>
           <section className='h-screen w-full snap-center flex items-center' ref={sec4ref}> <OurSponsors /> </section>
-          <section className='h-1/3 w-full snap-center bg-black'>Footer</section>
+          <section className='h-[15%] w-full snap-center' ><Footer/></section>
         </div>
       </div>
     </>
