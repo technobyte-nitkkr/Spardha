@@ -5,8 +5,10 @@ import myImage from '../public/assets/abstractimage.jpg'
 import stars from '../public/assets/stars.jpg'
 import mars from '../public/assets/mars.jpg'
 import GuestLectures from '../components/GuestLectures/GuestLectures';
+import OurSponsors from '../components/OurSponsors/OurSponsors';
 import Landing from '../components/Landing/landing';
 import Navbar from '../components/Landing/navbar';
+import Events from '../components/Events/Events';
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,7 +24,7 @@ const ThreeScene: React.FC = () => {
       alpha: true
     }
   );
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+  const directionalLight = new THREE.DirectionalLight(0x860111 , 2);
 
   console.log(window.innerWidth, window.innerHeight);
 
@@ -34,7 +36,7 @@ const ThreeScene: React.FC = () => {
       camera.position.set(0, 30, 60);
 
       const textureLoader = new THREE.TextureLoader();
-      const texture = textureLoader.load(myImage.src, () => {
+      const texture = textureLoader.load(mars.src, () => {
         renderer.render(scene, camera);
       });
 
@@ -46,32 +48,9 @@ const ThreeScene: React.FC = () => {
       directionalLight.position.set(0, 40, 0)
       scene.add(directionalLight);
 
-      // const loader = new THREE.CubeTextureLoader();
-      // const spaceTexture = loader.load([
-      //   'stars.jpg', 'stars.jpg',
-      //   'stars.jpg', 'stars.jpg',
-      //   'stars.jpg', 'stars.jpg'
-      // ], () => {
-      //   renderer.render(scene, camera);
-      // });
-
-      // scene.background = spaceTexture;
-
-      const bgTexture = textureLoader.load(stars.src, () => {
-        renderer.render(scene, camera);
-      });
-
-      // const bgGeometry = new THREE.PlaneGeometry(300,300);
-      // const bgGeometry = new THREE.BoxGeometry(10000,10000,10000);
-      // // const bgGeometry = new THREE.SphereGeometry(5000, 64, 32);
-      // bgGeometry.scale(-1, 1, 1);
-      // const bgMaterial = new THREE.MeshBasicMaterial({ map: bgTexture });
-      // const bg = new THREE.Mesh(bgGeometry, bgMaterial);
-      // scene.add(bg);
-
       const animate = () => {
         requestAnimationFrame(animate);
-        sphere.rotation.y += 0.0005;
+        sphere.rotation.y += 0.001;
         renderer.render(scene, camera);
       }
       animate();
@@ -151,6 +130,10 @@ const ThreeScene: React.FC = () => {
       camera.fov = 30 + (45 - 30) * (scroll - sec3!) / height; // 30 to 45
 
       camera.updateProjectionMatrix();
+    } else {
+      camera.position.set(0, 30, 60);
+      directionalLight.position.set(0, 40, 0);
+      camera.fov = 45;
     }
   };
   renderer.render(scene, camera);
@@ -160,14 +143,17 @@ const ThreeScene: React.FC = () => {
       <div style={{
         backgroundImage: `url(${stars.src})`,
       }} className={`w-screen h-screen m-0 p-0 bg-cover bg-center bg-[${stars.src}]`} ref={containerRef}>
-        <div className='absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory' ref={parentDiv} onScroll={handleScroll}>
-          <section className='h-screen w-full snap-center' ref={sec1ref}>
+        <div className='absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory font-orbitron-l' ref={parentDiv} onScroll={handleScroll}>
+          <section id="Home" className='h-screen w-full snap-center' ref={sec1ref}>
             <Navbar/>
             <Landing/>
           </section>
-          <section className='h-screen w-full snap-center' ref={sec2ref}>Section 2</section>
-          <section className='h-screen w-full snap-center flex items-center' ref={sec3ref}> <GuestLectures /> </section>
-          <section className='h-screen w-full snap-center' ref={sec4ref}>Section 4</section>
+          <section id="Events" className='h-screen w-full snap-center' ref={sec2ref}>
+            <Events />
+          </section>
+          <section id="GuestLectures" className='h-screen w-full snap-center flex items-center' ref={sec3ref}> <GuestLectures /> </section>
+          <section id="Sponsors" className='h-screen w-full snap-center flex items-center' ref={sec4ref}> <OurSponsors /> </section>
+          <section className='h-1/3 w-full snap-center bg-black'>Footer</section>
         </div>
       </div>
     </>

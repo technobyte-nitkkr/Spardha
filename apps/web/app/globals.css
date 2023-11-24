@@ -16,15 +16,43 @@
     font-style: normal;
     font-weight: 700;
   }
+
+  .font-orbitron-1 {
+    text-align: center;
+    font-family: Orbitron;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 6.3px;
+  }
+
   .font-orbitron-l {
     font-family: 'Orbitron', sans-serif;
     font-style: normal;
     font-weight: 300;
   }
-  .font-starloard {
+
+  .font-starlord {
     font-family: 'Galactic Vanguardian ncv', sans-serif;
     font-style: normal;
     font-weight: 300;
+  }
+
+  .font-starlord-1 {
+    text-align: center;
+    text-shadow: 5px 0px 1px #367CFF;
+    font-family: Starlord;
+    font-size: 104px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.36px;
+  }
+
+  .bgGlow {
+    -webkit-filter: drop-shadow(0px 0px 5px #367CFF);
+    filter: drop-shadow(0px 10px 10px #367CFF);
   }
 }
 
@@ -44,9 +72,10 @@
   border-radius: 4px;
 }
 
-/* .CardScrollDiv::-webkit-scrollbar-track {
+.CardScrollDiv::-webkit-scrollbar-track {
   border-radius: 4px;
-} */
+  background-color: #6E7681;
+}
 
 :root {
   --max-width: 1100px;

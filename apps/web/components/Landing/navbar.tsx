@@ -3,26 +3,23 @@ import Image from "next/image";
 import logo from "../../public/assets/logo.png"
 const Navbar = () => {
   return (
-    <div className="w-screen flex flex-row justify-center p-10">
+    <div className="w-screen flex flex-row justify-center p-5 h-[15%]">
       <div className="navbar w-[80vw] flex flex-row justify-between items-center max-h-[60px]">
         <div className="logo h-full">
-          <Image className='h-[50px] w-[50px]' alt='logo' src={logo}></Image>
+          <Image className='h-[50px] w-[50px] bgGlow' alt='logo' src={logo}></Image>
         </div>
         <div className="links flex flex-row bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 h-full font-orbitron">
-          <a className="px-6 flex items-center" href="#home">
-            Home
+          <a className="px-6 flex items-center" href="#Sponsors">
+          Sponsors
+          </a>
+          <a className="px-6 flex items-center" href="#GuestLectures">
+          Lectures
           </a>
           <a className="px-6 flex items-center" href="#about">
             About
           </a>
-          <a className="px-6 flex items-center" href="#events">
-            Events
-          </a>
-          <a className="px-6 flex items-center" href="#sponsors">
-            Sponsors
-          </a>
-          <a className="px-6 flex items-center" href="#contact">
-            Contact
+          <a className="px-6 flex items-center" href="#Discord">
+          Discord
           </a>
         </div>
         <div className="login flex items-center h-full">
