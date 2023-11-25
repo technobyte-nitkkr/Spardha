@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three"; // npm install three @types/three
-import myImage from "../public/assets/abstractimage.jpg";
+// import myImage from "../public/assets/abstractimage.jpg";
 import stars from "../public/assets/stars.jpg";
 import mars from "../public/assets/mars.jpg";
 import GuestLectures from "../components/GuestLectures/GuestLectures";
@@ -30,7 +30,7 @@ const ThreeScene: React.FC = () => {
   });
   const directionalLight = new THREE.DirectionalLight(0x860111, 2);
 
-  console.log(window.innerWidth, window.innerHeight);
+  // console.log(window.innerWidth, window.innerHeight);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -51,14 +51,14 @@ const ThreeScene: React.FC = () => {
       directionalLight.position.set(0, 40, 0);
       scene.add(directionalLight);
 
-      const animate = () => {
+      const animate = (): void => {
         requestAnimationFrame(animate);
         sphere.rotation.y += 0.001;
         renderer.render(scene, camera);
       };
       animate();
 
-      const handleResize = () => {
+      const handleResize = (): void => {
         const width: number = window.innerWidth;
         const height: number = window.innerHeight;
 
@@ -75,7 +75,7 @@ const ThreeScene: React.FC = () => {
     }
   }, []);
 
-  const handleScroll = () => {
+  const handleScroll = (): void => {
     const sec1: number | undefined = sec1ref.current?.offsetTop;
     const sec2: number | undefined = sec2ref.current?.offsetTop;
     const sec3: number | undefined = sec3ref.current?.offsetTop;
@@ -145,56 +145,55 @@ const ThreeScene: React.FC = () => {
   renderer.render(scene, camera);
 
   return (
-    <>
+
+    <div
+      className={`w-screen h-screen m-0 p-0 bg-cover bg-center bg-[${stars.src}]`}
+      ref={containerRef}
+      style={{
+        backgroundImage: `url(${stars.src})`,
+      }}
+    >
       <div
-        style={{
-          backgroundImage: `url(${stars.src})`,
-        }}
-        className={`w-screen h-screen m-0 p-0 bg-cover bg-center bg-[${stars.src}]`}
-        ref={containerRef}
+        className="absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory font-orbitron-l"
+        onScroll={handleScroll}
+        ref={parentDiv}
       >
-        <div
-          className="absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory font-orbitron-l"
-          ref={parentDiv}
-          onScroll={handleScroll}
+        <section
+          className="h-screen w-full snap-center"
+          id="Home"
+          ref={sec1ref}
         >
-          <section
-            id="Home"
-            className="h-screen w-full snap-center"
-            ref={sec1ref}
-          >
-            <Navbar />
-            <Landing />
-          </section>
-          <section
-            id="Events"
-            className="h-screen w-full snap-center"
-            ref={sec2ref}
-          >
-            <Events />
-          </section>
-          <section
-            id="GuestLectures"
-            className="h-screen w-full snap-center flex items-center"
-            ref={sec3ref}
-          >
-            {" "}
-            <GuestLectures />{" "}
-          </section>
-          <section
-            id="Sponsors"
-            className="h-screen w-full snap-center flex items-center"
-            ref={sec4ref}
-          >
-            {" "}
-            <OurSponsors />{" "}
-          </section>
-          <section className="h-[15%] w-full snap-center">
-            <Footer />
-          </section>
-        </div>
+          <Navbar />
+          <Landing />
+        </section>
+        <section
+          className="h-screen w-full snap-center"
+          id="Events"
+          ref={sec2ref}
+        >
+          <Events />
+        </section>
+        <section
+          className="h-screen w-full snap-center flex items-center"
+          id="GuestLectures"
+          ref={sec3ref}
+        >
+          {" "}
+          <GuestLectures />{" "}
+        </section>
+        <section
+          className="h-screen w-full snap-center flex items-center"
+          id="Sponsors"
+          ref={sec4ref}
+        >
+          {" "}
+          <OurSponsors />{" "}
+        </section>
+        <section className="h-[15%] w-full snap-center">
+          <Footer />
+        </section>
       </div>
-    </>
+    </div>
   );
 };
 export default ThreeScene;

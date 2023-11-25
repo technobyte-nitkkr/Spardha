@@ -1,7 +1,7 @@
 import React from 'react'
 import SponsorCategory from './SponsorCategory'
 
-const OurSponsors = () => {
+const OurSponsors = (): JSX.Element => {
   return (
     <div className='w-full h-full flex flex-col items-center justify-evenly'>
       <div className='text-5xl font-starlord-1'>Our Sponsors</div>
