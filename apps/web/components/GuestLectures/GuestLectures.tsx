@@ -7,11 +7,12 @@ const GuestLectures = () => {
 
   const [cardIndex, setCardIndex] = useState(0);
   const [guestList, setGuestList] = useState([]);
+  const [numberOfCards, setNumberOfCards] = useState(3);
 
   const scrollNext = () => {
     if (
       scrollRef.current &&
-      cardIndex < scrollRef.current.children.length - 3
+      cardIndex < scrollRef.current.children.length - numberOfCards
     ) {
       setCardIndex(cardIndex + 1);
     }
@@ -25,19 +26,7 @@ const GuestLectures = () => {
 
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.addEventListener('wheel', (e) => {
-        e.preventDefault();
-      }, { passive: false }); // remove this event listener to enable mouse wheel scrolling in the cards
-
-      console.log(scrollRef.current.scrollWidth, scrollRef.current.offsetWidth, scrollRef.current.clientWidth);
-      console.log(cardRef.current?.scrollWidth, cardRef.current?.offsetWidth, cardRef.current?.clientWidth);
-      console.log((scrollRef.current.offsetWidth - 3*cardRef.current?.offsetWidth!)/2);
-    }
-  }, [scrollRef.current]);
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      let gap = (scrollRef.current.offsetWidth - 3*cardRef.current?.offsetWidth!)/2;
+      let gap = (scrollRef.current.offsetWidth - numberOfCards*cardRef.current?.offsetWidth!)/2;
 
       scrollRef.current.scroll({
         left: (cardRef.current?.offsetWidth! + gap)*cardIndex + gap,
@@ -45,6 +34,11 @@ const GuestLectures = () => {
       });
     }
   }, [cardIndex]);
+  
+  window.addEventListener('resize', () => {
+    if(scrollRef.current && cardRef.current)
+      setNumberOfCards(Math.floor(scrollRef.current.offsetWidth/cardRef.current.offsetWidth))
+  })
 
   //fetching data for guest lectures section
   useEffect(() => {
