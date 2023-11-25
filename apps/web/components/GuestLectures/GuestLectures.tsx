@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import GLcard from "./GLcard";
 
-const GuestLectures = () => {
+const GuestLectures = (): JSX.Element => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -9,7 +9,7 @@ const GuestLectures = () => {
   const [guestList, setGuestList] = useState([]);
   const [numberOfCards, setNumberOfCards] = useState(3);
 
-  const scrollNext = () => {
+  const scrollNext = (): void => {
     if (
       scrollRef.current &&
       cardIndex < scrollRef.current.children.length - numberOfCards
@@ -18,7 +18,7 @@ const GuestLectures = () => {
     }
   };
 
-  const scrollPrev = () => {
+  const scrollPrev = (): void => {
     if (scrollRef.current && cardIndex > 0) {
       setCardIndex(cardIndex - 1);
     }
@@ -29,7 +29,8 @@ const GuestLectures = () => {
       let gap = (scrollRef.current.offsetWidth - numberOfCards*cardRef.current?.offsetWidth!)/2;
 
       scrollRef.current.scroll({
-        left: (cardRef.current?.offsetWidth! + gap)*cardIndex + gap,
+        // current can be null, so null check is required
+        left: (cardRef.current!.offsetWidth + gap) * cardIndex + gap,
         behavior: "smooth",
       });
     }
@@ -78,12 +79,14 @@ const GuestLectures = () => {
 
       <div className="w-1/4 pt-2 flex justify-evenly">
         <div
+          aria-hidden="true"
           className="border-2 w-full md:w-2/5 sm:w-1/2 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer mr-2"
           onClick={scrollPrev}
         >
           Prev
         </div>
         <div
+          aria-hidden="true"
           className="border-2 w-full md:w-2/5 sm:w-1/2 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tr-2xl cursor-pointer"
           onClick={scrollNext}
         >
