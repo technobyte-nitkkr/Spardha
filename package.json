@@ -13,7 +13,7 @@
     "turbo": "latest"
   },
   "name": "Spardha",
-  "packageManager": "npm@9.8.1",
+  "packageManager": "yarn@1.22.1",
   "workspaces": [
     "apps/*",
     "packages/*"

@@ -6,6 +6,7 @@ const GuestLectures = () => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const [cardIndex, setCardIndex] = useState(0);
+  const [guestList, setGuestList] = useState([]);
 
   const scrollNext = () => {
     if (
@@ -30,13 +31,13 @@ const GuestLectures = () => {
 
       console.log(scrollRef.current.scrollWidth, scrollRef.current.offsetWidth, scrollRef.current.clientWidth);
       console.log(cardRef.current?.scrollWidth, cardRef.current?.offsetWidth, cardRef.current?.clientWidth);
-      console.log((scrollRef.current.offsetWidth - 3*cardRef.current!.offsetWidth!)/2);
+      console.log((scrollRef.current.offsetWidth - 3*cardRef.current?.offsetWidth!)/2);
     }
   }, [scrollRef.current]);
 
   useEffect(() => {
     if (scrollRef.current) {
-      let gap = (scrollRef.current.offsetWidth - 3*cardRef.current!.offsetWidth!)/2;
+      let gap = (scrollRef.current.offsetWidth - 3*cardRef.current?.offsetWidth!)/2;
 
       scrollRef.current.scroll({
         left: (cardRef.current?.offsetWidth! + gap)*cardIndex + gap,
@@ -44,6 +45,25 @@ const GuestLectures = () => {
       });
     }
   }, [cardIndex]);
+
+  //fetching data for guest lectures section
+  useEffect(() => {
+    fetch(
+      "https://us-central1-techspardha-87928.cloudfunctions.net/api2/lectures",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setGuestList(data.data.lectures);
+      })
+      .catch((err) => {});
+  }, []);  
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-evenly">
@@ -55,17 +75,11 @@ const GuestLectures = () => {
         className="h-4/6 w-4/5 flex overflow-x-auto gap-2 px-2 gCardResponsive snap-x snap-mandatory"
         ref={scrollRef}
       >
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
+        {guestList.map((item,index) => {
+          return (
+            <GLcard item={item} index={index} forwardedRef={cardRef} />
+          )
+        })}
       </div>
 
       <div className="w-1/4 pt-2 flex justify-evenly">
