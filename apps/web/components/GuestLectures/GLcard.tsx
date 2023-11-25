@@ -1,9 +1,9 @@
 import React from 'react'
+import Image from 'next/image'
 import Facebook from '../../public/facebook.svg'
 import Instagram from '../../public/instagram.svg'
 import Linkedin from '../../public/linkedin.svg'
 import myImage from '../../public/assets/abstractimage.jpg'
-import Image from 'next/image'
 
 const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement> , idx: number }> = ({ forwardedRef ,idx }) => {
 
@@ -23,9 +23,9 @@ const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement> , idx: nu
       </div>
 
       <div className='w-full h-[7%] flex justify-start'>
-        <Image src={Instagram} alt='instagram' className='h-full w-1/6 text-left' />
-        <Image src={Facebook} alt='facebook' className='h-full w-1/6 text-left' />
-        <Image src={Linkedin} alt='linkedin' className='h-full w-1/6 text-left' />
+        <Image alt='instagram' className='h-full w-1/6 text-left' src={Instagram as string} />
+        <Image alt='facebook' className='h-full w-1/6 text-left' src={Facebook as string} />
+        <Image alt='linkedin' className='h-full w-1/6 text-left' src={Linkedin as string} />
       </div>
     </div>
   )
