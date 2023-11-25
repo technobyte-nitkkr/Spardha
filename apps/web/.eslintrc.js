@@ -11,6 +11,7 @@ module.exports = {
 
     "@typescript-eslint/no-non-null-assertion": "off", // page.tsx, can't remove
     "unicorn/filename-case": "off", // Naming convention, no issue
-    "react-hooks/rules-of-hooks": "off"
+    "react-hooks/rules-of-hooks": "off",
+    "camelcase": "off",
   },
 };
