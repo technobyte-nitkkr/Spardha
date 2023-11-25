@@ -17,9 +17,11 @@ const EventsCard: React.FC<EventCardProps> = ({ image }) => {  // Define other t
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
-      }}>
-      <Image alt="" className='eventimg max-w-[80%] max-h-[70%]' height={450} src={image} width={450} />
-      <h1 className='relative mt-[-90px] text-5xl font-bold'>Papyrus-Vitae</h1>
+
+        backgroundPosition: 'center',
+    }} className={`snap-center w-full min-w-full pb-10 flex flex-col justify-center items-center sticky left-0`}>
+        <Image src={image} alt="" className='eventimg max-w-[80%] max-h-[70%]'/>
+        <h1 className='relative mt-[-90px] text-5xl font-bold'>Papyrus-Vitae</h1>
     </div>
   )
 }
