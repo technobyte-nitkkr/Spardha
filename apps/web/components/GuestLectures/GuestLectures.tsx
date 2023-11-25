@@ -32,7 +32,7 @@ const GuestLectures = (): JSX.Element => {
       // console.log(cardRef.current?.scrollWidth, cardRef.current?.offsetWidth, cardRef.current?.clientWidth);
       // console.log((scrollRef.current.offsetWidth - 3 * cardRef.current!.offsetWidth!) / 2);
     }
-  }, [scrollRef.current]);
+  }, []);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -71,12 +71,14 @@ const GuestLectures = (): JSX.Element => {
 
       <div className="w-1/4 pt-2 flex justify-evenly">
         <div
+          aria-hidden="true"
           className="border-2 w-full md:w-2/5 sm:w-1/2 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer mr-2"
           onClick={scrollPrev}
         >
           Prev
         </div>
         <div
+          aria-hidden="true"
           className="border-2 w-full md:w-2/5 sm:w-1/2 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tr-2xl cursor-pointer"
           onClick={scrollNext}
         >

@@ -1,9 +1,9 @@
 import React from "react";
-// import  { useRef, useEffect, useState } from "react";
-import myImage from '../../public/assets/abstractimage.jpg'
 import EventsCard from "./EventsCard";
 
-const Events = (): JSX.Element => {
+const myImage = "/assets/abstractimage.jpg";
+
+const Events: React.FC = () => {
   return (
     <div className="w-full h-full flex flex-col items-center justify-evenly">
       <div className="text-5xl sm:text-5xl md:text-6xl xl:text-5xl font-starlord-1">

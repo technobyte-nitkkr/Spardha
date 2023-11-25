@@ -27,13 +27,13 @@ const Landing = (): JSX.Element => {
             {
               dates.data.map((item) => {
                 return (
-                  <div className="py-2.5 opacity-70 hover:opacity-100 cursor-pointer" > &gt;&gt;<span className="ml-5 text-md text-center">{item.date1} - {item.date2} {item.month}</span></div>
+                  <div className="py-2.5 opacity-70 hover:opacity-100 cursor-pointer" key={item.date1}  > &gt;&gt;<span className="ml-5 text-md text-center">{item.date1} - {item.date2} {item.month}</span></div>
                 )
               })
             }
           </div>
         </div>
-        <button className="border-t-2 border-x-2 border-b-8 border-[#367CFF] rounded-tl-[16px] text-center py-[5px] px-[8px] font-orbitron-l">
+        <button className="border-t-2 border-x-2 border-b-8 border-[#367CFF] rounded-tl-[16px] text-center py-[5px] px-[8px] font-orbitron-l" type="button">
           View Them All
         </button>
       </div>

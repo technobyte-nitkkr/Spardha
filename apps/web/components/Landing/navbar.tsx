@@ -24,7 +24,7 @@ const Navbar = (): JSX.Element => {
           </a>
         </div>
         <div className="login flex items-center h-full">
-          <button className=" bg-[#367CFF] rounded-tl-[16px] text-center py-[5px] px-[8px] gap-8 w-[100px] h-[70%] font-outline-05 font-orbitron">
+          <button className=" bg-[#367CFF] rounded-tl-[16px] text-center py-[5px] px-[8px] gap-8 w-[100px] h-[70%] font-outline-05 font-orbitron" type="button">
             Register
           </button>
         </div>

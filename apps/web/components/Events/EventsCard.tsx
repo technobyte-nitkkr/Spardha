@@ -3,7 +3,11 @@ import React from 'react'
 import Image from 'next/image'
 import Panel from '../../public/assets/PANEL.png'
 
-const EventsCard: React.FC<any> = ({ image }) => {  // Define other type from any ?? 
+interface EventCardProps {
+  image: string
+}
+
+const EventsCard: React.FC<EventCardProps> = ({ image }) => {  // Define other type from any ?? 
 
   return (
     <div
@@ -14,7 +18,7 @@ const EventsCard: React.FC<any> = ({ image }) => {  // Define other type from an
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
       }}>
-      <Image alt="" className='eventimg max-w-[80%] max-h-[70%]' src={image as string} />
+      <Image alt="" className='eventimg max-w-[80%] max-h-[70%]' height={450} src={image} width={450} />
       <h1 className='relative mt-[-90px] text-5xl font-bold'>Papyrus-Vitae</h1>
     </div>
   )
