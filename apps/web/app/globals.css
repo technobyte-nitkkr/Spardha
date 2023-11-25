@@ -1,6 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .font-outline-05 {
+    -webkit-text-stroke: 0.7px black;
+  }
+
+  .font-outline-4 {
+    -webkit-text-stroke: 4px black;
+  }
+
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .font-orbitron-1 {
+    text-align: center;
+    font-family: Orbitron;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 6.3px;
+  }
+
+  .font-orbitron-l {
+    font-family: 'Orbitron', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+  }
+
+  .font-starlord {
+    font-family: 'Galactic Vanguardian ncv', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+  }
+
+  .font-starlord-1 {
+    text-align: center;
+    text-shadow: 5px 0px 1px #367CFF;
+    font-family: Starlord;
+    font-size: 104px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.36px;
+  }
+
+  .bgGlow {
+    -webkit-filter: drop-shadow(0px 0px 5px #367CFF);
+    filter: drop-shadow(0px 10px 10px #367CFF);
+  }
+}
+
+
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -36,12 +92,10 @@
   --card-rgb: 100, 100, 100;
   --card-border-rgb: 200, 200, 200;
 
-  --glow-conic: conic-gradient(
-    from 180deg at 50% 50%,
-    #2a8af6 0deg,
-    #a853ba 180deg,
-    #e92a67 360deg
-  );
+  --glow-conic: conic-gradient(from 180deg at 50% 50%,
+      #2a8af6 0deg,
+      #a853ba 180deg,
+      #e92a67 360deg);
 }
 
 * {
@@ -58,12 +112,9 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 a {
