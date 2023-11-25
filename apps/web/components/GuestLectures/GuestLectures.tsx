@@ -30,7 +30,7 @@ const GuestLectures = (): JSX.Element => {
 
       scrollRef.current.scroll({
         // current can be null, so null check is required
-        left: (cardRef.current!.offsetWidth + gap) * cardIndex + gap,
+        left: (cardRef.current?.offsetWidth! + gap) * cardIndex + gap,
         behavior: "smooth",
       });
     }
@@ -72,7 +72,7 @@ const GuestLectures = (): JSX.Element => {
       >
         {guestList.map((item,index) => {
           return (
-            <GLcard item={item} index={index} forwardedRef={cardRef} />
+            <GLcard item={item} key={index} forwardedRef={cardRef} />
           )
         })}
       </div>
