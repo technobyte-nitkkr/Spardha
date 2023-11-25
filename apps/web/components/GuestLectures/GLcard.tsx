@@ -1,18 +1,28 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import Facebook from '../../public/facebook.svg'
 import Instagram from '../../public/instagram.svg'
 import Linkedin from '../../public/linkedin.svg'
-import Link from 'next/link'
 
+interface Guest { 
+  name: string,
+  time: string,
+  desc: string,
+  imageUrl: string,
+  date: string,
+  insta: string,
+  facebook: string,
+  linkedin: string;
+};
 // not sure about the types of item in this case, if not correct please change else remove this comment
-const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement>,item:{name:string,time:string,desc:string,imageUrl:string,date: string, insta:string,facebook:string,linkedin:string},key:Number }> = ({ forwardedRef,item,index }) => {
+const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement>,item: Guest,key:number }> = ({ forwardedRef,item }) => {
 
   return (
     <div className='h-full lg:w-1/3 md:w-1/2 w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3 snap-center' ref={forwardedRef} style={{ backgroundColor: 'rgb(54, 124, 255, 0.25)', border: '1px solid rgb(54, 124, 255)' }}>
 
       <div className='w-full h-[20%] flex'>
-        <Image src={item.imageUrl} alt='abstract' className='rounded-tl-2xl mr-1 h-full w-1/3' width={1000} height={1000} />
+        <Image alt='abstract' className='rounded-tl-2xl mr-1 h-full w-1/3' height={1000} src={item.imageUrl} width={1000} />
         <div className='h-full flex-1'>
           {/* put name */}
           <div className='text-2xl h-1/2'>{item.name}</div>
@@ -26,14 +36,14 @@ const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement>,item:{nam
       </div>
 
       <div className='w-full h-[7%] flex justify-start'>
-        <Link href={item.insta} className='h-full w-1/6' target='_blank'>
-          <Image src={Instagram} alt='instagram' className='h-full w-full text-left' />
+        <Link className='h-full w-1/6' href={item.insta} target='_blank'>
+          <Image alt='instagram' className='h-full w-full text-left' src={Instagram} />
         </Link>
-        <Link href={item.facebook} className='h-full w-1/6' target='_blank'>
-          <Image src={Facebook} alt='facebook' className='h-full w-full text-left' />
+        <Link className='h-full w-1/6' href={item.facebook} target='_blank'>
+          <Image alt='facebook' className='h-full w-full text-left' src={Facebook} />
         </Link>
-        <Link href={item.linkedin} className='h-full w-1/6' target='_blank'>
-          <Image src={Linkedin} alt='linkedin' className='h-full w-full text-left' />
+        <Link className='h-full w-1/6' href={item.linkedin} target='_blank'>
+          <Image alt='linkedin' className='h-full w-full text-left' src={Linkedin} />
         </Link>
       </div>
     </div>

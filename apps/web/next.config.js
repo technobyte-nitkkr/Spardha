@@ -10,6 +10,25 @@ module.exports = {
         port: '',
         pathname: '/*/*',
       },
+      //used to add images in sponsor section
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**/*',
+      },
+      {
+        protocol: 'https',
+        hostname: 'd8it4huxumps7.cloudfront.net',
+        port: '',
+        pathname: '/**/*',
+      },
+      {
+        protocol: 'https',
+        hostname: 'thebrandhopper.com',
+        port: '',
+        pathname: '/**/*',
+      }
     ],
   },
 };

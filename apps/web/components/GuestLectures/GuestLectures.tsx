@@ -6,7 +6,24 @@ const GuestLectures = (): JSX.Element => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const [cardIndex, setCardIndex] = useState(0);
-  const [guestList, setGuestList] = useState([]);
+  interface Guest { 
+    name: string,
+    time: string,
+    desc: string,
+    imageUrl: string,
+    date: string,
+    insta: string,
+    facebook: string,
+    linkedin: string;
+  };
+  interface ParentGuest{
+  success: boolean,
+  data:
+    {
+      lectures: Guest[]
+    }
+  }
+  const [guestList, setGuestList] = useState<Guest[]>([]);
   const [numberOfCards, setNumberOfCards] = useState(3);
 
   const scrollNext = (): void => {
@@ -26,7 +43,7 @@ const GuestLectures = (): JSX.Element => {
 
   useEffect(() => {
     if (scrollRef.current) {
-      let gap = (scrollRef.current.offsetWidth - numberOfCards*cardRef.current?.offsetWidth!)/2;
+      const gap = (scrollRef.current.offsetWidth - numberOfCards*cardRef.current?.offsetWidth!)/2;
 
       scrollRef.current.scroll({
         // current can be null, so null check is required
@@ -54,10 +71,13 @@ const GuestLectures = (): JSX.Element => {
       }
     )
       .then((res) => res.json())
-      .then((data) => {
-        setGuestList(data.data.lectures);
+      .then((data:ParentGuest) => {
+        const lectures: Guest[] = data.data.lectures;
+        setGuestList(lectures);
       })
-      .catch((err) => {});
+      .catch((err: Error) => {
+        console.log(err);
+      });
   }, []);  
 
   return (
@@ -72,7 +92,7 @@ const GuestLectures = (): JSX.Element => {
       >
         {guestList.map((item,index) => {
           return (
-            <GLcard item={item} key={index} forwardedRef={cardRef} />
+            <GLcard forwardedRef={cardRef} item={item} key={index} />
           )
         })}
       </div>
