@@ -1,15 +1,16 @@
-"use client";
-import React, { useRef, useEffect } from "react";
-import * as THREE from "three"; // npm install three @types/three
-import myImage from "../public/assets/abstractimage.jpg";
-import stars from "../public/assets/stars.jpg";
-import mars from "../public/assets/mars.jpg";
-import GuestLectures from "../components/GuestLectures/GuestLectures";
-import OurSponsors from "../components/OurSponsors/OurSponsors";
-import Footer from "../components/Footer";
-import Landing from "../components/Landing/landing";
-import Navbar from "../components/Landing/navbar";
-import Events from "../components/Events/Events";
+"use client"
+import React, { useRef, useEffect } from 'react';
+import * as THREE from 'three';
+import stars from '../public/assets/stars.jpg'
+import mars_displacement from '../public/assets/displacement.jpeg'
+import mars2 from '../public/assets/mars2.jpg'
+import mars_normal from '../public/assets/mars_normal1.png'
+import GuestLectures from '../components/GuestLectures/GuestLectures';
+import OurSponsors from '../components/OurSponsors/OurSponsors';
+import Navbar from '../components/Landing/navbar';
+import Landing from '../components/Landing/landing';
+import Events from '../components/Events/Events';
+import Footer from '../components/Footer';
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -19,37 +20,45 @@ const ThreeScene: React.FC = () => {
   const sec3ref = useRef<HTMLDivElement>(null);
   const sec4ref = useRef<HTMLDivElement>(null);
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
-    45,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    10000
-  );
-  const renderer = new THREE.WebGLRenderer({
-    alpha: true,
-  });
-  const directionalLight = new THREE.DirectionalLight(0x860111, 2);
-
-  console.log(window.innerWidth, window.innerHeight);
+  const camera = new THREE.PerspectiveCamera(45, 1920 / 1080, 0.1, 10000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+  const directionalLight = new THREE.DirectionalLight(0x000000, 2); // red
+  const directionalLight2 = new THREE.DirectionalLight(0x000000, 1); // blue
+  const textureLoader = new THREE.TextureLoader();
+  const diffuseMap = textureLoader.load(mars2.src);
+  const normalMap = textureLoader.load(mars_normal.src);
+  const displacementMap = textureLoader.load(mars_displacement.src);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
       containerRef.current?.appendChild(renderer.domElement);
-      camera.position.set(0, 30, 60);
+      camera.position.set(0, 100, 60);
+      var targetZoom = new THREE.Vector3(0, 30, 60);
+      var initialTime = Date.now();
 
-      const textureLoader = new THREE.TextureLoader();
-      const texture = textureLoader.load(mars.src, () => {
-        renderer.render(scene, camera);
+      var sphereGeometry = new THREE.SphereGeometry(40, 64, 32);
+      var sphereMaterial = new THREE.MeshPhysicalMaterial({
+        map: diffuseMap,
+        normalMap: normalMap,
+        displacementMap: displacementMap,
+        roughness: 0.7,
+        metalness: 0.5,
+        side: THREE.FrontSide,
+        shadowSide: THREE.DoubleSide
       });
-
-      const sphereGeometry = new THREE.SphereGeometry(40, 64, 32);
-      const sphereMaterial = new THREE.MeshPhysicalMaterial({ map: texture });
-      const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+      var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
       scene.add(sphere);
 
-      directionalLight.position.set(0, 40, 0);
+      directionalLight.castShadow = true
+      directionalLight.position.set(0, 40, 0)
+      directionalLight2.position.set(0, -40, 0)
       scene.add(directionalLight);
+      scene.add(directionalLight2);
+      directionalLight.color.set(0xFF1A1A)
+      directionalLight2.color.set(0x4D4DFF)
 
       const animate = () => {
         requestAnimationFrame(animate);
@@ -57,6 +66,26 @@ const ThreeScene: React.FC = () => {
         renderer.render(scene, camera);
       };
       animate();
+
+      const zoomToTarget = () => {
+        var currentTime = Date.now();
+        var elapsedTime = currentTime - initialTime;
+
+        var progress = Math.min(elapsedTime / 15000, 1); // change 20000 to adjust the duration
+
+        var newPosition = new THREE.Vector3();
+        newPosition.x = THREE.MathUtils.lerp(camera.position.x, targetZoom.x, progress);
+        newPosition.y = THREE.MathUtils.lerp(camera.position.y, targetZoom.y, progress);
+        newPosition.z = THREE.MathUtils.lerp(camera.position.z, targetZoom.z, progress);
+
+        camera.position.copy(newPosition);
+
+        if (newPosition.distanceTo(targetZoom) > 0.1) {
+          requestAnimationFrame(zoomToTarget);
+        }
+      }
+
+      zoomToTarget();
 
       const handleResize = () => {
         const width: number = window.innerWidth;
@@ -99,7 +128,12 @@ const ThreeScene: React.FC = () => {
         40 + ((0 - 40) * (scroll - sec1!)) / height,
         0
       );
-      camera.fov = 45 + ((30 - 45) * (scroll - sec1!)) / height; // 45 to 30
+      directionalLight2.position.set( // (0, -40, 0) - (60, 0, 0)
+        0 + (60 - 0) * (scroll - sec1!) / height,
+        -40 + (0 - (-40)) * (scroll - sec1!) / height,
+        0
+      );
+      camera.fov = 45 + (30 - 45) * (scroll - sec1!) / height; // 45 to 30
 
       camera.updateProjectionMatrix();
     } else if (scroll && scroll <= sec3!) {
@@ -117,6 +151,20 @@ const ThreeScene: React.FC = () => {
           ? 0 + ((40 - 0) * (scroll - sec2!)) / (height / 2)
           : 40 - ((40 - 0) * (scroll - (sec2! + height / 2))) / (height / 2)
       );
+      directionalLight2.position.set( // (60, 0, 0) - (-60, 0, 0)
+        60 + (-60 - 60) * (scroll - sec2!) / height,
+        0,
+        (scroll <= sec2! + height / 2) ?
+          0 + (-40 - 0) * (scroll - sec2!) / (height / 2) :
+          -40 - (-40 - 0) * (scroll - (sec2! + height / 2)) / (height / 2)
+      );
+      directionalLight2.position.set( // (60, 0, 0) - (-60, 0, 0)
+        60 + (-60 - 60) * (scroll - sec2!) / height,
+        0,
+        (scroll <= sec2! + height / 2) ?
+          0 + (-40 - 0) * (scroll - sec2!) / (height / 2) :
+          -40 - (-40 - 0) * (scroll - (sec2! + height / 2)) / (height / 2)
+      );
       camera.fov = 30;
 
       camera.updateProjectionMatrix();
@@ -133,16 +181,21 @@ const ThreeScene: React.FC = () => {
         0 + ((40 - 0) * (scroll - sec3!)) / height,
         0
       );
-      camera.fov = 30 + ((45 - 30) * (scroll - sec3!)) / height; // 30 to 45
+      directionalLight2.position.set( // (-60, 0, 0) - (0, -40, 0)
+        -60 + (0 - (-60)) * (scroll - sec3!) / height,
+        0 + (-40 - 0) * (scroll - sec3!) / height,
+        0
+      );
+      camera.fov = 30 + (45 - 30) * (scroll - sec3!) / height; // 30 to 45
 
       camera.updateProjectionMatrix();
     } else {
       camera.position.set(0, 30, 60);
       directionalLight.position.set(0, 40, 0);
+      directionalLight2.position.set(0, -40, 0);
       camera.fov = 45;
     }
   };
-  renderer.render(scene, camera);
 
   return (
     <>
@@ -197,4 +250,5 @@ const ThreeScene: React.FC = () => {
     </>
   );
 };
+
 export default ThreeScene;
