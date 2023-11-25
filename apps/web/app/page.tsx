@@ -7,6 +7,10 @@ import mars2 from '../public/assets/mars2.jpg'
 import mars_normal from '../public/assets/mars_normal1.png'
 import GuestLectures from '../components/GuestLectures/GuestLectures';
 import OurSponsors from '../components/OurSponsors/OurSponsors';
+import Navbar from '../components/Landing/navbar';
+import Landing from '../components/Landing/landing';
+import Events from '../components/Events/Events';
+import Footer from '../components/Footer';
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -16,8 +20,8 @@ const ThreeScene: React.FC = () => {
   const sec3ref = useRef<HTMLDivElement>(null);
   const sec4ref = useRef<HTMLDivElement>(null);
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, 1920/1080, 0.1, 10000);
-  const renderer = new THREE.WebGLRenderer();
+  const camera = new THREE.PerspectiveCamera(45, 1920 / 1080, 0.1, 10000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
   const directionalLight = new THREE.DirectionalLight(0x000000, 2); // red
   const directionalLight2 = new THREE.DirectionalLight(0x000000, 1); // blue
   const textureLoader = new THREE.TextureLoader();
@@ -31,7 +35,7 @@ const ThreeScene: React.FC = () => {
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
       containerRef.current?.appendChild(renderer.domElement);
-      camera.position.set(0, 3000, 60);
+      camera.position.set(0, 100, 60);
       var targetZoom = new THREE.Vector3(0, 30, 60);
       var initialTime = Date.now();
 
@@ -56,39 +60,18 @@ const ThreeScene: React.FC = () => {
       directionalLight.color.set(0xFF1A1A)
       directionalLight2.color.set(0x4D4DFF)
 
-      // const loader = new THREE.CubeTextureLoader();
-      // const spaceTexture = loader.load([
-      //   'stars.jpg', 'stars.jpg',
-      //   'stars.jpg', 'stars.jpg',
-      //   'stars.jpg', 'stars.jpg'
-      // ], () => {
-      //   renderer.render(scene, camera);
-      // });
-
-      // scene.background = spaceTexture;
-
-      const bgTexture = textureLoader.load(stars.src, () => {
-        renderer.render(scene, camera);
-      });
-
-      const bgGeometry = new THREE.SphereGeometry(5000, 64, 32);
-      bgGeometry.scale(-1, 1, 1);
-      const bgMaterial = new THREE.MeshBasicMaterial({ map: bgTexture });
-      const bg = new THREE.Mesh(bgGeometry, bgMaterial);
-      scene.add(bg);
-
       const animate = () => {
         requestAnimationFrame(animate);
-        sphere.rotation.y += 0.0005;
+        sphere.rotation.y += 0.001;
         renderer.render(scene, camera);
-      }
+      };
       animate();
 
       const zoomToTarget = () => {
         var currentTime = Date.now();
         var elapsedTime = currentTime - initialTime;
 
-        var progress = Math.min(elapsedTime / 50000, 1); // change 20000 to adjust the duration
+        var progress = Math.min(elapsedTime / 15000, 1); // change 20000 to adjust the duration
 
         var newPosition = new THREE.Vector3();
         newPosition.x = THREE.MathUtils.lerp(camera.position.x, targetZoom.x, progress);
@@ -113,10 +96,10 @@ const ThreeScene: React.FC = () => {
 
         renderer.setSize(width, height);
       };
-      window.addEventListener('resize', handleResize);
+      window.addEventListener("resize", handleResize);
 
       return () => {
-        window.removeEventListener('resize', handleResize);
+        window.removeEventListener("resize", handleResize);
       };
     }
   }, []);
@@ -133,15 +116,16 @@ const ThreeScene: React.FC = () => {
     // s + (f - s) * (scroll-sec1!)/(sec2!-sec1!)
 
     if (scroll && scroll < sec2!) {
-
-      camera.position.set( // (0, 30, 60) - (-70, 0, 200)
-        0 + (-70 - 0) * (scroll - sec1!) / height,
-        30 + (0 - 30) * (scroll - sec1!) / height,
-        60 + (200 - 60) * (scroll - sec1!) / height
+      camera.position.set(
+        // (0, 30, 60) - (-70, 0, 200)
+        0 + ((-70 - 0) * (scroll - sec1!)) / height,
+        30 + ((0 - 30) * (scroll - sec1!)) / height,
+        60 + ((200 - 60) * (scroll - sec1!)) / height
       );
-      directionalLight.position.set( // (0, 40, 0) - (-60, 0, 0)
-        0 + (-60 - 0) * (scroll - sec1!) / height,
-        40 + (0 - 40) * (scroll - sec1!) / height,
+      directionalLight.position.set(
+        // (0, 40, 0) - (-60, 0, 0)
+        0 + ((-60 - 0) * (scroll - sec1!)) / height,
+        40 + ((0 - 40) * (scroll - sec1!)) / height,
         0
       );
       directionalLight2.position.set( // (0, -40, 0) - (60, 0, 0)
@@ -153,18 +137,26 @@ const ThreeScene: React.FC = () => {
 
       camera.updateProjectionMatrix();
     } else if (scroll && scroll <= sec3!) {
-
-      camera.position.set( // (-70, 0, 200) - (70, 0, 200)
-        -70 + (70 - (-70)) * (scroll - sec2!) / height,
+      camera.position.set(
+        // (-70, 0, 200) - (70, 0, 200)
+        -70 + ((70 - -70) * (scroll - sec2!)) / height,
         0,
         200
       );
-      directionalLight.position.set( // (-60, 0, 0) - (60, 0, 0)
-        -60 + (60 - (-60)) * (scroll - sec2!) / height,
+      directionalLight.position.set(
+        // (-60, 0, 0) - (60, 0, 0)
+        -60 + ((60 - -60) * (scroll - sec2!)) / height,
+        0,
+        scroll <= sec2! + height / 2
+          ? 0 + ((40 - 0) * (scroll - sec2!)) / (height / 2)
+          : 40 - ((40 - 0) * (scroll - (sec2! + height / 2))) / (height / 2)
+      );
+      directionalLight2.position.set( // (60, 0, 0) - (-60, 0, 0)
+        60 + (-60 - 60) * (scroll - sec2!) / height,
         0,
         (scroll <= sec2! + height / 2) ?
-          0 + (40 - 0) * (scroll - sec2!) / (height / 2) :
-          40 - (40 - 0) * (scroll - (sec2! + height / 2)) / (height / 2)
+          0 + (-40 - 0) * (scroll - sec2!) / (height / 2) :
+          -40 - (-40 - 0) * (scroll - (sec2! + height / 2)) / (height / 2)
       );
       directionalLight2.position.set( // (60, 0, 0) - (-60, 0, 0)
         60 + (-60 - 60) * (scroll - sec2!) / height,
@@ -177,15 +169,16 @@ const ThreeScene: React.FC = () => {
 
       camera.updateProjectionMatrix();
     } else if (scroll && scroll <= sec4!) {
-
-      camera.position.set( // (70, 0, 200) - (0, 30, 60)
-        70 + (0 - 70) * (scroll - sec3!) / height,
-        0 + (30 - 0) * (scroll - sec3!) / height,
-        200 + (60 - 200) * (scroll - sec3!) / height
+      camera.position.set(
+        // (70, 0, 200) - (0, 30, 60)
+        70 + ((0 - 70) * (scroll - sec3!)) / height,
+        0 + ((30 - 0) * (scroll - sec3!)) / height,
+        200 + ((60 - 200) * (scroll - sec3!)) / height
       );
-      directionalLight.position.set( // (60, 0, 0) - (0, 40, 0)
-        60 + (0 - 60) * (scroll - sec3!) / height,
-        0 + (40 - 0) * (scroll - sec3!) / height,
+      directionalLight.position.set(
+        // (60, 0, 0) - (0, 40, 0)
+        60 + ((0 - 60) * (scroll - sec3!)) / height,
+        0 + ((40 - 0) * (scroll - sec3!)) / height,
         0
       );
       directionalLight2.position.set( // (-60, 0, 0) - (0, -40, 0)
@@ -203,20 +196,59 @@ const ThreeScene: React.FC = () => {
       camera.fov = 45;
     }
   };
-  renderer.render(scene, camera);
 
   return (
     <>
-      <div className='w-screen h-screen m-0 p-0 bg-cover bg-center' ref={containerRef}>
-        <div className='absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory' ref={parentDiv} onScroll={handleScroll}>
-          <section className='h-screen w-full snap-center' ref={sec1ref}>Section 1</section>
-          <section className='h-screen w-full snap-center' ref={sec2ref}>Section 2</section>
-          <section className='h-screen w-full snap-center flex items-center' ref={sec3ref}> <GuestLectures /> </section>
-          <section className='h-screen w-full snap-center flex items-center' ref={sec4ref}> <OurSponsors /> </section>
-          <section className='h-1/3 w-full snap-center bg-black'>Footer</section>
+      <div
+        style={{
+          backgroundImage: `url(${stars.src})`,
+        }}
+        className={`w-screen h-screen m-0 p-0 bg-cover bg-center bg-[${stars.src}]`}
+        ref={containerRef}
+      >
+        <div
+          className="absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory font-orbitron-l"
+          ref={parentDiv}
+          onScroll={handleScroll}
+        >
+          <section
+            id="Home"
+            className="h-screen w-full snap-center"
+            ref={sec1ref}
+          >
+            <Navbar />
+            <Landing />
+          </section>
+          <section
+            id="Events"
+            className="h-screen w-full snap-center"
+            ref={sec2ref}
+          >
+            <Events />
+          </section>
+          <section
+            id="GuestLectures"
+            className="h-screen w-full snap-center flex items-center"
+            ref={sec3ref}
+          >
+            {" "}
+            <GuestLectures />{" "}
+          </section>
+          <section
+            id="Sponsors"
+            className="h-screen w-full snap-center flex items-center"
+            ref={sec4ref}
+          >
+            {" "}
+            <OurSponsors />{" "}
+          </section>
+          <section className="h-[15%] w-full snap-center">
+            <Footer />
+          </section>
         </div>
       </div>
     </>
-  )
+  );
 };
+
 export default ThreeScene;
