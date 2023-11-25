@@ -55,17 +55,17 @@ const GuestLectures = () => {
         className="h-3/5 w-4/5 flex overflow-x-auto lg:gap-14 md:gap-8 sm:gap-8 gap-2 px-2 gCardResponsive snap-x snap-mandatory"
         ref={scrollRef}
       >
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
+        <GLcard forwardedRef={cardRef} idx={1} />
+        <GLcard forwardedRef={cardRef} idx={2} />
+        <GLcard forwardedRef={cardRef} idx={3} />
+        <GLcard forwardedRef={cardRef} idx={4} />
+        <GLcard forwardedRef={cardRef} idx={5} />
+        <GLcard forwardedRef={cardRef} idx={6} />
+        <GLcard forwardedRef={cardRef} idx={7} />
+        <GLcard forwardedRef={cardRef} idx={8} />
+        <GLcard forwardedRef={cardRef} idx={9} />
+        <GLcard forwardedRef={cardRef} idx={10} />
+        <GLcard forwardedRef={cardRef} idx={11} />
       </div>
 
       <div className="w-1/4 pt-2 flex justify-evenly">
