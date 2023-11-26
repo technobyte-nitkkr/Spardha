@@ -6,11 +6,30 @@ const GuestLectures = (): JSX.Element => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const [cardIndex, setCardIndex] = useState(0);
+  interface Guest { 
+    name: string,
+    time: string,
+    desc: string,
+    imageUrl: string,
+    date: string,
+    insta: string,
+    facebook: string,
+    linkedin: string;
+  };
+  interface ParentGuest{
+  success: boolean,
+  data:
+    {
+      lectures: Guest[]
+    }
+  }
+  const [guestList, setGuestList] = useState<Guest[]>([]);
+  const [numberOfCards, setNumberOfCards] = useState(3);
 
   const scrollNext = (): void => {
     if (
       scrollRef.current &&
-      cardIndex < scrollRef.current.children.length - 3
+      cardIndex < scrollRef.current.children.length - numberOfCards
     ) {
       setCardIndex(cardIndex + 1);
     }
@@ -24,27 +43,42 @@ const GuestLectures = (): JSX.Element => {
 
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.addEventListener('wheel', (e) => {
-        e.preventDefault();
-      }, { passive: false }); // remove this event listener to enable mouse wheel scrolling in the cards
-
-      // console.log(scrollRef.current.scrollWidth, scrollRef.current.offsetWidth, scrollRef.current.clientWidth);
-      // console.log(cardRef.current?.scrollWidth, cardRef.current?.offsetWidth, cardRef.current?.clientWidth);
-      // console.log((scrollRef.current.offsetWidth - 3 * cardRef.current!.offsetWidth!) / 2);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      const gap = (scrollRef.current.offsetWidth - 3 * cardRef.current!.offsetWidth) / 2; // convert to let if reassignment is required
+      const gap = (scrollRef.current.offsetWidth - numberOfCards*cardRef.current?.offsetWidth!)/2;
 
       scrollRef.current.scroll({
         // current can be null, so null check is required
-        left: (cardRef.current!.offsetWidth + gap) * cardIndex + gap,
+        left: (cardRef.current?.offsetWidth! + gap) * cardIndex + gap,
         behavior: "smooth",
       });
     }
   }, [cardIndex]);
+  
+  window.addEventListener('resize', () => {
+    if(scrollRef.current && cardRef.current)
+      setNumberOfCards(Math.floor(scrollRef.current.offsetWidth/cardRef.current.offsetWidth))
+  })
+
+  //fetching data for guest lectures section
+  useEffect(() => {
+    fetch(
+      "https://us-central1-techspardha-87928.cloudfunctions.net/api2/lectures",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data:ParentGuest) => {
+        const lectures: Guest[] = data.data.lectures;
+        setGuestList(lectures);
+      })
+      .catch((err: Error) => {
+        console.log(err);
+      });
+  }, []);  
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-evenly">
@@ -56,17 +90,11 @@ const GuestLectures = (): JSX.Element => {
         className="h-4/6 w-4/5 flex overflow-x-auto gap-2 px-2 gCardResponsive snap-x snap-mandatory"
         ref={scrollRef}
       >
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
-        <GLcard forwardedRef={cardRef} />
+        {guestList.map((item,index) => {
+          return (
+            <GLcard forwardedRef={cardRef} item={item} key={index} />
+          )
+        })}
       </div>
 
       <div className="w-1/4 pt-2 flex justify-evenly">
