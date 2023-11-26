@@ -17,8 +17,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "run": "^1.4.0"
-  }
+  ]
 }
