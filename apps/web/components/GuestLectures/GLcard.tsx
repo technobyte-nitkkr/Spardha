@@ -18,13 +18,13 @@ interface Guest {
 const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement>,item: Guest,key:number }> = ({ forwardedRef,item }) => {
 
   return (
-    <div className='h-full lg:w-1/3 md:w-1/2 w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3 snap-center' ref={forwardedRef} style={{ backgroundColor: 'rgb(54, 124, 255, 0.25)', border: '1px solid rgb(54, 124, 255)' }}>
+    <div className='h-full lg:w-[30%] md:w-2/5 w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3 snap-start' style={{backgroundColor: 'rgb(54, 124, 255, 0.25)', border: '1px solid rgb(54, 124, 255)'}} ref={forwardedRef}>
 
       <div className='w-full h-[20%] flex'>
         <Image alt='abstract' className='rounded-tl-2xl mr-1 h-full w-1/3' height={1000} src={item.imageUrl} width={1000} />
-        <div className='h-full flex-1'>
-          <div className='text-2xl h-1/2'>{item.name}</div>
-          <div className='text-lg h-1/2 opacity-60'>{item.date} {item.time}</div>
+        <div className='h-full flex-1 pl-3'>
+          <div className='text-2xl h-1/3'>{item.name}</div>
+          <div className='text-lg h-1/3 opacity-60'>{item.date} {item.time}</div>
         </div>
       </div>
 
