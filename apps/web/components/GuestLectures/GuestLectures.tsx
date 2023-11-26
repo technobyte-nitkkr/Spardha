@@ -85,7 +85,7 @@ const GuestLectures = (): JSX.Element => {
       </div>
 
       <div
-        className="h-4/6 w-4/5 flex overflow-x-auto gap-2 px-2 gCardResponsive snap-x snap-mandatory"
+        className="h-3/5 w-4/5 flex overflow-x-auto lg:gap-14 md:gap-8 sm:gap-8 gap-2 px-2 gCardResponsive snap-x snap-mandatory"
         ref={scrollRef}
       >
         {guestList.map((item,index) => {
