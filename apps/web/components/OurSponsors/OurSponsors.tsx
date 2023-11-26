@@ -1,7 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import SponsorCategory from './SponsorCategory'
 
-const OurSponsors = () => {
+interface SponsorData{
+  imageUrl: string,
+  name: string,
+  targetUrl: string,
+}
+interface ArraySponsors{
+  sponsorSection: string,
+  sponsors: SponsorData[],
+}
+interface IncomingData{
+  data: {
+    sponsors: ArraySponsors[],
+  },
+}
+
+const OurSponsors = (): JSX.Element => {
+  const [sponsors,setSponsors] = useState<ArraySponsors[]>([]);
+  useEffect(() => {
+    fetch(
+      "https://us-central1-techspardha-87928.cloudfunctions.net/api2/sponsors",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data: IncomingData) => {
+        const allsponsors: ArraySponsors[] = data.data.sponsors;
+        setSponsors(allsponsors);
+      })
+      .catch((err: Error) => err);
+  }, []);
   return (
     <div className='w-full h-full flex flex-col items-center justify-evenly' style={{height:100}}>
       <div className='text-5xl lg:text-4xl'>Our Sponsors</div>
@@ -19,21 +53,18 @@ const OurSponsors = () => {
       <div className='flex justify-center flex-wrap gap-y-4'>
         <div className=" flex justify-center flex-wrap gap-y-4">
 
-        <SponsorCategory category='Title Sponsors' sponsors={8} />
-        <SponsorCategory category='Coding Partners' sponsors={4} />
-        <SponsorCategory category='Fashion Partners' sponsors={3} />
-        <SponsorCategory category='Hackathon Partners' sponsors={3} />
-        <SponsorCategory category='Travel Partners' sponsors={1} />
-        </div>
-
-      <div className='flex flex-col'>
-        <div className='text-center text-xl'>Want to Sponsor?</div>
-        <div className='border-2 text-center p-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer' style={{}}>Contact Us</div>
-      </div>
+      <div className='h-4/6 w-4/5 flex justify-center flex-wrap gap-y-2'>
+        {sponsors.map((item,index) => {
+          return (
+            <SponsorCategory category={item.sponsorSection} key={index} sponsors={item.sponsors} />
+          )
+        })}
       </div>
 
     </div>
+    </div>
+    </div>
   )
-}
+  }
 
-export default OurSponsors
+export default OurSponsors;
