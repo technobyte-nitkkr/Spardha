@@ -5,10 +5,10 @@ import menu from "../../public/menu.svg";
 import './navbar.css';
 
 const Navbar = (): JSX.Element => {
-  const navtoggle = () => {
-    const nav = document.querySelector(".navbar");
-    const btn = document.querySelector(".btn");
-    const btnc = document.querySelector(".btnc");
+  const navtoggle = () : void => {
+    const nav : Element | any  = document.querySelector(".navbar");
+    const btn : Element | any  = document.querySelector(".btn");
+    const btnc : Element | any  = document.querySelector(".btnc");
     nav?.classList.toggle("open");
     btn?.classList.toggle("hidden");
     btnc?.classList.toggle("hidden");
