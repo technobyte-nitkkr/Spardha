@@ -15,7 +15,6 @@ interface Guest {
   facebook: string,
   linkedin: string;
 };
-// not sure about the types of item in this case, if not correct please change else remove this comment
 const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement>,item: Guest,key:number }> = ({ forwardedRef,item }) => {
 
   return (
@@ -24,9 +23,7 @@ const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement>,item: Gue
       <div className='w-full h-[20%] flex'>
         <Image alt='abstract' className='rounded-tl-2xl mr-1 h-full w-1/3' height={1000} src={item.imageUrl} width={1000} />
         <div className='h-full flex-1'>
-          {/* put name */}
           <div className='text-2xl h-1/2'>{item.name}</div>
-          {/* put title here */}
           <div className='text-lg h-1/2 opacity-60'>{item.date} {item.time}</div>
         </div>
       </div>
@@ -37,13 +34,13 @@ const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement>,item: Gue
 
       <div className='w-full h-[7%] flex justify-start'>
         <Link className='h-full w-1/6' href={item.insta} target='_blank'>
-          <Image alt='instagram' className='h-full w-full text-left' src={Instagram} />
+          <Image alt='instagram' className='h-full w-full text-left' src={Instagram as string} />
         </Link>
         <Link className='h-full w-1/6' href={item.facebook} target='_blank'>
-          <Image alt='facebook' className='h-full w-full text-left' src={Facebook} />
+          <Image alt='facebook' className='h-full w-full text-left' src={Facebook as string} />
         </Link>
         <Link className='h-full w-1/6' href={item.linkedin} target='_blank'>
-          <Image alt='linkedin' className='h-full w-full text-left' src={Linkedin} />
+          <Image alt='linkedin' className='h-full w-full text-left' src={Linkedin as string} />
         </Link>
       </div>
     </div>

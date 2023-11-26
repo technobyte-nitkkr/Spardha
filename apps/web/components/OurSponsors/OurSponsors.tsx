@@ -34,9 +34,7 @@ const OurSponsors = (): JSX.Element => {
         const allsponsors: ArraySponsors[] = data.data.sponsors;
         setSponsors(allsponsors);
       })
-      .catch((err: Error) => {
-        console.log(err);
-      });
+      .catch((err: Error) => err);
   }, []);
   return (
     <div className='w-full h-full flex flex-col items-center justify-evenly'>

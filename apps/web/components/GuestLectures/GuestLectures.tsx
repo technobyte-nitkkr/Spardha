@@ -42,12 +42,12 @@ const GuestLectures = (): JSX.Element => {
   };
 
   useEffect(() => {
-    if (scrollRef.current) {
-      const gap = (scrollRef.current.offsetWidth - numberOfCards*cardRef.current?.offsetWidth!)/2;
+    if (scrollRef.current && cardRef.current !== null) {
+      const gap = (scrollRef.current.offsetWidth - numberOfCards*cardRef.current.offsetWidth)/2; //removed ? and ! to correct build errors
 
       scrollRef.current.scroll({
         // current can be null, so null check is required
-        left: (cardRef.current?.offsetWidth! + gap) * cardIndex + gap,
+        left: (cardRef.current.offsetWidth + gap) * cardIndex + gap, 
         behavior: "smooth",
       });
     }
@@ -75,9 +75,7 @@ const GuestLectures = (): JSX.Element => {
         const lectures: Guest[] = data.data.lectures;
         setGuestList(lectures);
       })
-      .catch((err: Error) => {
-        console.log(err);
-      });
+      .catch((err: Error) => err);
   }, []);  
 
   return (
