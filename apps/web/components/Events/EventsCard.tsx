@@ -19,8 +19,8 @@ const EventsCard: React.FC<EventCardProps> = ({ image }) => {  // Define other t
         backgroundSize: 'contain',
 
       }}>
-      <Image alt="" className='eventimg max-w-[80%] max-h-[70%]' height={450} src={image} width={450} />
-      <h1 className='relative mt-[-90px] text-5xl font-bold'>Papyrus-Vitae</h1>
+      <Image alt="" className='eventimg max-w-[80%] max-h-[70%]' height={700} src={image} width={800} />
+      <h1 className='relative mt-[-90px] text-5xl font-bold text-left w-[70%]'>Papyrus-Vitae</h1>
     </div>
   )
 }
