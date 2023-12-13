@@ -6,7 +6,7 @@
   align-items: center;
 }
 .excalibur{
-  position: relative;
+  /* position: relative; */
   width: 90%;
   display: flex;
   flex-direction: column;

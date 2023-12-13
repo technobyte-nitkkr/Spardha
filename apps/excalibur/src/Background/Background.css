@@ -1,6 +1,8 @@
 .background_graphics{
     position: absolute;
+    width: 100svw;
+    bottom: -10%;
 }
-.background_graphics>.sword{
-    position: absolute;
+.background_graphics>img{
+    width: 100%;
 }
