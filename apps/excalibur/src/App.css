@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 }
 h1{
   margin-left: 2.0625rem;
@@ -23,4 +24,87 @@ h1{
   font-weight: 400;
   letter-spacing: 2.0625rem;
   text-shadow: -10px -10px pink;
+  transition-duration: 500ms;
+}
+
+@media (max-width: 1300px) {
+  h1{
+    margin-left: 2rem;
+    text-align: center;
+    font-family: Pirata One;
+    font-size: 10.25rem;
+    font-weight: 400;
+    letter-spacing: 2rem;
+    text-shadow: -9px -9px pink;
+  }
+}
+
+@media (max-width: 1000px) {
+  h1{
+    margin-left: 1.2rem;
+    text-align: center;
+    font-family: Pirata One;
+    font-size: 9rem;
+    font-weight: 400;
+    letter-spacing: 1.2rem;
+    text-shadow: -8px -8px pink;
+  }
+}
+
+@media (max-width: 960px) {
+  h1{
+    margin-left: 1rem;
+    text-align: center;
+    font-family: Pirata One;
+    font-size: 8rem;
+    font-weight: 400;
+    letter-spacing: 1rem;
+    text-shadow: -7px -7px pink;
+  }
+}
+
+@media (max-width: 770px) {
+  h1{
+    margin-left: 0.5rem;
+    text-align: center;
+    font-family: Pirata One;
+    font-size: 7rem;
+    font-weight: 400;
+    letter-spacing: 0.5rem;
+    text-shadow: -5px -5px pink;
+  }
+}
+
+@media (max-width: 660px) {
+  h1{
+    margin-left: 0.2rem;
+    text-align: center;
+    font-family: Pirata One;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    text-shadow: -4px -4px pink;
+  }
+}
+
+@media (max-width: 480px) {
+  h1{
+    margin-left: 0.02rem;
+    text-align: center;
+    font-family: Pirata One;
+    font-size: 4.5rem;
+    font-weight: 400;
+    letter-spacing: 0.02rem;
+    text-shadow: -3px -3px pink;
+  }
+}
+
+@media (max-width: 360px) {
+  h1{
+    text-align: center;
+    font-family: Pirata One;
+    font-size: 4rem;
+    font-weight: 400;
+    text-shadow: -2px -2px pink;
+  }
 }

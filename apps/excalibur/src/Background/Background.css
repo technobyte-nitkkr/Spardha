@@ -1,8 +1,25 @@
 .background_graphics{
     position: absolute;
     width: 100svw;
-    bottom: -10%;
+    margin-top: auto;
+    bottom: 0;
+    z-index: -10;
+    filter: drop-shadow(10px 30px 20px rgb(255, 145, 226));
+    box-shadow: 10px 30px 20px rgb(255, 145, 226);
 }
 .background_graphics>img{
     width: 100%;
+}
+@media (max-width: 1300px) {
+    .background_graphics{
+        bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .background_graphics{
+        bottom: 0;
+        margin-bottom: -20px;
+        margin-right: -20px;
+    }
 }
