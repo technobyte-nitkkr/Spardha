@@ -4,14 +4,13 @@ import Image from 'next/image'
 import Panel from '../../public/assets/PANEL.png'
 
 interface EventCardProps {
-  image: string
+  image: string,
 }
 
 const EventsCard: React.FC<EventCardProps> = ({ image }) => {  // Define other type from any ?? 
-
   return (
     <div
-      className='snap-center w-full min-w-full pb-10 flex flex-col justify-center items-center sticky left-0'
+      className='h-full w-full flex justify-items-center items-center card transition ease-in-out duration-1000 absolute hidden'
       style={{
         backgroundImage: `url(${Panel.src})`,
         backgroundPosition: 'center',
@@ -19,8 +18,8 @@ const EventsCard: React.FC<EventCardProps> = ({ image }) => {  // Define other t
         backgroundSize: 'contain',
 
       }}>
-      <Image alt="" className='eventimg max-w-[80%] max-h-[70%]' height={450} src={image} width={450} />
-      <h1 className='relative mt-[-90px] text-5xl font-bold'>Papyrus-Vitae</h1>
+      <Image alt="" className='absolute w-2/3 h-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2' height={450} src={image} width={450} />
+      <h1 className='absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 text-5xl font-bold  text-black'>Papyrus-Vitae</h1>
     </div>
   )
 }
