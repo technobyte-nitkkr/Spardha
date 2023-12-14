@@ -15,7 +15,7 @@ function startAnimation(i: number, cards: NodeListOf<HTMLLabelElement>) {
     setNextNextCardStyle(cards, currentIndex % cards.length);
     currentIndex = (currentIndex + 1) % cards.length;
     // console.log(currentIndex)
-  }, 2000);
+  }, 4000);
   return currentIndex;
 }
 function setNextNextCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex: number) {
