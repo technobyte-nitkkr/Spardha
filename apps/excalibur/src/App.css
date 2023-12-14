@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 .excalibur{
   /* position: relative; */
@@ -12,6 +14,8 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 h1{
   margin-left: 2.0625rem;
