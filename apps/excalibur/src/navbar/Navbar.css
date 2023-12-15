@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300&display=swap');
+
+nav{
+    color: #FFF;
+    font-family: Plaster;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 3rem;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    transition-duration: 500ns;
+}
+nav>a+span{
+    margin: auto 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav>a>span{
+    font-size: 4rem;
+    margin: auto 0;
+}
+nav>.techspardha_logo{
+    filter: drop-shadow(0px 0px 20px rgb(54, 124, 255));
+}
+
+/* This style is not working */
+
+nav>span>svg{
+    position: absolute;
+    top: 1.0585rem;
+    width: 6.71369rem;
+    height: 2.3125rem;
+    fill: rgb(54, 124, 255);
+    filter: blur(40.58064270019531px);
+}
+
+@media (max-width: 1300px) {
+    nav{
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+    nav>span>img{
+        height: 60px;
+    }
+    nav>a>span{
+        font-size: 3.7rem;
+        margin: auto 0;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    nav{
+        margin-top: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    nav>span>img{
+        height: 55px;
+    }
+    nav>a>span{
+        font-size: 3.4rem;
+        margin: auto 0;
+    }
+  }
+  
+  @media (max-width: 960px) {
+    nav{
+        margin-top: 2.5rem;
+        margin-bottom: 4rem;
+    }
+    nav>span>img{
+        height: 52px;
+    }
+    nav>a>span{
+        font-size: 3.2rem;
+        margin: auto 0;
+    }
+  }
+  
+  @media (max-width: 770px) {
+    nav{
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+    nav>span>img{
+        height: 45px;
+    }
+    nav>a>span{
+        font-size: 3rem;
+        margin: auto 0;
+    }
+  }
+  
+  @media (max-width: 660px) {
+    nav{
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+    nav>span>img{
+        height: 43px;
+    }
+    nav>a>span{
+        font-size: 2.8rem;
+        margin: auto 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    nav{
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+    nav>span>img{
+        height: 40px;
+    }
+    nav>a>span{
+        font-size: 2.5rem;
+        margin: auto 0;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    nav{
+        margin-top: 1rem;
+    }
+    nav>span>img{
+        height: 36px;
+    }
+    nav>a>span{
+        font-size: 2.2rem;
+        margin: auto 0;
+    }
+  }
