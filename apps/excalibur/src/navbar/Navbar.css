@@ -54,7 +54,7 @@ nav>span>svg{
   @media (max-width: 1000px) {
     nav{
         margin-top: 2.5rem;
-        margin-bottom: 2rem;
+        /* margin-bottom: 2rem; */
     }
     nav>span>img{
         height: 55px;
@@ -68,7 +68,7 @@ nav>span>svg{
   @media (max-width: 960px) {
     nav{
         margin-top: 2.5rem;
-        margin-bottom: 4rem;
+        /* margin-bottom: 2rem; */
     }
     nav>span>img{
         height: 52px;
@@ -82,7 +82,7 @@ nav>span>svg{
   @media (max-width: 770px) {
     nav{
         margin-top: 2rem;
-        margin-bottom: 4rem;
+        /* margin-bottom: 2rem; */
     }
     nav>span>img{
         height: 45px;
@@ -96,7 +96,7 @@ nav>span>svg{
   @media (max-width: 660px) {
     nav{
         margin-top: 2rem;
-        margin-bottom: 4rem;
+        margin-bottom: 2.5rem;
     }
     nav>span>img{
         height: 43px;
