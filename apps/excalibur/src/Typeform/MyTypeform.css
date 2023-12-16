@@ -31,7 +31,7 @@
 
 @media (max-width: 660px) {
     .typeform_button{
-        /* scale: 0.9; */
+        scale: 1;
     }
 }
 
