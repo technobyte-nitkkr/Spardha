@@ -18,8 +18,8 @@ const EventsCard: React.FC<EventCardProps> = ({ image,eventName }) => {  // Defi
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
       }}>
-      <Image alt="" className='absolute w-2/3 h-[min(25%,500px)] sm:h-2/5 md:h-[55%] lg:h-2/3 lg:w-1/2 xl:h-[65%] top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2' height={450} src={image} width={450} />
-      <h1 className='absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 text-xl sm:text-3xl md:text-5xl font-bold  text-black'>{eventName}</h1>
+      <Image alt="" className='absolute w-2/3 h-[max(25%,150px)] sm:h-2/5 md:h-[54%] lg:h-2/3 lg:w-[max(50%,600px)] xl:h-[65%] top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2' height={450} src={image} width={450} />
+      <h1 className='absolute bottom-[38%] sm:bottom-1/3 md:bottom-1/4 lg:bottom-[20%] left-[max(3rem,20%)] md:left-[18%] lg:left-[26%] text-xl sm:text-3xl md:text-5xl font-bold  text-black'>{eventName}</h1>
     </div>
   )
 }
