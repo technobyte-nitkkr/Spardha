@@ -1,30 +1,30 @@
 import React, { useRef, useEffect, useState } from "react";
 import GLcard from "./GLcard";
 
+interface Guest { 
+  name: string,
+  time: string,
+  desc: string,
+  imageUrl: string,
+  date: string,
+  insta: string,
+  facebook: string,
+  linkedin: string;
+};
+interface ParentGuest{
+success: boolean,
+data:
+  {
+    lectures: Guest[]
+  }
+}
 const GuestLectures = (): JSX.Element => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-
   const [cardIndex, setCardIndex] = useState(0);
-  interface Guest { 
-    name: string,
-    time: string,
-    desc: string,
-    imageUrl: string,
-    date: string,
-    insta: string,
-    facebook: string,
-    linkedin: string;
-  };
-  interface ParentGuest{
-  success: boolean,
-  data:
-    {
-      lectures: Guest[]
-    }
-  }
   const [guestList, setGuestList] = useState<Guest[]>([]);
   const [numberOfCards, setNumberOfCards] = useState(3);
+
 
   const scrollNext = (): void => {
     if (

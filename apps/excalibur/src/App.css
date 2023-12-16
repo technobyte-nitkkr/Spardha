@@ -22,6 +22,14 @@ h1{
   display: inline;
   padding: 0;
   color: rgba(105, 50, 108, 0.53);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+h1{
+  margin-left: 2.0625rem;
+  display: inline;
+  padding: 0;
+  color: rgba(105, 50, 108, 0.53);
   text-align: center;
   font-family: Pirata One;
   font-size: 13.25rem;
