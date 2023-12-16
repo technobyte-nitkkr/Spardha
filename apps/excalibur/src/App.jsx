@@ -2,8 +2,6 @@ import './App.css'
 import Background from './Background/Background'
 import Navbar from './navbar/Navbar'
 import MyTypeform from './Typeform/MyTypeform'
-import Background from './Background/Background'
-import Navbar from './navbar/Navbar'
 function App() {
   return (
     <div className='excalibur'>
