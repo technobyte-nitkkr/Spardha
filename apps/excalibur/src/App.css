@@ -22,6 +22,14 @@ h1{
   display: inline;
   padding: 0;
   color: rgba(105, 50, 108, 0.53);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+h1{
+  margin-left: 2.0625rem;
+  display: inline;
+  padding: 0;
+  color: rgba(105, 50, 108, 0.53);
   text-align: center;
   font-family: Pirata One;
   font-size: 13.25rem;
@@ -34,6 +42,7 @@ h1{
 @media (max-width: 1300px) {
   h1{
     margin-left: 2rem;
+    margin-bottom: 0.5rem;
     text-align: center;
     font-family: Pirata One;
     font-size: 10.25rem;
@@ -46,6 +55,7 @@ h1{
 @media (max-width: 1000px) {
   h1{
     margin-left: 1.2rem;
+    margin-bottom: 1rem;
     text-align: center;
     font-family: Pirata One;
     font-size: 9rem;
@@ -58,6 +68,7 @@ h1{
 @media (max-width: 960px) {
   h1{
     margin-left: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
     font-family: Pirata One;
     font-size: 8rem;
@@ -70,6 +81,7 @@ h1{
 @media (max-width: 770px) {
   h1{
     margin-left: 0.5rem;
+    margin-bottom: 2rem;
     text-align: center;
     font-family: Pirata One;
     font-size: 7rem;
@@ -82,6 +94,7 @@ h1{
 @media (max-width: 660px) {
   h1{
     margin-left: 0.2rem;
+    margin-bottom: 2.5rem;
     text-align: center;
     font-family: Pirata One;
     font-size: 6rem;
