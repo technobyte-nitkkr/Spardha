@@ -22,6 +22,7 @@ function setNextNextCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex:
   let i = currentIndex;
   if (i === cards.length - 1) i = 1;
   if (i === cards.length - 2) i = 0;
+  if(cards[i+2] === undefined) return;
   cards[i + 2].style.display = "block";
   cards[i + 2].style.transform = "translatex(30%) scale(0.6)";
   cards[i + 2].style.opacity = "0.2";
@@ -30,12 +31,14 @@ function setNextNextCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex:
 function setNextCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex: number): void {
   let i = currentIndex;
   if (i === cards.length - 1) i = -1;
+  if(cards[i+1] === undefined) return;
   cards[i + 1].style.display = "block";
   cards[i + 1].style.transform = "translatex(15%) scale(0.8)";
   cards[i + 1].style.opacity = "0.4";
   cards[i + 1].style.zIndex = "0";
 }
 function setCurrentCardStyle(cards: NodeListOf<HTMLLabelElement>, i: number): void {
+  if(cards[i] === undefined) return;
   cards[i].style.display = "block";
   cards[i].style.transform = "translatex(0) scale(1)";
   cards[i].style.opacity = "1";
@@ -44,6 +47,7 @@ function setCurrentCardStyle(cards: NodeListOf<HTMLLabelElement>, i: number): vo
 function removePreviousCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex: number):void {
   let i: number = currentIndex;
   if (i <= 0) i = cards.length;
+  if(cards[i-1] === undefined) return
   cards[i-1].style.transform = "translatex(30%) scale(0.0)";
   cards[i-1].style.opacity = "0.2";
   cards[i-1].style.zIndex = "0";
