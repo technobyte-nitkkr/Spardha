@@ -2,7 +2,6 @@
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 import stars from "../public/assets/stars.jpg";
-import bg from "../public/assets/bg.jpg";
 import mars_displacement from "../public/assets/displacement.jpeg";
 import mars2 from "../public/assets/mars2.jpg";
 import mars_normal from "../public/assets/mars_normal1.png";
@@ -13,6 +12,8 @@ import Landing from "../components/Landing/landing";
 import Events from "../components/Events/Events";
 import Footer from "../components/Footer";
 import { PopUp } from "../components/PopUp/PopUp";
+
+import darkEarth from "../public/assets/darkearth.jpg";
 
 const ThreeScene = () => {
   if (typeof window !== "undefined") {
@@ -31,6 +32,7 @@ const ThreeScene = () => {
     const diffuseMap = textureLoader.load(mars2.src);
     const normalMap = textureLoader.load(mars_normal.src);
     const displacementMap = textureLoader.load(mars_displacement.src);
+    const earth = textureLoader.load(darkEarth.src);
 
     useEffect(() => {
       if (typeof window !== "undefined") {
@@ -46,14 +48,17 @@ const ThreeScene = () => {
 
         const sphereGeometry = new THREE.SphereGeometry(40, 64, 32);
         const sphereMaterial = new THREE.MeshPhysicalMaterial({
-          map: diffuseMap,
-          normalMap,
-          displacementMap,
-          roughness: 0.7,
-          metalness: 0.5,
-          side: THREE.FrontSide,
-          shadowSide: THREE.DoubleSide,
+          map: earth
         });
+        // const sphereMaterial = new THREE.MeshPhysicalMaterial({
+        //   map: diffuseMap,
+        //   normalMap,
+        //   displacementMap,
+        //   roughness: 0.7,
+        //   metalness: 0.5,
+        //   side: THREE.FrontSide,
+        //   shadowSide: THREE.DoubleSide,
+        // });
         const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
         scene.add(sphere);
 
@@ -62,8 +67,9 @@ const ThreeScene = () => {
         directionalLight2.position.set(0, -40, 0);
         scene.add(directionalLight);
         scene.add(directionalLight2);
-        directionalLight.color.set(0xff1a1a);
-        directionalLight2.color.set(0x4d4dff);
+        directionalLight.color.set(0xffffff);
+        // directionalLight.color.set(0xff1a1a);
+        // directionalLight2.color.set(0x4d4dff);
 
         const animate = (): void => {
           requestAnimationFrame(animate);
@@ -223,7 +229,7 @@ const ThreeScene = () => {
         className={`w-screen h-screen m-0 p-0 bg-cover bg-center`}
         ref={containerRef}
         style={{
-          backgroundImage: `url(${bg.src})`,
+          backgroundImage: `url(${stars.src})`,
         }}
       >
         <div
