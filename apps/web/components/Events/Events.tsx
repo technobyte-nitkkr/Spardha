@@ -6,23 +6,21 @@ interface CategoriesElement {
   imgUrl: string,
   icon: string,
 }
-function startAnimation(i: number, cards: NodeListOf<HTMLLabelElement>): number {
-  let currentIndex = i % cards.length;
+function startAnimation(i: number, cards: NodeListOf<HTMLLabelElement> | undefined): void {
+  let currentIndex = i % cards!.length;
   setInterval(() => {
+    if(Number.isNaN(currentIndex) || cards === undefined) return;
     removePreviousCardStyle(cards, currentIndex);
     setCurrentCardStyle(cards, currentIndex);
     setNextCardStyle(cards, currentIndex);
     setNextNextCardStyle(cards, currentIndex);
     currentIndex = (currentIndex + 1) % cards.length;
-    return currentIndex;
   }, 4000);
-  return currentIndex;
 }
 function setNextNextCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex: number): void {
   let i = currentIndex;
   if (i === cards.length - 1) i = 1;
   if (i === cards.length - 2) i = 0;
-  if(cards[i+2] === undefined) return;
   cards[i + 2].style.display = "block";
   cards[i + 2].style.transform = "translatex(30%) scale(0.6)";
   cards[i + 2].style.opacity = "0.2";
@@ -31,14 +29,12 @@ function setNextNextCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex:
 function setNextCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex: number): void {
   let i = currentIndex;
   if (i === cards.length - 1) i = -1;
-  if(cards[i+1] === undefined) return;
   cards[i + 1].style.display = "block";
   cards[i + 1].style.transform = "translatex(15%) scale(0.8)";
   cards[i + 1].style.opacity = "0.4";
   cards[i + 1].style.zIndex = "0";
 }
 function setCurrentCardStyle(cards: NodeListOf<HTMLLabelElement>, i: number): void {
-  if(cards[i] === undefined) return;
   cards[i].style.display = "block";
   cards[i].style.transform = "translatex(0) scale(1)";
   cards[i].style.opacity = "1";
@@ -47,7 +43,6 @@ function setCurrentCardStyle(cards: NodeListOf<HTMLLabelElement>, i: number): vo
 function removePreviousCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex: number):void {
   let i: number = currentIndex;
   if (i <= 0) i = cards.length;
-  if(cards[i-1] === undefined) return
   cards[i-1].style.transform = "translatex(30%) scale(0.0)";
   cards[i-1].style.opacity = "0.2";
   cards[i-1].style.zIndex = "0";
@@ -57,7 +52,7 @@ const Events: React.FC = () => {
   const [categories, setCategories] = useState<CategoriesElement[]>([]);
   useEffect(() => {
     cards = document.querySelectorAll(".card");
-    currentIndex = startAnimation(currentIndex, cards);
+    startAnimation(0, cards);
   },[categories])
   useEffect(() => {
     fetch("https://us-central1-techspardha-87928.cloudfunctions.net/api2/events/categories", {
@@ -73,7 +68,6 @@ const Events: React.FC = () => {
       })
       .catch((err: Error) => err);
   },[])
-  let currentIndex = 0;
   let cards: NodeListOf<HTMLLabelElement>;
 
   return (
