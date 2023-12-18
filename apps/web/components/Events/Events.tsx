@@ -6,17 +6,16 @@ interface CategoriesElement {
   imgUrl: string,
   icon: string,
 }
-function startAnimation(i: number, cards: NodeListOf<HTMLLabelElement>): number {
-  let currentIndex = i % cards.length;
+function startAnimation(i: number, cards: NodeListOf<HTMLLabelElement> | undefined): void {
+  let currentIndex = i % cards!.length;
   setInterval(() => {
+    if(Number.isNaN(currentIndex) || cards === undefined) return;
     removePreviousCardStyle(cards, currentIndex);
     setCurrentCardStyle(cards, currentIndex);
     setNextCardStyle(cards, currentIndex);
     setNextNextCardStyle(cards, currentIndex);
     currentIndex = (currentIndex + 1) % cards.length;
-    return currentIndex;
   }, 4000);
-  return currentIndex;
 }
 function setNextNextCardStyle(cards: NodeListOf<HTMLLabelElement>, currentIndex: number): void {
   let i = currentIndex;
@@ -53,7 +52,7 @@ const Events: React.FC = () => {
   const [categories, setCategories] = useState<CategoriesElement[]>([]);
   useEffect(() => {
     cards = document.querySelectorAll(".card");
-    currentIndex = startAnimation(currentIndex, cards);
+    startAnimation(0, cards);
   },[categories])
   useEffect(() => {
     fetch("https://us-central1-techspardha-87928.cloudfunctions.net/api2/events/categories", {
@@ -69,7 +68,6 @@ const Events: React.FC = () => {
       })
       .catch((err: Error) => err);
   },[])
-  let currentIndex = 0;
   let cards: NodeListOf<HTMLLabelElement>;
 
   return (
