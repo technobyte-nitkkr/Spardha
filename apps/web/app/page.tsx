@@ -12,7 +12,7 @@ import Landing from "../components/Landing/landing";
 import Events from "../components/Events/Events";
 import Footer from "../components/Footer";
 import { PopUp } from "../components/PopUp/PopUp";
-
+import Loading from "./loading";
 import darkEarth from "../public/assets/darkearth.jpg";
 
 const ThreeScene = () => {
@@ -124,6 +124,9 @@ const ThreeScene = () => {
         return () => {
           window.removeEventListener("resize", handleResize);
         };
+      }
+      else {
+        return;
       }
     });
 
@@ -276,6 +279,7 @@ const ThreeScene = () => {
       </div>
     );
   }
+  return <Loading />;
 };
 
 export default ThreeScene;

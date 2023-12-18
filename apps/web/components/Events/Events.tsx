@@ -8,10 +8,11 @@ interface CategoriesElement {
 }
 function startAnimation(
   i: number,
-  cards: NodeListOf<HTMLLabelElement>
+  cards: NodeListOf<HTMLLabelElement> | undefined
 ): number {
-  let currentIndex = i % cards.length;
+  let currentIndex = i % cards!.length;
   setInterval(() => {
+    if (Number.isNaN(currentIndex) || cards === undefined) return;
     removePreviousCardStyle(cards, currentIndex);
     setCurrentCardStyle(cards, currentIndex);
     setNextCardStyle(cards, currentIndex);
