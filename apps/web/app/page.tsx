@@ -2,9 +2,9 @@
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 import stars from "../public/assets/stars.jpg";
-import mars_displacement from "../public/assets/displacement.jpeg";
-import mars2 from "../public/assets/mars2.jpg";
-import mars_normal from "../public/assets/mars_normal1.png";
+// import mars_displacement from "../public/assets/displacement.jpeg";
+// import mars2 from "../public/assets/mars2.jpg";
+// import mars_normal from "../public/assets/mars_normal1.png";
 import GuestLectures from "../components/GuestLectures/GuestLectures";
 import OurSponsors from "../components/OurSponsors/OurSponsors";
 import Navbar from "../components/Landing/navbar";
@@ -29,9 +29,9 @@ const ThreeScene = () => {
     const directionalLight = new THREE.DirectionalLight(0x000000, 2); // red
     const directionalLight2 = new THREE.DirectionalLight(0x000000, 1); // blue
     const textureLoader = new THREE.TextureLoader();
-    const diffuseMap = textureLoader.load(mars2.src);
-    const normalMap = textureLoader.load(mars_normal.src);
-    const displacementMap = textureLoader.load(mars_displacement.src);
+    // const diffuseMap = textureLoader.load(mars2.src);
+    // const normalMap = textureLoader.load(mars_normal.src);
+    // const displacementMap = textureLoader.load(mars_displacement.src);
     const earth = textureLoader.load(darkEarth.src);
 
     useEffect(() => {
