@@ -32,7 +32,7 @@ const Navbar = (): JSX.Element => {
           <a className="px-6 items-center flex" href="#GuestLectures">
             Lectures
           </a>
-          <a className="px-6 items-center flex" href="#about">
+          <a className="px-6 items-center flex" href="#About">
             About
           </a>
           <a className="px-6 items-center flex" href="#Discord">

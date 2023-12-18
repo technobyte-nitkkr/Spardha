@@ -1,0 +1,219 @@
+a.social {
+    margin: 0 1rem;
+    transition: transform 250ms;
+    display: inline-block;
+  }
+
+  a.social:hover {
+    transform: translateY(-3px);
+  }
+
+  .video-responsive {
+    border: 2px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+  }
+  
+  .video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  .aboutscroll
+{
+    text-align: center;
+    width: 100%;
+}
+
+.Heading{
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  width: 80% !important;
+  margin: 20px auto;
+}
+
+.Description{
+  color: white;
+  width: 90%;
+  font-size: 18px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.d-block{
+  margin: 0 auto !important;
+  align-items: center;
+  justify-self: center;
+  
+  width: 80% !important;
+  /* background-color: red; */
+}
+
+  .aboutscroll1
+{
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.aboutscroll1  .d-block
+{
+  border-radius: 30px !important;
+}
+
+@media screen and (max-width: 1000px){
+  .aboutscroll,.aboutscroll1{
+    width: 90% !important;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .aboutscroll,.aboutscroll1{
+    width: 100% !important;
+  }
+}
+.carousel {
+    position: relative;
+  }
+  
+  .carousel.pointer-event {
+    touch-action: pan-y;
+  }
+  .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+    margin-right: -100%;
+    backface-visibility: hidden;
+  }
+  
+  .carousel-item.active,
+  .carousel-item-next,
+  .carousel-item-prev {
+    display: block;
+  }
+  /* rtl:begin:ignore */
+.carousel-item-next:not(.carousel-item-start),
+.active.carousel-item-end {
+  transform: translateX(100%);
+}
+
+.carousel-item-prev:not(.carousel-item-end),
+.active.carousel-item-start {
+  transform: translateX(-100%);
+}
+.carousel-fade {
+    .carousel-item {
+      opacity: 0;
+      transition-property: opacity;
+      transform: none;
+    }
+  
+    .carousel-item.active,
+    .carousel-item-next.carousel-item-start,
+    .carousel-item-prev.carousel-item-end {
+      z-index: 1;
+      opacity: 1;
+    }
+    .active.carousel-item-start,
+    .active.carousel-item-end {
+      z-index: 0;
+      opacity: 0;
+    }
+  }  
+  .carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+    width: 15%;
+  padding: 0;
+  color: pink;
+  text-align: center;
+  background: none;
+  border: 0;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: 0;
+  }
+}
+.carousel-control-prev {
+    left: 0;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.001));
+  }
+  
+  .carousel-control-next {
+    right: 0;
+    background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.001));
+  }
+
+  .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+}
+.carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-right: 15px; /* Adjust as needed */
+    margin-bottom: 1rem;
+    margin-left: 15px; /* Adjust as needed */
+    list-style: none;
+  }
+  
+  .carousel-indicators [data-bs-target] {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 10px; /* Adjust as needed */
+    height: 10px; /* Adjust as needed */
+    padding: 0;
+    margin-right: 5px; /* Adjust as needed */
+    margin-left: 5px; /* Adjust as needed */
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #ccc; /* Adjust as needed */
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent; /* Adjust as needed */
+    border-bottom: 10px solid transparent; /* Adjust as needed */
+    opacity: 0.5; /* Adjust as needed */
+    transition: opacity 0.15s ease; /* Adjust as needed */
+  }
+  
+  .carousel-indicators .active {
+    opacity: 1; /* Adjust as needed */
+  }
+  
+
+
+

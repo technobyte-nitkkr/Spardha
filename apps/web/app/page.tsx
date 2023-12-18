@@ -11,6 +11,7 @@ import Navbar from '../components/Landing/navbar';
 import Landing from '../components/Landing/landing';
 import Events from '../components/Events/Events';
 import Footer from '../components/Footer';
+import About from '../components/About/About';
 
 const ThreeScene = () => {
   if (typeof window !== 'undefined') {
@@ -20,6 +21,7 @@ const ThreeScene = () => {
     const sec2ref = useRef<HTMLDivElement>(null);
     const sec3ref = useRef<HTMLDivElement>(null);
     const sec4ref = useRef<HTMLDivElement>(null);
+    const sec5ref = useRef<HTMLDivElement>(null);
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1920 / 1080, 0.1, 10000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -236,6 +238,14 @@ const ThreeScene = () => {
           >
             {" "}
             <GuestLectures />{" "}
+          </section>
+          <section
+            className="min-h-screen w-full snap-center flex items-center"
+            id="About"
+            ref={sec5ref}
+          >
+            {" "}
+            <About />{" "}
           </section>
           <section
             className="h-screen w-full snap-center flex items-center"
