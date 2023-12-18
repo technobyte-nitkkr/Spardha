@@ -1,8 +1,8 @@
 .typeform_button{
     text-align: center;
     width: fit-content;
-    margin: 0 auto;
-    /* scale: 1.4; */
+    margin: 10px auto;
+    scale: 1.4;
 }
 
 @media (max-width: 1300px) {
@@ -11,13 +11,8 @@
     }
 }
 
-@media (max-width: 1000px) {
-    .typeform_button{
-        scale: 1.1;
-    }
-}
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
     .typeform_button{
         scale: 1.05;
     }
