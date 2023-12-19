@@ -22,10 +22,17 @@ const GLcard: React.FC<{ forwardedRef: React.RefObject<HTMLDivElement>,item: Gue
 
       <div className='w-full h-[20%] flex'>
         <Image alt='abstract' className='rounded-tl-2xl mr-1 h-full w-1/3' height={1000} src={item.imageUrl} width={1000} />
-        <div className='h-full flex-1 pl-3'>
-          <div className='text-2xl h-1/3'>{item.name}</div>
-          <div className='text-lg h-1/3 opacity-60'>{item.date} {item.time}</div>
+        <div className='h-full flex-1 pl-3 sm:flex sm:flex-col custom-sm:flex custom-sm:flex-col custom-xsm:flex custom-xsm:flex-col'>
+          <div 
+          className='text-[1.5rem] h-1/3 sm:h-auto sm:text-[1.4rem] custom-xsm:h-auto custom-xsm:text-[1.3rem] 
+          md:h-auto md:text-[1.5rem] md:mb-0 custom-sm:h-auto custom-sm:text-[1.6rem] '>
+            {item.name}
+          </div>
+          <div className='text-[0.8] h-1/3 sm:h-auto sm:mt-2 sm:text-[0.8rem] sm:mb-2 opacity-60 custom-xsm:h-auto custom-xsm:text-[0.8rem] md:h-auto md:text-[0.8rem] md:mt-0  custom-sm:h-auto custom-sm:text-[1rem] '>
+            {item.date} {item.time}
+          </div>
         </div>
+
       </div>
 
       <div className='w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv'>
