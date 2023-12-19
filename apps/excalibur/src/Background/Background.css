@@ -1,10 +1,9 @@
 .background_graphics{
-    overflow-x: clip;
+    overflow: clip;
     position: absolute;
     width: 100svw;
     margin-top: auto;
     bottom: 0;
-    margin-bottom: -100px;
     z-index: -10;
     filter: drop-shadow(10px 30px 20px rgb(255, 145, 226));
     /* box-shadow: 10px 30px 20px rgb(255, 145, 226); */
@@ -12,24 +11,10 @@
 .background_graphics>img{
     width: 100%;
 }
-@media (max-width: 1300px) {
-    .background_graphics{
-        bottom: 0;
-        margin-bottom: -80px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .background_graphics{
-        bottom: 0;
-        margin-bottom: -10px;
-    }
-}
 
 @media (max-width: 960px) {
     .background_graphics{
         bottom: 0;
-        margin-bottom: -10px;
     }
     .background_graphics>img{
         scale: 1.5;
@@ -39,8 +24,7 @@
 
 @media (max-width: 750px) {
     .background_graphics{
-        bottom: 10%;
-        margin-bottom: -10px;
+        bottom: 0;
     }
     .background_graphics>img{
         scale: 2;
@@ -49,11 +33,10 @@
 
 @media (max-width: 480px) {
     .background_graphics{
-        bottom: 25%;
-        /* margin-bottom: -20px;
-        margin-right: -20px; */
-    }
-    .background_graphics>img{
+        bottom: 0;
         scale: 3;
     }
+    /* .background_graphics>img{
+        scale: 3;
+    } */
 }
