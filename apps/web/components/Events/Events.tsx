@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import EventsCard from "./EventsCard";
-
 interface CategoriesElement {
   categoryName: string;
   imgUrl: string;
@@ -9,7 +8,7 @@ interface CategoriesElement {
 function startAnimation(
   i: number,
   cards: NodeListOf<HTMLLabelElement> | undefined
-): number {
+): void {
   let currentIndex = i % cards!.length;
   setInterval(() => {
     if (Number.isNaN(currentIndex) || cards === undefined) return;
@@ -18,9 +17,7 @@ function startAnimation(
     setNextCardStyle(cards, currentIndex);
     setNextNextCardStyle(cards, currentIndex);
     currentIndex = (currentIndex + 1) % cards.length;
-    return currentIndex;
   }, 4000);
-  return currentIndex;
 }
 function setNextNextCardStyle(
   cards: NodeListOf<HTMLLabelElement>,
@@ -69,7 +66,7 @@ const Events: React.FC = () => {
   const [categories, setCategories] = useState<CategoriesElement[]>([]);
   useEffect(() => {
     cards = document.querySelectorAll(".card");
-    currentIndex = startAnimation(currentIndex, cards);
+    startAnimation(0, cards);
   }, [categories]);
   useEffect(() => {
     fetch(
@@ -94,12 +91,11 @@ const Events: React.FC = () => {
       )
       .catch((err: Error) => err);
   }, []);
-  let currentIndex = 0;
   let cards: NodeListOf<HTMLLabelElement>;
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-evenly">
-      <div className="text-[2rem] sm:text-5xl md:text-6xl xl:text-7xl font-starlord-1">
+      <div className="md:text-5xl text-4xl font-starlord-1">
         Events Categories
       </div>
       <div className="h-4/6 w-4/5 flex relative">

@@ -241,7 +241,7 @@ const ThreeScene = () => {
           ref={parentDiv}
         >
           <section
-            className="h-screen w-full snap-center"
+            className="h-screen w-full snap-center flex flex-col md:gap-4"
             id="Home"
             ref={sec1ref}
           >

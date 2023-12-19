@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&family=Quicksand:wght@300&display=swap');
+
+.schedule{
+  max-width: 960px;
+  width: 98%;
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.893);
+  color: #d5d5d5;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.schedule>h2{
+  margin: 3rem;
+}
+
+.schedule>.timeline-container{
+  max-width: 31rem;
+  margin: 0 auto;
+}
+
+.timeline-container>.timeline-extra-card{
+  width: 100%;
+  padding: 1.5rem;
+}
+
+.timeline-container>.timeline-extra-card>.timeline-card{
+  max-width: 28rem;
+  height: 12.75rem;
+  /* margin: 0 1.5rem; */
+  padding: 2.625rem 1.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0.553);
+  border-radius: 10px;
+  /* box-shadow: 0 0 15px #D946EF; */
+}
+.timeline-container>.timeline-extra-card>.timeline-card>.event-detail{
+  color: #FFF;
+  font-family: Quicksand;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+}
+
+.timeline-container>.timeline-extra-card>.timeline-card>.event-name{
+  color: #FFF;
+  font-family: Quicksand;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.75rem; /* 140% */
+}
+
+.timeline-container>.timeline-extra-card>.timeline-card>.event-date{
+  color: #F0ABFC;
+  font-family: Quicksand;
+  font-size: 1.3125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.75rem; /* 133.333% */
+}
+
+
+/* Alternate styling */
+
+.timeline-container>.timeline-extra-card:nth-child(odd)>.timeline-card{
+  align-items: flex-start;
+  text-align: left;
+}
+.timeline-container>.timeline-extra-card:nth-child(even)>.timeline-card{
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Borders */
+
+.timeline-container>.timeline-extra-card:nth-child(odd){
+  border-radius: 0rem 0rem 0rem 3.125rem;
+  border-bottom: 10px solid #D946EF;
+  border-left: 10px solid #D946EF;
+  padding-left: 3rem;
+  padding-right: 0;
+  position: relative;
+}
+.timeline-container>.timeline-extra-card:nth-child(even){
+  border-radius: 0rem 0rem 3.125rem 0rem;
+  border-bottom: 10px solid #D946EF;
+  border-right: 10px solid #D946EF;
+  padding-left: 0rem;
+  padding-right: 3rem;
+  position: relative;
+}
+
+/* Adjusting last border */
+.timeline-container>.timeline-extra-card:nth-child(7){
+  border-bottom: none;
+  border-radius: 0rem;
+}
+
+/* Dots */
+
+.timeline-container>.timeline-extra-card:nth-child(odd):before{
+  content: "";
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border: 8px solid white;
+  box-shadow: 0 0 10px #db40f3;
+  background-color: #9110a4;
+  position: absolute;
+  z-index: 10;
+  right: calc(100% - 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.timeline-container>.timeline-extra-card:nth-child(even):before{
+  content: "";
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border: 8px solid white;
+  box-shadow: 0 0 10px #db40f3;
+  background-color: #9110a4;
+  position: absolute;
+  z-index: 10;
+  left: calc(100% - 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
