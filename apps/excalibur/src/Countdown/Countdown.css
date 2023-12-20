@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&family=Quicksand:wght@300&display=swap');
+.countdown-container{
+    width: fit-content;
+    height: min-content;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.2);
+    color: #d5d5d5;
+    font-size: 1.5rem;
+    margin: 10px;
+    text-align: center;
+}
+.countdown-container>.countdown{
+    display: flex;
+    justify-content: space-evenly;
+}
+.countdown-container>.countdown>span{
+    width: 6.04688rem;
+    height: 7.125rem;
+    font-size: 1.5rem;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.842);
+    /* backdrop-filter: blur(20px); */
+    border-radius: 10px;
+}
+.countdown-container>.countdown>span>.text{
+    color: #9CA3AF;
+    text-align: center;
+    font-family: Quicksand;
+    font-size: 1.3125rem;
+    font-style: normal;
+    font-weight: 300;
+}
+.days-left{
+    color: #4ADE80;
+    text-align: center;
+    font-family: Quicksand;
+    font-size: 3.375rem;
+    font-style: normal;
+    font-weight: 700;
+}
+.hours-left{
+    color: #EAB308;
+    text-align: center;
+    font-family: Quicksand;
+    font-size: 3.375rem;
+    font-style: normal;
+    font-weight: 700;
+}
+.minutes-left{
+    color: #60A5FA;
+    text-align: center;
+    font-family: Quicksand;
+    font-size: 3.375rem;
+    font-style: normal;
+    font-weight: 700;
+}
+.seconds-left{
+    color: #F87171;
+    text-align: center;
+    font-family: Quicksand;
+    font-size: 3.375rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+    .countdown-container{
+        scale: 0.9;
+    }
+}
+
+@media (max-width: 770px) {
+    .countdown-container{
+        scale: 0.7;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-container{
+        scale: 0.4;
+    }
+}
+
+@media (max-width: 320px) {
+    .countdown-container{
+        scale: 0.3;
+    }
+}
