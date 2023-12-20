@@ -22,7 +22,7 @@
 
   .font-orbitron-1 {
     text-align: center;
-    font-family: Orbitron;
+    font-family: 'Orbitron';
     font-size: 42px;
     font-style: normal;
     font-weight: 700;
@@ -37,7 +37,7 @@
   }
 
   .font-starlord {
-    font-family: 'Galactic Vanguardian ncv', sans-serif;
+    font-family: starlord, sans-serif;
     font-style: normal;
     font-weight: 300;
   }
