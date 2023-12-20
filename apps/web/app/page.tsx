@@ -1,19 +1,22 @@
-"use client"
-import React, { useRef, useEffect } from 'react';
-import * as THREE from 'three';
-import stars from '../public/assets/stars.jpg'
-import mars_displacement from '../public/assets/displacement.jpeg'
-import mars2 from '../public/assets/mars2.jpg'
-import mars_normal from '../public/assets/mars_normal1.png'
-import GuestLectures from '../components/GuestLectures/GuestLectures';
-import OurSponsors from '../components/OurSponsors/OurSponsors';
-import Navbar from '../components/Landing/navbar';
-import Landing from '../components/Landing/landing';
-import Events from '../components/Events/Events';
-import Footer from '../components/Footer';
+"use client";
+import React, { useRef, useEffect } from "react";
+import * as THREE from "three";
+import stars from "../public/assets/stars.jpg";
+// import mars_displacement from "../public/assets/displacement.jpeg";
+// import mars2 from "../public/assets/mars2.jpg";
+// import mars_normal from "../public/assets/mars_normal1.png";
+import GuestLectures from "../components/GuestLectures/GuestLectures";
+import OurSponsors from "../components/OurSponsors/OurSponsors";
+import Navbar from "../components/Landing/navbar";
+import Landing from "../components/Landing/landing";
+import Events from "../components/Events/Events";
+import Footer from "../components/Footer";
+import { PopUp } from "../components/PopUp/PopUp";
+import Loading from "./loading";
+import darkEarth from "../public/assets/darkearth.jpg";
 
 const ThreeScene = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const containerRef = useRef<HTMLDivElement>(null);
     const parentDiv = useRef<HTMLDivElement>(null);
     const sec1ref = useRef<HTMLDivElement>(null);
@@ -26,12 +29,13 @@ const ThreeScene = () => {
     const directionalLight = new THREE.DirectionalLight(0x000000, 2); // red
     const directionalLight2 = new THREE.DirectionalLight(0x000000, 1); // blue
     const textureLoader = new THREE.TextureLoader();
-    const diffuseMap = textureLoader.load(mars2.src);
-    const normalMap = textureLoader.load(mars_normal.src);
-    const displacementMap = textureLoader.load(mars_displacement.src);
+    // const diffuseMap = textureLoader.load(mars2.src);
+    // const normalMap = textureLoader.load(mars_normal.src);
+    // const displacementMap = textureLoader.load(mars_displacement.src);
+    const earth = textureLoader.load(darkEarth.src);
 
     useEffect(() => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -44,24 +48,28 @@ const ThreeScene = () => {
 
         const sphereGeometry = new THREE.SphereGeometry(40, 64, 32);
         const sphereMaterial = new THREE.MeshPhysicalMaterial({
-          map: diffuseMap,
-          normalMap,
-          displacementMap,
-          roughness: 0.7,
-          metalness: 0.5,
-          side: THREE.FrontSide,
-          shadowSide: THREE.DoubleSide
+          map: earth
         });
+        // const sphereMaterial = new THREE.MeshPhysicalMaterial({
+        //   map: diffuseMap,
+        //   normalMap,
+        //   displacementMap,
+        //   roughness: 0.7,
+        //   metalness: 0.5,
+        //   side: THREE.FrontSide,
+        //   shadowSide: THREE.DoubleSide,
+        // });
         const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
         scene.add(sphere);
 
-        directionalLight.castShadow = true
-        directionalLight.position.set(0, 40, 0)
-        directionalLight2.position.set(0, -40, 0)
+        directionalLight.castShadow = true;
+        directionalLight.position.set(0, 40, 0);
+        directionalLight2.position.set(0, -40, 0);
         scene.add(directionalLight);
         scene.add(directionalLight2);
-        directionalLight.color.set(0xFF1A1A)
-        directionalLight2.color.set(0x4D4DFF)
+        directionalLight.color.set(0xffffff);
+        // directionalLight.color.set(0xff1a1a);
+        // directionalLight2.color.set(0x4d4dff);
 
         const animate = (): void => {
           requestAnimationFrame(animate);
@@ -77,16 +85,28 @@ const ThreeScene = () => {
           const progress = Math.min(elapsedTime / 15000, 1); // change 20000 to adjust the duration
 
           const newPosition = new THREE.Vector3();
-          newPosition.x = THREE.MathUtils.lerp(camera.position.x, targetZoom.x, progress);
-          newPosition.y = THREE.MathUtils.lerp(camera.position.y, targetZoom.y, progress);
-          newPosition.z = THREE.MathUtils.lerp(camera.position.z, targetZoom.z, progress);
+          newPosition.x = THREE.MathUtils.lerp(
+            camera.position.x,
+            targetZoom.x,
+            progress
+          );
+          newPosition.y = THREE.MathUtils.lerp(
+            camera.position.y,
+            targetZoom.y,
+            progress
+          );
+          newPosition.z = THREE.MathUtils.lerp(
+            camera.position.z,
+            targetZoom.z,
+            progress
+          );
 
           camera.position.copy(newPosition);
 
           if (newPosition.distanceTo(targetZoom) > 0.1) {
             requestAnimationFrame(zoomToTarget);
           }
-        }
+        };
 
         zoomToTarget();
 
@@ -105,7 +125,10 @@ const ThreeScene = () => {
           window.removeEventListener("resize", handleResize);
         };
       }
-    },);
+      else {
+        return;
+      }
+    });
 
     const handleScroll = (): void => {
       const sec1: number | undefined = sec1ref.current?.offsetTop;
@@ -131,12 +154,13 @@ const ThreeScene = () => {
           40 + ((0 - 40) * (scroll - sec1!)) / height,
           0
         );
-        directionalLight2.position.set( // (0, -40, 0) - (60, 0, 0)
-          0 + (60 - 0) * (scroll - sec1!) / height,
-          -40 + (0 - (-40)) * (scroll - sec1!) / height,
+        directionalLight2.position.set(
+          // (0, -40, 0) - (60, 0, 0)
+          0 + ((60 - 0) * (scroll - sec1!)) / height,
+          -40 + ((0 - -40) * (scroll - sec1!)) / height,
           0
         );
-        camera.fov = 45 + (30 - 45) * (scroll - sec1!) / height; // 45 to 30
+        camera.fov = 45 + ((30 - 45) * (scroll - sec1!)) / height; // 45 to 30
 
         camera.updateProjectionMatrix();
       } else if (scroll && scroll <= sec3!) {
@@ -154,19 +178,21 @@ const ThreeScene = () => {
             ? 0 + ((40 - 0) * (scroll - sec2!)) / (height / 2)
             : 40 - ((40 - 0) * (scroll - (sec2! + height / 2))) / (height / 2)
         );
-        directionalLight2.position.set( // (60, 0, 0) - (-60, 0, 0)
-          60 + (-60 - 60) * (scroll - sec2!) / height,
+        directionalLight2.position.set(
+          // (60, 0, 0) - (-60, 0, 0)
+          60 + ((-60 - 60) * (scroll - sec2!)) / height,
           0,
-          (scroll <= sec2! + height / 2) ?
-            0 + (-40 - 0) * (scroll - sec2!) / (height / 2) :
-            -40 - (-40 - 0) * (scroll - (sec2! + height / 2)) / (height / 2)
+          scroll <= sec2! + height / 2
+            ? 0 + ((-40 - 0) * (scroll - sec2!)) / (height / 2)
+            : -40 - ((-40 - 0) * (scroll - (sec2! + height / 2))) / (height / 2)
         );
-        directionalLight2.position.set( // (60, 0, 0) - (-60, 0, 0)
-          60 + (-60 - 60) * (scroll - sec2!) / height,
+        directionalLight2.position.set(
+          // (60, 0, 0) - (-60, 0, 0)
+          60 + ((-60 - 60) * (scroll - sec2!)) / height,
           0,
-          (scroll <= sec2! + height / 2) ?
-            0 + (-40 - 0) * (scroll - sec2!) / (height / 2) :
-            -40 - (-40 - 0) * (scroll - (sec2! + height / 2)) / (height / 2)
+          scroll <= sec2! + height / 2
+            ? 0 + ((-40 - 0) * (scroll - sec2!)) / (height / 2)
+            : -40 - ((-40 - 0) * (scroll - (sec2! + height / 2))) / (height / 2)
         );
         camera.fov = 30;
 
@@ -184,12 +210,13 @@ const ThreeScene = () => {
           0 + ((40 - 0) * (scroll - sec3!)) / height,
           0
         );
-        directionalLight2.position.set( // (-60, 0, 0) - (0, -40, 0)
-          -60 + (0 - (-60)) * (scroll - sec3!) / height,
-          0 + (-40 - 0) * (scroll - sec3!) / height,
+        directionalLight2.position.set(
+          // (-60, 0, 0) - (0, -40, 0)
+          -60 + ((0 - -60) * (scroll - sec3!)) / height,
+          0 + ((-40 - 0) * (scroll - sec3!)) / height,
           0
         );
-        camera.fov = 30 + (45 - 30) * (scroll - sec3!) / height; // 30 to 45
+        camera.fov = 30 + ((45 - 30) * (scroll - sec3!)) / height; // 30 to 45
 
         camera.updateProjectionMatrix();
       } else {
@@ -201,9 +228,8 @@ const ThreeScene = () => {
     };
 
     return (
-
       <div
-        className={`w-screen h-screen m-0 p-0 bg-cover bg-center bg-[${stars.src}]`}
+        className={`w-screen h-screen m-0 p-0 bg-cover bg-center`}
         ref={containerRef}
         style={{
           backgroundImage: `url(${stars.src})`,
@@ -249,10 +275,11 @@ const ThreeScene = () => {
             <Footer />
           </section>
         </div>
+        <PopUp />
       </div>
-
     );
   }
+  return <Loading />;
 };
 
 export default ThreeScene;
