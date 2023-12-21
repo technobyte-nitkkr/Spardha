@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.cdnfonts.com/css/galactic-vanguardian-ncv');
+
 @layer base {
   .font-outline-05 {
     -webkit-text-stroke: 0.7px black;
@@ -53,6 +56,10 @@
   .bgGlow {
     -webkit-filter: drop-shadow(0px 0px 5px #367CFF);
     filter: drop-shadow(0px 10px 10px #367CFF);
+  }
+
+  .eventimg {
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 25%);
   }
 }
 

@@ -38,9 +38,8 @@ const OurSponsors = (): JSX.Element => {
   }, []);
   return (
     <div className='w-full h-full flex flex-col items-center justify-evenly'>
-      <div className='text-5xl font-starlord-1'>Our Sponsors</div>
-
-      <div className='grid auto-rows-auto md:grid-cols-4 grid-cols-2 gap-1 justify-items-center justify-self-center justify-center'>
+      <div className='md:text-5xl text-4xl font-starlord-1'>Our Sponsors</div>
+      <div className='w-[80%] grid auto-rows-auto grid-cols-2 gap-1 justify-items-center justify-self-center justify-center'>
         {sponsors.map((item,index) => {
           return (
             <SponsorCategory category={item.sponsorSection} key={index} sponsors={item.sponsors} />
@@ -48,7 +47,7 @@ const OurSponsors = (): JSX.Element => {
         })}
       </div>
 
-      <div className='flex flex-col items-center gap-2'>
+      <div className='flex sm:flex-col flex-row items-center gap-2'>
         <div className='text-center text-xl'>Want to Sponsor?</div>
         <div className='border-2 text-center p-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer'>Contact Us</div>
       </div>
