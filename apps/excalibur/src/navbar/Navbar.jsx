@@ -4,6 +4,13 @@ export default function Navbar(){
     return(
         <nav>
             <a><span>{back}</span></a>
+            <div className='nav-sections'>
+                <a href='#sponsors'>Sponsors</a>
+                <a href='#about'>About</a>
+                <a href='#themes'>Themes</a>
+                <a href='#schedule'>Schedule</a>
+                <a href='#rules'>Rules</a>
+            </div>
             <span className="techspardha_logo">
                 {/* ellipse svg */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="271" height="201" viewBox="0 0 271 201" fill="none">
@@ -18,7 +25,7 @@ export default function Navbar(){
                         </filter>
                     </defs>
                 </svg>
-                <img src="./public/images/TechspardhaLogo.svg" alt="T" />
+                <img src="/images/TechspardhaLogo.svg" alt="T" />
             </span>
         </nav>
     )

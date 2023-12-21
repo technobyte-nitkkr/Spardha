@@ -1,0 +1,14 @@
+footer{
+    background-color: rgba(0, 0, 0, 0.694);
+    backdrop-filter: blur(30px);
+    width: fit-content;
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
+    color: beige;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    word-spacing: clamp(10px, 1rem, 20px);
+    justify-self: flex-end;
+}

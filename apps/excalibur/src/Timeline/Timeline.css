@@ -40,6 +40,13 @@
   background-color: rgba(0, 0, 0, 0.553);
   border-radius: 10px;
   /* box-shadow: 0 0 15px #D946EF; */
+  box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #bc13fe,
+              0 0 0.8rem #bc13fe,
+              0 0 2.8rem #bc13fe,
+              inset 0 0 1.3rem #bc13fe;
+  
 }
 .timeline-container>.timeline-extra-card>.timeline-card>.event-detail{
   color: #FFF;

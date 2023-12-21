@@ -1,7 +1,7 @@
 import "./Timeline.css"
 export default function Timeline(){
     return (
-        <section className="schedule">
+        <section className="schedule" id="schedule">
             <h2>Schedule</h2>
             <div className="timeline-container">
 
