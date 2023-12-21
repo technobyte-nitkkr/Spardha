@@ -15,7 +15,13 @@ interface EventsElement {
 const PopUp = () => {
   const [categories, setCategories] = useState<CategoriesElement[]>([]);
   const [Events, setEvents] = useState<EventsElement[]>([]);
-  const [ActiveEvent, setActiveEvent] = useState<EventsElement>();
+  const [ActiveEvent, setActiveEvent] = useState<EventsElement>({
+    eventName: "Axiom",
+    eventCategory: "Programming",
+  });
+  const [angle, setAngle] = useState<boolean[]>(
+    new Array(categories.length).fill(true)
+  );
   useEffect(() => {
     fetch(
       "https://us-central1-techspardha-87928.cloudfunctions.net/api2/events/categories",
@@ -35,7 +41,15 @@ const PopUp = () => {
           data: { categories: CategoriesElement[] };
         }) => {
           setCategories(data.data.categories);
-          setAngle(new Array(data.data.categories.length).fill(true));
+          setAngle(
+            data.data.categories.map((item, index) =>
+              index === 0 ? false : true
+            )
+          );
+          setActiveEvent({
+            eventName: "Axiom",
+            eventCategory: "Programming",
+          } as EventsElement);
         }
       )
       .catch((err: Error) => err);
@@ -57,14 +71,11 @@ const PopUp = () => {
           data: { events: EventsElement[] };
         }) => {
           setEvents(data.data.events);
-          setActiveEvent(data.data.events[0]);
         }
       )
       .catch((err: Error) => err);
   }, []);
-  const [angle, setAngle] = useState<boolean[]>(
-    new Array(categories.length).fill(true)
-  );
+
   return (
     <div className="w-screen h-screen flex justify-center items-center p-3">
       <div
@@ -137,9 +148,21 @@ const PopUp = () => {
                           event.eventCategory === category.categoryName ? (
                             <div
                               key={index}
-                              className="flex w-[276px] flex-row items-center justify-end cursor-pointer opacity-60 hover:opacity-100"
+                              className={`flex w-[276px] flex-row items-center justify-end cursor-pointer
+                                ${
+                                  ActiveEvent?.eventName === event.eventName
+                                    ? "opacity-100"
+                                    : "opacity-60"
+                                }
+                                `}
+                              onClick={() => {
+                                setActiveEvent(event);
+                              }}
                             >
-                              <h1 className="text-white text-lg leading-6 tracking-[1px] font-oritron-l   w-full">
+                              <h1
+                                className={`text-white text-lg leading-6 tracking-[1px] font-oritron-l w-full 
+                              }`}
+                              >
                                 {event.eventName}
                               </h1>
                             </div>
@@ -155,9 +178,9 @@ const PopUp = () => {
                 </>
               ))}
             </div>
-            <div className="inline-flex h-[737px] flex-col items-center gap-6 shrink-0 pb-4">
-              <EventAbout eventName={ActiveEvent}/>
-            </div>
+          </div>
+          <div className="inline-flex w-[940px] h-[737px] flex-col items-center gap-6 shrink-0 pb-4">
+            <EventAbout item={ActiveEvent} />
           </div>
         </div>
       </div>
