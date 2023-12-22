@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EventsCard from "./EventsCard";
+import PopUp from "../PopUp/PopUp";
 interface CategoriesElement {
   categoryName: string;
   imgUrl: string;
@@ -62,7 +63,10 @@ function removePreviousCardStyle(
   cards[i - 1].style.zIndex = "0";
 }
 
-const Events: React.FC = () => {
+const Events: React.FC<{
+  visible: boolean,
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>
+}> = ({ visible , setVisible })  => {
   const [categories, setCategories] = useState<CategoriesElement[]>([]);
   useEffect(() => {
     cards = document.querySelectorAll(".card");
@@ -92,13 +96,14 @@ const Events: React.FC = () => {
       .catch((err: Error) => err);
   }, []);
   let cards: NodeListOf<HTMLLabelElement>;
-
   return (
     <div className="w-full h-full flex flex-col items-center justify-evenly">
       <div className="md:text-5xl text-4xl font-starlord-1">
         Events Categories
       </div>
-      <div className="h-4/6 w-4/5 flex relative">
+      <div className="h-4/6 w-4/5 flex relative" onClick={
+          (visible === false) ? () => setVisible(true) : () => setVisible(false)
+        }>
         {categories.map((category, i) => {
           return (
             <EventsCard
@@ -110,7 +115,10 @@ const Events: React.FC = () => {
         })}
       </div>
       <div className="w-1/2 sm:w-full pt-2 flex justify-evenly">
-        <div className="border-2 w-full md:w-2/5 sm:w-1/2 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer mr-2">
+        <div className="border-2 w-full md:w-2/5 sm:w-1/2 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer mr-2"
+        onClick={
+          (visible === false) ? () => setVisible(true) : () => setVisible(false)
+        }>
           View Them All
         </div>
       </div>

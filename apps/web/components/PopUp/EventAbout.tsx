@@ -56,15 +56,16 @@ const EventAbout: React.FC<{
         (data: {
           message: string;
           success: boolean;
-          data: { events: EventsAboutElement };
+          data: EventsAboutElement ;
         }) => {
-          setEvent(data.data.events);
+          setEvent(data.data);
         }
       )
       .catch((err: Error) => err);
   }, [item]);
   return (
-    <div className="h-full w-full flex-shrink-0">
+    event !== undefined ? (
+    <div className="h-full w-full flex-shrink-0 overflow-y-auto">
       <div className="">
         <Image
           alt="Poster"
@@ -78,6 +79,9 @@ const EventAbout: React.FC<{
         <p>{event.description}</p>
       </div>
     </div>
+    ) : (
+      "Loading..."
+    )
   );
 };
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import stars from "../public/assets/stars.jpg";
 import GuestLectures from "../components/GuestLectures/GuestLectures";
@@ -8,6 +8,7 @@ import Navbar from "../components/Landing/navbar";
 import Landing from "../components/Landing/landing";
 import Events from "../components/Events/Events";
 import Footer from "../components/Footer";
+import PopUp from "../components/PopUp/PopUp";
 import Loading from "./loading";
 import darkEarth from "../public/assets/darkearth.jpg";
 
@@ -126,7 +127,7 @@ const ThreeScene = () => {
       } else {
         return;
       }
-    });
+    }, []);
 
     const handleScroll = (): void => {
       const sec1: number | undefined = sec1ref.current?.offsetTop;
@@ -224,58 +225,60 @@ const ThreeScene = () => {
         camera.fov = 45;
       }
     };
-
+    const [visible, setVisible] = useState<boolean>(false);
     return (
-      <div
-        className={`w-screen h-screen m-0 p-0 bg-cover bg-center`}
-        ref={containerRef}
-        style={{
-          backgroundImage: `url(${stars.src})`,
-        }}
-      >
+      <div className="w-screen h-screen m-0 p-0">
+        <PopUp visible={visible} setVisible={setVisible} />
         <div
-          className="absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory font-orbitron-l"
-          onScroll={handleScroll}
-          ref={parentDiv}
+          className={`w-screen h-screen m-0 p-0 bg-cover bg-center`}
+          ref={containerRef}
+          style={{
+            backgroundImage: `url(${stars.src})`,
+          }}
         >
-          <section
-            className="h-screen w-full snap-center flex flex-col md:gap-4"
-            id="Home"
-            ref={sec1ref}
+          <div
+            className="absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory font-orbitron-l"
+            onScroll={handleScroll}
+            ref={parentDiv}
           >
-            <Navbar />
-            <Landing />
-          </section>
-          <section
-            className="h-screen w-full snap-center"
-            id="Events"
-            ref={sec2ref}
-          >
-            <Events />
-          </section>
-          <section
-            className="h-screen w-full snap-center flex items-center"
-            id="GuestLectures"
-            ref={sec3ref}
-          >
-            {" "}
-            <GuestLectures />{" "}
-          </section>
-          <section
-            className="h-screen w-full snap-center flex items-center"
-            id="Sponsors"
-            ref={sec4ref}
-          >
-            {" "}
-            <OurSponsors />{" "}
-          </section>
-          <section className="h-[15%] w-full snap-center">
-            <Footer />
-          </section>
+            <section
+              className="h-screen w-full snap-center flex flex-col md:gap-4"
+              id="Home"
+              ref={sec1ref}
+            >
+              <Navbar />
+              <Landing />
+            </section>
+            <section
+              className="h-screen w-full snap-center"
+              id="Events"
+              ref={sec2ref}
+            >
+              <Events visible={visible} setVisible={setVisible} />
+            </section>
+            <section
+              className="h-screen w-full snap-center flex items-center"
+              id="GuestLectures"
+              ref={sec3ref}
+            >
+              {" "}
+              <GuestLectures />{" "}
+            </section>
+            <section
+              className="h-screen w-full snap-center flex items-center"
+              id="Sponsors"
+              ref={sec4ref}
+            >
+              {" "}
+              <OurSponsors />{" "}
+            </section>
+            <section className="h-[15%] w-full snap-center">
+              <Footer />
+            </section>
+          </div>
         </div>
       </div>
     );
-  
   }
   return <Loading />;
 };

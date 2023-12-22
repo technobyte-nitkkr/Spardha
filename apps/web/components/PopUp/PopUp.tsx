@@ -12,11 +12,14 @@ interface EventsElement {
   eventName: string;
   eventCategory: string;
 }
-const PopUp = () => {
+const PopUp: React.FC<{
+  visible: boolean;
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ visible, setVisible }) => {
   const [categories, setCategories] = useState<CategoriesElement[]>([]);
   const [Events, setEvents] = useState<EventsElement[]>([]);
   const [ActiveEvent, setActiveEvent] = useState<EventsElement>({
-    eventName: "Axiom",
+    eventName: "Excalibur",
     eventCategory: "Programming",
   });
   const [angle, setAngle] = useState<boolean[]>(
@@ -47,7 +50,7 @@ const PopUp = () => {
             )
           );
           setActiveEvent({
-            eventName: "Axiom",
+            eventName: "Black Box",
             eventCategory: "Programming",
           } as EventsElement);
         }
@@ -75,9 +78,24 @@ const PopUp = () => {
       )
       .catch((err: Error) => err);
   }, []);
-
   return (
-    <div className="w-screen h-screen flex justify-center items-center p-3">
+    <div
+      className={`${
+        visible === true ? "absolute flex" : "hidden"
+      } w-screen h-screen justify-center items-center p-3 z-10`}
+    >
+      <div className="absolute w-full h-full bg-[rgba(0,0,0,0.8)] z-5">
+        <div
+          className="w-14 h-14 right-0 absolute text-center flex flex-col justify-center  hover:scale-105 cursor-pointer"
+          onClick={() => {
+            setVisible(false);
+          }}
+        >
+          <h1 className="font-starlord-1 text-5xl">
+          X
+          </h1>
+        </div>
+      </div>
       <div
         className="flex justify-center items-center w-[1485.666px] h-[953.507px] scale-90"
         style={{
@@ -119,7 +137,7 @@ const PopUp = () => {
                       }
                     }}
                   >
-                    <h1 className="text-white text-2xl  leading-6 tracking-[1px] font-oritron w-full">
+                    <h1 className="text-2xl leading-6 tracking-[1px] font-orbitron-1 text-start w-full">
                       {category.categoryName}
                     </h1>
                     <Image
@@ -143,7 +161,7 @@ const PopUp = () => {
                   </div>
                   <div>
                     {angle[index] !== true ? (
-                      <div className="flex flex-col items-center justify-center gap-2 p-2  bg-[#06399F]">
+                      <div className="flex flex-col items-center justify-center gap-2 p-2 font-orbitron-1 text-start text-xl bg-[#06399F]">
                         {Events.map((event, index) =>
                           event.eventCategory === category.categoryName ? (
                             <div
