@@ -105,6 +105,7 @@
     border-radius: 20px;
     transition-duration: 1500s;
 }
+
 @media (max-width: 480px) {
     .about-event-container{
         scale: 0.9;

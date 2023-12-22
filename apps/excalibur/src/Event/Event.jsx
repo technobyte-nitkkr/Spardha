@@ -7,8 +7,16 @@ const imgUrls = [
     "https://assets.website-files.com/5b3dd54182ecae4d1602962f/609e33e18c5000af6211f094_HR%20Hackathon%20-%20Section%202.jpg"
 ]
 
+
 export default function Event(){
-    
+    let idx = 0;
+    useEffect(()=>{
+        setInterval(()=>{
+            idx = (idx+1)%imgUrls.length
+            document.querySelector(".image-holder").querySelector("img").src = imgUrls[idx];
+        }, 4000)
+
+    }, [])
     return (
         <div className="about-event-container" id="about">
             <h2>What is <span>Excalibur</span>?</h2>
@@ -27,7 +35,6 @@ export default function Event(){
                     </p>
                     <div className="image-holder">
                         <img src={imgUrls[0]} alt="Excalibur Glimpses"/>
-                        {/* <ImageSlider imgUrls={imgUrls} /> */}
                     </div>
                 </div>
             </div>
