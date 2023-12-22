@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@300&display=swap');
 #root{
   width: 100%;
+  height: fit-content;
   overflow-x: hidden;
   position: relative;
 }
 .excalibur{
   /* position: relative; */
   width: 90%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +34,7 @@ h1{
 @media (max-width: 1300px) {
   h1{
     margin-left: 2rem;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
     text-align: center;
     font-family: Pirata One;
     font-size: 10.25rem;
@@ -45,7 +47,7 @@ h1{
 @media (max-width: 1024px) {
   h1{
     margin-left: 1.2rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     text-align: center;
     font-family: Pirata One;
     font-size: 8rem;
@@ -58,7 +60,7 @@ h1{
 @media (max-width: 960px) {
   h1{
     margin-left: 1rem;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
     text-align: center;
     font-family: Pirata One;
     font-size: 8rem;
@@ -71,7 +73,7 @@ h1{
 @media (max-width: 770px) {
   h1{
     margin-left: 0.5rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     text-align: center;
     font-family: Pirata One;
     font-size: 7rem;
@@ -84,7 +86,7 @@ h1{
 @media (max-width: 660px) {
   h1{
     margin-left: 0.2rem;
-    margin-bottom: 2.5rem;
+    /* margin-bottom: 2.5rem; */
     text-align: center;
     font-family: Pirata One;
     font-size: 6rem;

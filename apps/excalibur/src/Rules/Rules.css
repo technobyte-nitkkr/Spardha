@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&family=Quicksand:wght@300&display=swap');
+.rules{
+    max-width: 760px;
+    border-radius: 8px;
+    padding: 0 2rem 0rem 2rem;
+    text-align: center;
+    color: #d5d5d5;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: rgba(0, 0, 0, 0.324);
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 22px rgba(255, 255, 255, 0.2);
+}
+.rules>h2{
+    margin: 1.5rem;
+    margin-bottom: calc(1.5rem - 20px);
+}
+.rules>.rules-container{
+    max-height: 70svh;
+    margin-bottom: 1.5rem;
+    overflow-y: auto;
+    text-align: left;
+    text-align: justify;
+    font-size: 1.2rem;
+    border-radius: 20px;
+}
+
+.rules>.rules-container::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0);
+}
+.rules>.rules-container::-webkit-scrollbar{
+	width: 12px;
+	background-color: rgba(0, 0, 0, 0.352);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+}
+.rules>.rules-container::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #ffffff35;
+    backdrop-filter: blur(20px);
+}
+
+
+.rules-container>ul{
+    list-style-type: "> ";
+}
+.rules-container>ul>li{
+    margin: 10px auto;
+    width: 98%;
+    padding: 20px;
+    list-style-position: inside;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.352);
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 22px rgba(152, 152, 152, 0.2);
+}
+.rules-container>ul>li::marker{
+    font-size: 1.2rem;
+    font-weight: 800;
+    font-family: poppins;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #bc13fe,
+    0 0 0.8rem #bc13fe,
+    0 0 2.8rem #bc13fe,
+    inset 0 0 1.3rem #bc13fe;
+}
