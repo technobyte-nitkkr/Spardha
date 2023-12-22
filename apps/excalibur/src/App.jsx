@@ -5,7 +5,7 @@ import Navbar from './navbar/Navbar'
 import Event from './Event/Event'
 import TimeLine from './Timeline/Timeline'
 import Themes from './Themes/Themes'
-import Sponsors from './Sponsors/sponsors'
+import Sponsors from './Sponsors/Sponsors'
 import Footer from './Footer/Footer'
 import Rules from './Rules/Rules'
 
