@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body{
   overflow-x: hidden;
@@ -10,4 +11,5 @@ body{
   min-height: 100svh;
   background-image: url(/images/Home\ Page.jpg);
   position: relative;
+  scroll-behavior: smooth;
 }

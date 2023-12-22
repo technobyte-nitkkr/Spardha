@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&family=Quicksand:wght@300&display=swap');
+
+.sponsors-section{
+    width: 98%;
+    background-color: rgba(31, 26, 26, 0.212);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    margin: 2rem;
+}
+
+.sponsors-section>h2{
+    color: aliceblue;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: quicksand;
+    font-weight: 800;
+    margin: 2rem;
+}
+.sponsors-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+}
+
+.sponsors-container>.sponsors-tile{
+    max-width: 150px;
+    height: 150px;
+    margin: 1rem;
+    padding: 1rem;
+    flex-grow: 1;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sponsors-tile>img{
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+}

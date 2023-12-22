@@ -1,6 +1,6 @@
 .background_graphics{
     overflow: clip;
-    position: absolute;
+    position: fixed;
     width: 100svw;
     margin-top: auto;
     bottom: 0;
@@ -34,9 +34,9 @@
 @media (max-width: 480px) {
     .background_graphics{
         bottom: 0;
+        /* scale: 3; */
+    }
+    .background_graphics>img{
         scale: 3;
     }
-    /* .background_graphics>img{
-        scale: 3;
-    } */
 }
