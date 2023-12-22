@@ -40,14 +40,23 @@ const GuestLectures = (): JSX.Element => {
       setCardIndex(cardIndex - 1);
     }
   };
-
+  const [shiftBY,setShiftby] = useState<number>(3);
   useEffect(() => {
+     if(window.innerWidth < 768) {
+      setShiftby(1);
+    }
+    else if(window.innerWidth < 1024) {
+      setShiftby(2);
+    }
+    else {
+      setShiftby(3);
+    }
     if (scrollRef.current && cardRef.current !== null) {
       const gap = (scrollRef.current.offsetWidth - numberOfCards*cardRef.current.offsetWidth)/2; //removed ? and ! to correct build errors
 
       scrollRef.current.scroll({
         // current can be null, so null check is required
-        left: (cardRef.current.offsetWidth + gap) * cardIndex + gap, 
+        left: ((cardRef.current.offsetWidth + gap) * cardIndex + gap)*shiftBY, 
         behavior: "smooth",
       });
     }
@@ -80,12 +89,12 @@ const GuestLectures = (): JSX.Element => {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-evenly">
-      <div className="text-5xl sm:text-5xl md:text-6xl xl:text-5xl font-starlord-1">
+      <div className="md:text-5xl text-4xl font-starlord-1">
         Guest Lectures
       </div>
 
       <div
-        className="h-3/5 w-4/5 flex overflow-x-auto lg:gap-14 md:gap-8 sm:gap-8 gap-2 px-2 gCardResponsive snap-x snap-mandatory"
+        className="h-3/5 w-4/5 flex overflow-x-auto gCardResponsive snap-x snap-mandatory"
         ref={scrollRef}
       >
         {guestList.map((item,index) => {
