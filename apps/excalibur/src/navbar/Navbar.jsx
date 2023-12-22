@@ -1,9 +1,62 @@
+import { useState } from 'react'
 import './Navbar.css'
+import { GrDown } from "react-icons/gr";
+
+function Normalnav(){
+    return (
+        <>
+            <div className='nav-sections'>
+                <a href='#sponsors'>Sponsors</a>
+                <a href='#about'>About</a>
+                <a href='#themes'>Themes</a>
+                <a href='#schedule'>Schedule</a>
+                <a href='#rules'>Rules</a>
+            </div>
+        </>
+    )
+}
+
+function Droparrow({clickHandle}){
+    return (
+        <div className='arrow' onClick={clickHandle}>
+            <GrDown />
+        </div>
+    )
+}
+function Blocknav({clickHandle}){
+    return (
+        <>
+            <Droparrow clickHandle={clickHandle}/>
+            <div className='dropnav'>
+                <a href='#sponsors' onClick={clickHandle}>Sponsors</a>
+                <a href='#about'    onClick={clickHandle}>About</a>
+                <a href='#themes'   onClick={clickHandle}>Themes</a>
+                <a href='#schedule' onClick={clickHandle}>Schedule</a>
+                <a href='#rules'    onClick={clickHandle}>Rules</a>
+            </div>
+        </>
+    )
+}
+
+function Dropnav(){
+    const [drop, setDrop] = useState(false);
+    const clickHandler = ()=>{
+        setDrop((prev) => !prev);
+    }
+    return (
+        <>
+            {drop ? <Blocknav clickHandle={clickHandler} /> : <Droparrow clickHandle={clickHandler}/>}
+        </>
+    )
+}
+
 export default function Navbar(){
     let back = '<'
     return(
         <nav>
             <a><span>{back}</span></a>
+            <Normalnav />
+            <Dropnav />
             <span className="techspardha_logo">
                 {/* ellipse svg */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="271" height="201" viewBox="0 0 271 201" fill="none">
@@ -18,7 +71,7 @@ export default function Navbar(){
                         </filter>
                     </defs>
                 </svg>
-                <img src="./public/images/TechspardhaLogo.svg" alt="T" />
+                <img src="/images/TechspardhaLogo.svg" alt="T" />
             </span>
         </nav>
     )
