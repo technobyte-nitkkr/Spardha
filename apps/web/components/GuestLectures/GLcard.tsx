@@ -21,7 +21,7 @@ const GLcard: React.FC<{
   key: number;
 }> = ({ forwardedRef, item }) => {
   return (
-    <div className="h-full xl:w-1/3 lg:w-1/2  w-full flex-shrink-0 p-3">
+    <div className="h-full xl:w-1/3 lg:w-1/2  w-full flex-shrink-0 px-3">
       <div
         className="h-full w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3 snap-start"
         style={{

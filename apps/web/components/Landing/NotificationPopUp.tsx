@@ -189,21 +189,27 @@ const PopUp: React.FC<{
                 {ActiveNotification.notification.body}
               </h1>
               <h1 className="text-[20px] leading-6 tracking-[1px] font-orbitron-1 text-start w-full mb-3">
-              <span className="text-blue-200">Link:</span> {" "}
-                <span className="text-cyan-400">
-                  {ActiveNotification.notification.link}
+                <span className="text-blue-200">Link:</span>{" "}
+                <a
+                  href={ActiveNotification.notification.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="text-cyan-400 cursor-pointer">
+                    {ActiveNotification.notification.link}
+                  </span>
+                </a>
+              </h1>
+              <h1 className="text-[20px] leading-6 tracking-[1px] font-orbitron-1 text-start w-full mb-3">
+                <span className="text-blue-200">Date:</span>{" "}
+                <span className="">
+                  {giveDate(ActiveNotification.time)}-
+                  {giveDate(ActiveNotification.time)}
                 </span>
               </h1>
               <h1 className="text-[20px] leading-6 tracking-[1px] font-orbitron-1 text-start w-full mb-3">
-              <span className="text-blue-200">Date:</span> {" "}
-              <span className="">
-              {giveDate(ActiveNotification.time)}-
-              {giveDate(ActiveNotification.time)}
-              </span>
-              </h1>
-              <h1 className="text-[20px] leading-6 tracking-[1px] font-orbitron-1 text-start w-full mb-3">
-              <span className="text-blue-200">By:</span> {" "}
-              {ActiveNotification.notification.android_channel_id.toUpperCase()}
+                <span className="text-blue-200">By:</span>{" "}
+                {ActiveNotification.notification.android_channel_id.toUpperCase()}
               </h1>
             </div>
           </div>

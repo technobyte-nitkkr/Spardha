@@ -141,7 +141,7 @@ const ThreeScene = () => {
       // (s, s, s) - (f, f, f)
       // s + (f - s) * (scroll-sec1!)/(sec2!-sec1!)
 
-      if (scroll && scroll < sec2!) {
+      if (scroll && scroll <= sec2!) {
         camera.position.set(
           // (0, 30, 60) - (-70, 0, 200)
           0 + ((-70 - 0) * (scroll - sec1!)) / height,
@@ -227,11 +227,15 @@ const ThreeScene = () => {
       }
     };
     const [visible, setVisible] = useState<boolean>(false);
-    const [visibleNotifications, setVisibleNotifications] = useState<boolean>(false);
+    const [visibleNotifications, setVisibleNotifications] =
+      useState<boolean>(false);
     return (
       <div className="w-screen h-screen m-0 p-0">
         <PopUp visible={visible} setVisible={setVisible} />
-        <NotificationsPopUp visibleNotifications={visibleNotifications} setVisibleNotifications={setVisibleNotifications} />
+        <NotificationsPopUp
+          visibleNotifications={visibleNotifications}
+          setVisibleNotifications={setVisibleNotifications}
+        />
         <div
           className={`w-screen h-screen m-0 p-0 bg-cover bg-center`}
           ref={containerRef}
@@ -250,7 +254,10 @@ const ThreeScene = () => {
               ref={sec1ref}
             >
               <Navbar />
-              <Landing visibleNotifications={visibleNotifications} setVisibleNotifications={setVisibleNotifications}/>
+              <Landing
+                visibleNotifications={visibleNotifications}
+                setVisibleNotifications={setVisibleNotifications}
+              />
             </section>
             <section
               className="h-screen w-full snap-center"
@@ -264,16 +271,14 @@ const ThreeScene = () => {
               id="GuestLectures"
               ref={sec3ref}
             >
-              {" "}
-              <GuestLectures />{" "}
+              <GuestLectures />
             </section>
             <section
               className="h-screen w-full snap-center flex items-center"
               id="Sponsors"
               ref={sec4ref}
             >
-              {" "}
-              <OurSponsors />{" "}
+              <OurSponsors />
             </section>
             <section className="h-[15%] w-full snap-center">
               <Footer />
