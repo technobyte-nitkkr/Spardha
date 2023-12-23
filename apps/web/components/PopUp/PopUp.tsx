@@ -44,11 +44,7 @@ const PopUp: React.FC<{
           data: { categories: CategoriesElement[] };
         }) => {
           setCategories(data.data.categories);
-          setAngle(
-            data.data.categories.map((item, index) =>
-              index === 0 ? false : true
-            )
-          );
+          setAngle(data.data.categories.map((_, index) => index !== 0));
           setActiveEvent({
             eventName: "Black Box",
             eventCategory: "Programming",
@@ -81,7 +77,7 @@ const PopUp: React.FC<{
   return (
     <div
       className={`${
-        visible === true ? "absolute flex" : "hidden"
+        visible ? "absolute flex" : "hidden"
       } w-screen h-screen justify-center items-center p-3 z-10`}
     >
       <div className="absolute w-full h-full bg-[rgba(0,0,0,0.8)] z-5">
@@ -90,10 +86,9 @@ const PopUp: React.FC<{
           onClick={() => {
             setVisible(false);
           }}
+          role="presentation"
         >
-          <h1 className="font-starlord-1 text-5xl">
-          X
-          </h1>
+          <h1 className="font-starlord-1 text-5xl">X</h1>
         </div>
       </div>
       <div
@@ -125,25 +120,20 @@ const PopUp: React.FC<{
                       "flex w-[276px] flex-row items-center justify-end p-3 border-b-2 cursor-pointer "
                     }
                     onClick={() => {
-                      if (angle.at(index) === true) {
-                        setAngle(
-                          angle.map((item, i) => (i === index ? false : true))
-                        );
+                      if (angle.at(index)) {
+                        setAngle(angle.map((_, i) => i !== index));
                       }
-                      if (angle.at(index) === false) {
-                        setAngle(
-                          angle.map((item, i) => (i === index ? true : true))
-                        );
+                      if (!angle.at(index)) {
+                        setAngle(angle.map(() => true));
                       }
                     }}
+                    role="presentation"
                   >
                     <h1 className="text-2xl leading-6 tracking-[1px] font-orbitron-1 text-start w-full">
                       {category.categoryName}
                     </h1>
                     <Image
-                      className={`ml-2 ${
-                        angle[index] === true ? "" : "hidden"
-                      }`}
+                      className={`ml-2 ${angle[index] ? "" : "hidden"}`}
                       src={Showmore as string}
                       alt="category"
                       width={50}
@@ -151,7 +141,7 @@ const PopUp: React.FC<{
                     />
                     <Image
                       className={`ml-2 cursor-pointer rotate-180 ${
-                        angle[index] !== true ? "" : "hidden"
+                        !angle[index] ? "" : "hidden"
                       }`}
                       src={Showmore as string}
                       alt="category"
@@ -160,15 +150,15 @@ const PopUp: React.FC<{
                     />
                   </div>
                   <div>
-                    {angle[index] !== true ? (
+                    {!angle[index] ? (
                       <div className="flex flex-col items-center justify-center gap-2 p-2 font-orbitron-1 text-start text-xl bg-[#06399F]">
-                        {Events.map((event, index) =>
+                        {Events.map((event, idx) =>
                           event.eventCategory === category.categoryName ? (
                             <div
-                              key={index}
+                              key={idx}
                               className={`flex w-[276px] flex-row items-center justify-end cursor-pointer
                                 ${
-                                  ActiveEvent?.eventName === event.eventName
+                                  ActiveEvent.eventName === event.eventName
                                     ? "opacity-100"
                                     : "opacity-60"
                                 }
@@ -176,6 +166,7 @@ const PopUp: React.FC<{
                               onClick={() => {
                                 setActiveEvent(event);
                               }}
+                              role="presentation"
                             >
                               <h1
                                 className={`text-white text-lg leading-6 tracking-[1px] font-oritron-l w-full 

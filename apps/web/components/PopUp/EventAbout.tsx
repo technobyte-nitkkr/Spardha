@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 interface EventsElement {
   eventName: string;
@@ -37,12 +36,10 @@ const initData: EventsAboutElement = {
 const EventAbout: React.FC<{
   item: EventsElement;
 }> = ({ item }) => {
-  const [event, setEvent] = useState<EventsAboutElement>(initData);
+  const [event, setEvent] = useState<EventsAboutElement | null>(initData);
   useEffect(() => {
     fetch(
-      `https://us-central1-techspardha-87928.cloudfunctions.net/api2/events/description?eventCategory=${
-        item.eventCategory as string
-      }&eventName=${item.eventName as string}`,
+      `https://us-central1-techspardha-87928.cloudfunctions.net/api2/events/description?eventCategory=${item.eventCategory}&eventName=${item.eventName}`,
       {
         method: "GET",
         headers: {
@@ -56,7 +53,7 @@ const EventAbout: React.FC<{
         (data: {
           message: string;
           success: boolean;
-          data: EventsAboutElement ;
+          data: EventsAboutElement;
         }) => {
           setEvent(data.data);
         }
@@ -64,24 +61,33 @@ const EventAbout: React.FC<{
       .catch((err: Error) => err);
   }, [item]);
   return (
-    event !== undefined ? (
     <div className="h-full w-full flex-shrink-0 overflow-y-auto">
-      <div className="">
-        <Image
-          alt="Poster"
-          className="w-full"
-          src={event.poster}
-          width={1000}
-          height={1000}
-        />
-      </div>
-      <div className="w-full p-2">
-        <p>{event.description}</p>
-      </div>
+      {event ? (
+        <>
+          <div className="">
+            <Image
+              alt="Poster"
+              className="w-full"
+              src={event.poster}
+              width={1000}
+              height={1000}
+            />
+          </div>
+          <div className="w-full p-2">
+            <p>{event.description}</p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="h-full w-full flex-shrink-0 overflow-y-auto">
+            <div className="h-2/3 w-auto p-2 bg-[rgba(137,137,137,0.69)] animate-pulse"></div>
+            <div className="w-full p-2 ">
+              <p className="animate-pulse">Loading....</p>
+            </div>
+          </div>
+        </>
+      )}
     </div>
-    ) : (
-      "Loading..."
-    )
   );
 };
 
