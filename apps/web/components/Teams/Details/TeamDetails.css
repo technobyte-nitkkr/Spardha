@@ -29,7 +29,6 @@
     /* z-index: 100; */
     align-items: center;
     justify-content: center;
-    font-family: "segoeui";
     /* background-color: black; */
   }
   
@@ -87,13 +86,11 @@
   
   .team-card {
     text-align: center;
-    font-family: sans-serif;
   }
   
   .person-name {
     font-size: 20px;
     font-weight: 400;
-    font-family: 'segoeui';
     color: #FFF;
   }
   

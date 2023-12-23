@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto+Slab:wght@700&display=swap");
 
-/* @font-face {
-  font-family: myFirstFont;
-  src: url(../../Hanged\ Letters.ttf);
-} */
+*{
+  font-family: Starlord;
+}
 
 .parent{
   background: #1f0641;
@@ -15,7 +14,6 @@
   font-size: 6vh;
   color: white;
   text-align: center;
-  font-family: "segoeui", cursive !important;
   margin: 5vh;
 }
 .headingGL {
@@ -37,7 +35,6 @@
   flex-direction: column;
   text-align: center;
   margin-top: 5rem;
-  font-family: 'segoeui', cursive !important;
   font-weight: 500;
 
   /* background-repeat: no-repeat; */
