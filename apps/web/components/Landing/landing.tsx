@@ -22,7 +22,10 @@ interface NotificationDetails{
   title: string,
 }
 
-const Landing = (): JSX.Element => {
+const Landing : React.FC<{
+  visibleNotifications: boolean;
+  setVisibleNotifications: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ visibleNotifications, setVisibleNotifications }) => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   useEffect(() =>{
     fetch("https://us-central1-techspardha-87928.cloudfunctions.net/api2/notification")
@@ -66,7 +69,7 @@ const Landing = (): JSX.Element => {
           style={{
             backgroundImage: `url(${panel.src})`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            backgroundSize: "contain",
             backgroundPosition: "center",
           }}>
           <div className="w-[70%] h-[70%] lg:text-2xl md:text-2xl sm:text-xl text-[10px] overflow-hidden font-orbitron-l">
@@ -81,7 +84,15 @@ const Landing = (): JSX.Element => {
             }
           </div>
         </div>
-        <button className="border-t-2 border-x-2 border-b-8 border-[#367CFF] rounded-tl-[16px] text-center py-[5px] px-[8px] font-orbitron-l" type="button">
+        <button className="border-t-2 border-x-2 border-b-8 border-[#367CFF] rounded-tl-[16px] text-center py-[5px] px-[8px] font-orbitron-l" type="button" onClick={
+          !visibleNotifications
+            ? () => {
+                setVisibleNotifications(true);
+              }
+            : () => {
+                setVisibleNotifications(false);
+              }
+        }>
           View Them All
         </button>
       </div>

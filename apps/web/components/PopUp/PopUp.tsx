@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import panel from "../../public/PANEL.svg";
 import Image from "next/image";
+import panel from "../../public/PANEL.svg";
 import Showmore from "../../public/assets/expand_more.svg";
 import EventAbout from "./EventAbout";
 interface CategoriesElement {

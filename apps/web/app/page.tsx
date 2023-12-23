@@ -9,6 +9,7 @@ import Landing from "../components/Landing/landing";
 import Events from "../components/Events/Events";
 import Footer from "../components/Footer";
 import PopUp from "../components/PopUp/PopUp";
+import NotificationsPopUp from "../components/Landing/NotificationPopUp";
 import Loading from "./loading";
 import darkEarth from "../public/assets/darkearth.jpg";
 
@@ -226,9 +227,11 @@ const ThreeScene = () => {
       }
     };
     const [visible, setVisible] = useState<boolean>(false);
+    const [visibleNotifications, setVisibleNotifications] = useState<boolean>(false);
     return (
       <div className="w-screen h-screen m-0 p-0">
         <PopUp visible={visible} setVisible={setVisible} />
+        <NotificationsPopUp visibleNotifications={visibleNotifications} setVisibleNotifications={setVisibleNotifications} />
         <div
           className={`w-screen h-screen m-0 p-0 bg-cover bg-center`}
           ref={containerRef}
@@ -247,7 +250,7 @@ const ThreeScene = () => {
               ref={sec1ref}
             >
               <Navbar />
-              <Landing />
+              <Landing visibleNotifications={visibleNotifications} setVisibleNotifications={setVisibleNotifications}/>
             </section>
             <section
               className="h-screen w-full snap-center"
