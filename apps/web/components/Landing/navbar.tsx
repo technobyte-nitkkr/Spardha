@@ -26,17 +26,20 @@ const Navbar = (): JSX.Element => {
             X
           </button>
         <div className="navbar links flex-row bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 h-full font-orbitron md:text-xl hidden md:flex text-[12px]">
-          <a className="px-6 items-center flex" href="#Sponsors">
+          <a className="px-6 items-center flex" href="/#Sponsors">
             Sponsors
           </a>
-          <a className="px-6 items-center flex" href="#GuestLectures">
+          <a className="px-6 items-center flex" href="/#GuestLectures">
             Lectures
           </a>
-          <a className="px-6 items-center flex" href="#about">
+          <a className="px-6 items-center flex" href="/#about">
             About
           </a>
-          <a className="px-6 items-center flex" href="#Discord">
+          <a className="px-6 items-center flex" href="/#Discord">
             Discord
+          </a>
+          <a className="px-6 items-center flex" href="/Teams">
+            Teams
           </a>
         </div>
         <div className="login flex items-center h-full">

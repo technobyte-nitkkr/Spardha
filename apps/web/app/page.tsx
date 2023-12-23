@@ -14,6 +14,8 @@ import Footer from "../components/Footer";
 import { PopUp } from "../components/PopUp/PopUp";
 import Loading from "./loading";
 import darkEarth from "../public/assets/darkearth.jpg";
+import TeamDetails from "../components/Teams/Details/TeamDetails";
+import TeamAnimation from "../components/Teams/Animation/TeamAnimation";
 
 const ThreeScene = () => {
   if (typeof window !== "undefined") {
