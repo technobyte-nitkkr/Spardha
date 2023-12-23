@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
-@import url('https://fonts.cdnfonts.com/css/galactic-vanguardian-ncv');
 
+@import url('https://fonts.cdnfonts.com/css/galactic-vanguardian-ncv');
+.font-orbitron1 {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+}
 @layer base {
   .font-outline-05 {
     -webkit-text-stroke: 0.7px black;
@@ -15,9 +20,10 @@
   }
 
   .font-orbitron {
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron";
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
+    letter-spacing: 2px;
   }
 
   .font-orbitron-1 {
@@ -31,7 +37,7 @@
   }
 
   .font-orbitron-l {
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron";
     font-style: normal;
     font-weight: 300;
   }

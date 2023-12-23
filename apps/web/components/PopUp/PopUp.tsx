@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import panel from "../../public/PANEL.svg";
+import panel from '../../public/assets/PANEL.png'
 import Showmore from "../../public/assets/expand_more.svg";
 import EventAbout from "./EventAbout";
 interface CategoriesElement {
@@ -80,7 +80,7 @@ const PopUp: React.FC<{
         visible ? "absolute flex" : "hidden"
       } w-screen h-screen justify-center items-center p-3 z-10`}
     >
-      <div className="absolute w-full h-full bg-[rgba(0,0,0,0.8)] z-5">
+      <div className="absolute w-full h-full bg-[rgba(0,0,0,0.86)] z-5">
         <div
           className="w-14 h-14 right-0 absolute text-center flex flex-col justify-center  hover:scale-105 cursor-pointer"
           onClick={() => {

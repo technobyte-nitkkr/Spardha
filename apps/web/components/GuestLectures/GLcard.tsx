@@ -21,14 +21,15 @@ const GLcard: React.FC<{
   key: number;
 }> = ({ forwardedRef, item }) => {
   return (
-    <div className="h-full xl:w-1/3 lg:w-1/2  w-full flex-shrink-0 px-3">
+    <div className="h-full xl:w-1/3 lg:w-1/2 w-full flex-shrink-0 px-3"
+    ref={forwardedRef}
+    >
       <div
         className="h-full w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3 snap-start"
         style={{
           backgroundColor: "rgb(54, 124, 255, 0.25)",
           border: "1px solid rgb(54, 124, 255)",
         }}
-        ref={forwardedRef}
       >
         <div className="w-full h-[20%] flex">
           <Image
@@ -45,7 +46,7 @@ const GLcard: React.FC<{
             >
               {item.name}
             </div>
-            <div className="text-[0.8] h-1/3 sm:h-auto sm:mt-2 sm:text-[0.8rem] sm:mb-2 opacity-60 custom-xsm:h-auto custom-xsm:text-[0.8rem] md:h-auto md:text-[0.8rem] md:mt-0  custom-sm:h-auto custom-sm:text-[1rem] ">
+            <div className="text-[0.8] h-1/3 sm:h-auto sm:mt-2 sm:text-[0.8rem] sm:mb-2 opacity-60 custom-xsm:h-auto custom-xsm:text-[0.8rem] md:h-auto md:text-[0.8rem] md:mt-0  custom-sm:h-auto custom-sm:text-[0.8rem] ">
               {item.date} {item.time}
             </div>
           </div>

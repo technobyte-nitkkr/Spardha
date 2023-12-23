@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import panel from "../../public/PANEL.svg";
+import panel from '../../public/assets/PANEL.png'
 import Showmore from "../../public/assets/expand_more.svg";
 interface NotificationsData {
   success: boolean;
@@ -98,7 +98,7 @@ const PopUp: React.FC<{
         visibleNotifications ? "absolute flex" : "hidden"
       } w-screen h-screen justify-center items-center p-3 z-10`}
     >
-      <div className="absolute w-full h-full bg-[rgba(0,0,0,0.8)] z-5">
+      <div className="absolute w-full h-full bg-[rgba(0,0,0,0.86)] z-5">
         <div
           className="w-14 h-14 right-0 absolute text-center flex flex-col justify-center  hover:scale-105 cursor-pointer"
           onClick={() => {
@@ -175,7 +175,7 @@ const PopUp: React.FC<{
           <div className="inline-flex w-[940px] h-[737px] flex-col items-center gap-6 shrink-0 pb-4">
             <div className="overflow-y-auto px-2">
               <h1 className="text-white text-3xl tracking-[1px] font-starlord text-center mb-3">
-                {ActiveNotification.notification.title}
+                {ActiveNotification.notification.title?ActiveNotification.notification.title:""}
               </h1>
               <Image
                 className="mb-3"
@@ -186,17 +186,17 @@ const PopUp: React.FC<{
               />
               <h1 className="text-[15px] leading-6 tracking-[1px] font-orbitron-1 text-start w-full mb-3">
                 <span className="text-blue-200">ABOUT:</span>
-                {ActiveNotification.notification.body}
+                {ActiveNotification.notification.body?ActiveNotification.notification.body:""}
               </h1>
               <h1 className="text-[20px] leading-6 tracking-[1px] font-orbitron-1 text-start w-full mb-3">
                 <span className="text-blue-200">Link:</span>{" "}
                 <a
-                  href={ActiveNotification.notification.link}
+                  href={ActiveNotification.notification.link?ActiveNotification.notification.link:""}
                   target="_blank"
                   rel="noreferrer"
                 >
                   <span className="text-cyan-400 cursor-pointer">
-                    {ActiveNotification.notification.link}
+                    {ActiveNotification.notification.link?ActiveNotification.notification.link:""}
                   </span>
                 </a>
               </h1>
@@ -209,7 +209,7 @@ const PopUp: React.FC<{
               </h1>
               <h1 className="text-[20px] leading-6 tracking-[1px] font-orbitron-1 text-start w-full mb-3">
                 <span className="text-blue-200">By:</span>{" "}
-                {ActiveNotification.notification.android_channel_id.toUpperCase()}
+                {ActiveNotification.notification.android_channel_id?ActiveNotification.notification.android_channel_id.toUpperCase():""}
               </h1>
             </div>
           </div>

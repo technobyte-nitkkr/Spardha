@@ -41,11 +41,12 @@ const GuestLectures = (): JSX.Element => {
     }
   };
   const [shiftBY,setShiftby] = useState<number>(3);
+  const [direction,setDirection] = useState<boolean>(true);
   useEffect(() => {
-     if(window.innerWidth < 768) {
+     if(window.innerWidth < 1024) {
       setShiftby(1);
     }
-    else if(window.innerWidth < 1024) {
+    else if(window.innerWidth < 1280) {
       setShiftby(2);
     }
     else {
@@ -60,6 +61,16 @@ const GuestLectures = (): JSX.Element => {
         behavior: "smooth",
       });
     }
+
+    setInterval(() => {
+      if(cardIndex < guestList.length - 1){
+        setDirection(false);
+      }
+      if(cardIndex === 0){
+        setDirection(true);
+      }
+      direction?scrollNext():scrollPrev();
+    }, 1000);
   }, [cardIndex]);
   
   window.addEventListener('resize', () => {

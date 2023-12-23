@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import panel from "../../public/assets/PANEL.png";
+import Panel from '../../public/assets/PANEL.png'
 import presented from "../../public/assets/presented.png";
 import "../../app/page.module.css";
 
@@ -37,38 +37,6 @@ const Landing: React.FC<{
       })
       .catch((err: Error) => err);
   }, []);
-  const toMonth = (i: number) => {
-    switch (i) {
-      case 0:
-        return "January";
-      case 1:
-        return "February";
-      case 2:
-        return "March";
-      case 3:
-        return "April";
-      case 4:
-        return "May";
-      case 5:
-        return "June";
-      case 6:
-        return "July";
-      case 7:
-        return "August";
-      case 8:
-        return "September";
-      case 9:
-        return "October";
-      case 10:
-        return "November";
-      case 11:
-        return "December";
-    }
-  };
-  const giveDate = (ms: string) => {
-    const time = new Date(Number.parseInt(ms));
-    return time.getDate() + " " + toMonth(time.getMonth());
-  };
   return (
     <div className="w-screen h-[85%] flex justify-center items-center font-orbitron">
       <div className="flex flex-col justify-start items-center lg:w-[50%] md:w-[70%] sm:w-[75%] w-[80%] ">
@@ -83,24 +51,29 @@ const Landing: React.FC<{
         <div
           className="sm:min-w-[540.25px] min-w-[350px] sm:min-h-[300px] min-h-[200px]  flex justify-center items-center mb-[2vh]"
           style={{
-            backgroundImage: `url(${panel.src})`,
+            backgroundImage: `url(${Panel.src})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain",
             backgroundPosition: "center",
           }}
         >
-          <div className="w-[70%] h-[70%] lg:text-2xl md:text-2xl sm:text-xl text-[10px] overflow-hidden font-orbitron-l">
+          <div className="w-[70%] h-[70%] md:text-xl sm:text-xl text-[10px] overflow-hidden font-orbitron-l ">
             {notifications.map((item: Notification, i: number) => {
               if (i > 4) return;
               return (
                 <div
                   className="py-2.5 opacity-70 hover:opacity-100 cursor-pointer w-full"
                   key={i}
+                  onClick={ ()=>{
+                    setVisibleNotifications(true);
+                  }
+                  }
+                  role="presentation"
                 >
                   &gt;&gt;{" "}
                   <span className="text-md text-right">
                     {" "}
-                    {giveDate(item.time)}-{giveDate(item.time)}
+                    {item.notification.title.substring(0, 22)}...
                   </span>
                 </div>
               );

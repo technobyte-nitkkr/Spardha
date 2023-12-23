@@ -12,7 +12,8 @@ import PopUp from "../components/PopUp/PopUp";
 import NotificationsPopUp from "../components/Landing/NotificationPopUp";
 import Loading from "./loading";
 import darkEarth from "../public/assets/darkearth.jpg";
-
+import "@fontsource/orbitron"; // Defaults to weight 400
+import "@fontsource/orbitron/400.css"; // Specify weight
 // import mars_displacement from "../public/assets/displacement.jpeg";
 // import mars2 from "../public/assets/mars2.jpg";
 // import mars_normal from "../public/assets/mars_normal1.png";
