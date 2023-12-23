@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto+Slab:wght@700&display=swap");
+
+/* @font-face {
+  font-family: myFirstFont;
+  src: url(../../Hanged\ Letters.ttf);
+} */
+
+.parent{
+  background: #1f0641;
+  background-position: center;
+  background-size: cover;
+}
+
+.team-heading {
+  font-size: 6vh;
+  color: white;
+  text-align: center;
+  font-family: "segoeui", cursive !important;
+  margin: 5vh;
+}
+.headingGL {
+  font-size: 3rem;
+  margin: 20px auto!important;
+  width: 100%!important;
+  font-weight: 500;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+}
+.team {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 5rem;
+  font-family: 'segoeui', cursive !important;
+  font-weight: 500;
+
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* background-size: cover; */
+  /* background-attachment: fixed; */
+}
+
+.sub-team-heading {
+  color: #fff;
+  font-size: 20px;
+  width: 80%;
+  margin: 0 auto;
+  /* width: 50%; */
+  /* margin-left: 8%; */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(155, 155, 155);
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 550px) {
+  .team-heading {
+    margin-top: 30px;
+   font-size: 3em;
+    letter-spacing: 1px;
+  }
+
+  .sub-team-heading {
+    width: 90%;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+}
