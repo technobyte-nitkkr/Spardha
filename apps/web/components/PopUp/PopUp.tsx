@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import panel from '../../public/assets/PANEL.png'
-import Showmore from "../../public/assets/expand_more.svg";
+import expand from "../../public/assets/expand.svg";
 import EventAbout from "./EventAbout";
 interface CategoriesElement {
   categoryName: string;
@@ -134,7 +134,7 @@ const PopUp: React.FC<{
                     </h1>
                     <Image
                       className={`ml-2 ${angle[index] ? "" : "hidden"}`}
-                      src={Showmore as string}
+                      src={expand as string}
                       alt="category"
                       width={50}
                       height={50}
@@ -143,7 +143,7 @@ const PopUp: React.FC<{
                       className={`ml-2 cursor-pointer rotate-180 ${
                         !angle[index] ? "" : "hidden"
                       }`}
-                      src={Showmore as string}
+                      src={expand as string}
                       alt="category"
                       width={50}
                       height={50}

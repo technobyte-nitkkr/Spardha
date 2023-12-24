@@ -6,7 +6,7 @@ import Registration from "../../components/Registration/Registration";
 import Image from "next/image";
 import Link from "next/link";
 import logoe from "../../public/assets/logoe.png";
-import Showmore from "../../public/assets/expand_more.svg";
+import expand from "../../public/assets/expand.svg";
 import "./About.css";
 
 const About = () => {
@@ -16,7 +16,7 @@ const About = () => {
         <Link href="/" className="h-full w-auto flex justify-center items-center">
           <Image
             className="cursor-pointer rotate-90"
-            src={Showmore as string}
+            src={expand as string}
             alt="category"
             width={50}
             height={50}
