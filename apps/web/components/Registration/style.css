@@ -4,11 +4,11 @@
 .reg-container h2{
     font-family: Starlord;
     font-size: 35px;
-    font-weight: 700;
+    font-weight: 300;
     line-height: 44px;
 }
 .reg-container p{
-    font-family: Starlord;
+    /* font-family: Starlord; */
     margin: 20px 0px;
     font-size: 24px;
     font-weight: 400;

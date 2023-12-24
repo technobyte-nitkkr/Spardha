@@ -10,7 +10,7 @@ const Homecontainer = ({ heading, element }):JSX.Element => {
       <div className="designContainer">
         <div className="hc-headingline">
           <Image src={tag as string} alt="" />
-          <div>{heading}</div>
+          <div className="font-starlord text-start">{heading}</div>
         </div>
         <div className="hc-eclipse">
           <div>
@@ -21,7 +21,7 @@ const Homecontainer = ({ heading, element }):JSX.Element => {
           <div className="hc-line">
             <div></div>
           </div>
-          <div className="hc-subbody">{element}</div>
+          <div className="hc-subbody font-orbitron">{element}</div>
         </div>
       </div>
     </div>

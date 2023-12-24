@@ -10,7 +10,7 @@ const Registration = ({showBtn}:Rego) => {
   return (
     <div className="reg-container">
       <h2>What is Techspardha 2024?</h2>
-      <p>
+      <p className="font-orbitron-l">
         Techspardha is the annual techno-managerial festival of National
         Institute of Technology, Kurukshetra. It started in 1995 as
         &quot;Technospect&quot; (later changed to Literati). The year 2013 marked the
