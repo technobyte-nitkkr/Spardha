@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+
+.homecontainer{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 20px 0px;
+}
+
+.designContainer {
+    width: 95%;
+}
+
+.hc-headingline{
+    display: grid;
+    grid-template-columns: 35px calc(100% - 35px);
+    align-items: center;
+    color: #FFF;
+}
+
+.hc-headingline img{
+    width: 35px;
+}
+
+.hc-headingline div{
+    font-family: Starlord;
+    font-size: 3.2rem;
+    font-weight: 700;
+    padding-left: 2.5rem;
+}
+
+.hc-eclipse div{
+    width: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.hc-body{
+    display: grid;
+    grid-template-columns: 35px calc(100% - 35px);
+    margin-top: 10px;
+}
+
+.hc-body .hc-line{
+    width: 35px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hc-body .hc-line div{
+    width: 3px;
+    height: 100%;
+    background-color: #C559EB;
+}
+
+.hc-body .hc-subbody{
+    padding: 1.5rem 2.5rem;
+    color: #fff
+}
+
+@media only screen and (max-width: 1100px) {
+    .hc-subbody{
+        padding: 1rem 1.5rem !important;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .hc-subbody{
+        padding: 0.5rem 1rem !important;
+    }
+
+    .hc-headingline div{
+        font-size: 25px;
+    }
+
+    .hc-headingline{
+        margin-bottom: 10px;
+    }
+}
