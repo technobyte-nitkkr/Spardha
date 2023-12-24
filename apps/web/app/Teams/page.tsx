@@ -4,7 +4,7 @@ import TeamDetails from "../../components/Teams/Details/TeamDetails";
 import Image from "next/image";
 import Link from "next/link";
 import Showmore from "../../public/assets/expand_more.svg";
-import Logoe from "../../public/assets/logoe.png";
+import logoe from "../../public/assets/logoe.png";
 import "./Team.css";
 
 const Team = (): JSX.Element => {
@@ -22,7 +22,7 @@ const Team = (): JSX.Element => {
         </Link>
           <Image
             className="w-auto h-full"
-            src={Logoe as unknown as string}
+            src={logoe as unknown as string}
             alt="category"
             width={1000}
             height={1000}
