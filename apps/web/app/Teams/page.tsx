@@ -3,8 +3,8 @@ import TeamAnimation from "../../components/Teams/Animation/TeamAnimation";
 import TeamDetails from "../../components/Teams/Details/TeamDetails";
 import Image from "next/image";
 import Link from "next/link";
-import expand from "../../public/assets/expand.svg";
-import logoe from "../../public/assets/logoe.png";
+import Expand from "../../public/assets/expand.svg";
+import logo from "../../public/assets/logo.png";
 import "./Team.css";
 
 const Team = (): JSX.Element => {
@@ -14,7 +14,7 @@ const Team = (): JSX.Element => {
         <Link href="/" className="h-full w-auto flex justify-center items-center">
           <Image
             className="cursor-pointer rotate-90"
-            src={expand as string}
+            src={Expand as string}
             alt="category"
             width={50}
             height={50}
@@ -22,7 +22,7 @@ const Team = (): JSX.Element => {
         </Link>
           <Image
             className="w-auto h-full"
-            src={logoe as unknown as string}
+            src={logo as unknown as string}
             alt="category"
             width={1000}
             height={1000}

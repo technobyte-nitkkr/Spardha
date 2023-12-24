@@ -5,7 +5,7 @@ import Homecontainer from "../../components/Homecontainer/Homecontainer";
 import Registration from "../../components/Registration/Registration";
 import Image from "next/image";
 import Link from "next/link";
-import logoe from "../../public/assets/logoe.png";
+import logo from "../../public/assets/logo.png";
 import expand from "../../public/assets/expand.svg";
 import "./About.css";
 
@@ -24,7 +24,7 @@ const About = () => {
         </Link>
           <Image
             className="w-auto h-full"
-            src={logoe as unknown as string}
+            src={logo as unknown as string}
             alt="category"
             width={1000}
             height={1000}

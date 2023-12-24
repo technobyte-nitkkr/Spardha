@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import panel from '../../public/assets/PANEL.png'
-import expand from "../../public/assets/expand.svg";
+import Expand from "../../public/assets/expand.svg";
 interface NotificationsData {
   success: boolean;
   data: {
@@ -153,7 +153,7 @@ const PopUp: React.FC<{
                     </h1>
                     <Image
                       className={`ml-2 ${angle[i] ? "" : "hidden"}`}
-                      src={expand as string}
+                      src={Expand as string}
                       alt="category"
                       width={50}
                       height={50}
@@ -162,7 +162,7 @@ const PopUp: React.FC<{
                       className={`ml-2 cursor-pointer -rotate-90 ${
                         !angle[i] ? "" : "hidden"
                       }`}
-                      src={expand as string}
+                      src={Expand as string}
                       alt="category"
                       width={50}
                       height={50}
