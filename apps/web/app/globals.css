@@ -5,6 +5,16 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
 
 @import url('https://fonts.cdnfonts.com/css/galactic-vanguardian-ncv');
+
+@font-face {
+  font-family: "Orbitron";
+  src: url('../public/assets/fonts/Orbitron.ttf');
+}
+@font-face {
+  font-family: starlord;
+  src: url('../public/assets/fonts/Starlord.otf');
+}
+
 .font-orbitron1 {
   font-family: "Orbitron";
   font-style: normal;
