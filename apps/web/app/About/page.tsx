@@ -2,14 +2,34 @@
 import Glimpses from "../../components/About/Glimpses/Glimpses";
 import InstallApp from "../../components/About/InstallApp/InstallApp";
 import Homecontainer from "../../components/Homecontainer/Homecontainer";
-import Navbar from "../../components/Landing/navbar";
 import Registration from "../../components/Registration/Registration";
+import Image from "next/image";
+import Link from "next/link";
+import logo from "../../public/assets/logo.png";
+import expand from "../../public/assets/expand.svg";
 import "./About.css";
 
 const About = () => {
   return (
     <div className="parent">
-      <Navbar />
+            <div className="h-24 w-full flex justify-around">
+        <Link href="/" className="h-full w-auto flex justify-center items-center">
+          <Image
+            className="cursor-pointer rotate-90"
+            src={expand as string}
+            alt="category"
+            width={50}
+            height={50}
+          />
+        </Link>
+          <Image
+            className="w-auto h-full"
+            src={logo as unknown as string}
+            alt="category"
+            width={1000}
+            height={1000}
+          />
+      </div>
       <div className="aboutPageContainer"  >
         <span id="aboutElementHelper1"></span>
         <Homecontainer heading={"About Techspardha"} element={<Registration />} />

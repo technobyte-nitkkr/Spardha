@@ -42,10 +42,10 @@ const GuestLectures = (): JSX.Element => {
   };
   const [shiftBY,setShiftby] = useState<number>(3);
   useEffect(() => {
-     if(window.innerWidth < 768) {
+     if(window.innerWidth < 1024) {
       setShiftby(1);
     }
-    else if(window.innerWidth < 1024) {
+    else if(window.innerWidth < 1280) {
       setShiftby(2);
     }
     else {
@@ -104,17 +104,17 @@ const GuestLectures = (): JSX.Element => {
         })}
       </div>
 
-      <div className="w-1/4 pt-2 flex justify-evenly">
+      <div className="lg:w-1/4 md:w-1/3 w-1/2 pt-2 flex justify-evenly">
         <div
           aria-hidden="true"
-          className="border-2 w-full md:w-2/5 sm:w-1/2 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer mr-2"
+          className="border-2 w-2/5 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer mr-2"
           onClick={scrollPrev}
         >
           Prev
         </div>
         <div
           aria-hidden="true"
-          className="border-2 w-full md:w-2/5 sm:w-1/2 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tr-2xl cursor-pointer"
+          className="border-2  w-2/5 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tr-2xl cursor-pointer"
           onClick={scrollNext}
         >
           Next

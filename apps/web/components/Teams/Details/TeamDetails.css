@@ -43,10 +43,11 @@
     width: 290px;
     /* height: 8%; */
     font-size: 1.5rem;
-    font-weight: 700;
+    /* font-weight: 700; */
     margin: 3px auto;
-    padding: 1%;
+    padding: 5px;
     cursor: pointer;
+    letter-spacing: 2px;
   }
   
   .team-card-container {

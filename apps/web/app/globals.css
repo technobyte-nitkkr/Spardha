@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
-@import url('https://fonts.cdnfonts.com/css/galactic-vanguardian-ncv');
 
+@import url('https://fonts.cdnfonts.com/css/galactic-vanguardian-ncv');
+.font-orbitron1 {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+}
 @layer base {
   .font-outline-05 {
     -webkit-text-stroke: 0.7px black;
@@ -15,14 +20,15 @@
   }
 
   .font-orbitron {
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron";
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
+    letter-spacing: 2px;
   }
 
   .font-orbitron-1 {
     text-align: center;
-    font-family: Orbitron;
+    font-family: 'Orbitron';
     font-size: 42px;
     font-style: normal;
     font-weight: 700;
@@ -31,13 +37,13 @@
   }
 
   .font-orbitron-l {
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron";
     font-style: normal;
     font-weight: 300;
   }
 
   .font-starlord {
-    font-family: 'Galactic Vanguardian ncv', sans-serif;
+    font-family: starlord, sans-serif;
     font-style: normal;
     font-weight: 300;
   }
@@ -69,19 +75,6 @@
   height: 0px;
 }
 
-.CardScrollDiv::-webkit-scrollbar {
-  width: 4px;
-}
-
-.CardScrollDiv::-webkit-scrollbar-thumb {
-  background-color: #3182ce;
-  border-radius: 4px;
-}
-
-.CardScrollDiv::-webkit-scrollbar-track {
-  border-radius: 4px;
-  background-color: #6E7681;
-}
 
 :root {
   --max-width: 1100px;

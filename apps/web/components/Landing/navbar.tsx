@@ -1,31 +1,41 @@
-import React  from "react";
+import React from "react";
 import Image from "next/image";
 import logo from "../../public/assets/logo.png";
 import menu from "../../public/menu.svg";
-import './navbar.css';
+import "./navbar.css";
 
 const Navbar = (): JSX.Element => {
-  const navtoggle = () : void => {
-    const nav : HTMLElement  | null = document.querySelector(".navbar");
-    const btn : HTMLElement  | null = document.querySelector(".btn");
-    const btnc : HTMLElement | null  = document.querySelector(".btnc");
+  const navtoggle = (): void => {
+    const nav: HTMLElement | null = document.querySelector(".navbar");
+    const btn: HTMLElement | null = document.querySelector(".btn");
+    const btnc: HTMLElement | null = document.querySelector(".btnc");
     nav?.classList.toggle("open");
     btn?.classList.toggle("hidden");
     btnc?.classList.toggle("hidden");
-  }
+  };
   return (
     <div className="w-screen flex flex-row justify-center p-5 h-[15%]">
       <div className="w-[80vw] flex flex-row justify-between items-center max-h-[60px]">
         <div className="logo h-full">
           <Image alt="logo" className="h-[50px] w-[50px] bgGlow" src={logo} />
         </div>
-          <button className="btn px-6 max-w-[100px] flex items-center min-w-[70px] md:hidden bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 h-full" onClick={navtoggle}>
-            <Image alt="logo" className="h-[50px] w-[50px] bgGlow" src={menu as string} />
-          </button>
-          <button className="btnc px-8 max-w-[100px] items-center min-w-[70px] hidden bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 h-full text-4xl text-black" onClick={navtoggle}>
-            X
-          </button>
-        <div className="navbar links flex-row bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 h-full font-orbitron md:text-xl hidden md:flex text-[12px]">
+        <button
+          className="btn px-6 max-w-[100px] flex items-center min-w-[70px] md:hidden bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 h-full"
+          onClick={navtoggle}
+        >
+          <Image
+            alt="logo"
+            className="h-[50px] w-[50px] bgGlow"
+            src={menu as string}
+          />
+        </button>
+        <button
+          className="btnc px-8 max-w-[100px] items-center min-w-[70px] hidden bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 h-full text-4xl text-black"
+          onClick={navtoggle}
+        >
+          X
+        </button>
+        <div className="navbar links flex-row bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 h-full font-orbitron md:text-xl hidden md:flex text-[8px]">
           <a className="px-6 items-center flex" href="/#Sponsors">
             Sponsors
           </a>

@@ -76,12 +76,12 @@ const TeamDetails = () => {
                 {!isLoading && people ? (
                     people.map((x,i:number) => {
                         return (
-                            <div key={i} className="nft" style={{ padding: "5px", margin: "20px" }}>
+                            <div key={i} className="nft font-orbitron1" style={{ padding: "5px", margin: "20px" }}>
                                 <div className="team-card-main">
                                     <Image height={2000} width={2000} className="tokenImage placeholder-img" src={x.imageUrl} alt="post-holder" />
-                                    <h2 className="person-name">{x.name}</h2>
+                                    <h2 className="person-name font-orbitron1">{x.name}</h2>
                                     <hr />
-                                    <p className="person-post">{x.post}</p>
+                                    <p className="person-post font-orbitron1">{x.post}</p>
                                 </div>
                             </div>
                         );

@@ -25,9 +25,9 @@
 }
 
 .hc-headingline div{
-    font-family: Starlord;
+    /* font-family: Starlord; */
     font-size: 3.2rem;
-    font-weight: 700;
+    font-weight: 300;
     padding-left: 2.5rem;
 }
 

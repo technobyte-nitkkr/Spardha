@@ -1,17 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Roboto+Slab:wght@700&display=swap");
 
-*{
+/* *{
   font-family: Starlord;
-}
+} */
 
 .parent{
   background: #1f0641;
   background-position: center;
   background-size: cover;
+  font-family: Starlord;
+  letter-spacing: 1px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .team-heading {
-  font-size: 6vh;
+  font-size: 25px;
   color: white;
   text-align: center;
   margin: 5vh;
@@ -20,7 +24,7 @@
   font-size: 3rem;
   margin: 20px auto!important;
   width: 100%!important;
-  font-weight: 500;
+  /* font-weight: 500; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -34,8 +38,8 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 5rem;
-  font-weight: 500;
+  /* margin-top: 5rem; */
+  /* font-weight: 500; */
 
   /* background-repeat: no-repeat; */
   /* background-position: center; */
@@ -53,7 +57,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
