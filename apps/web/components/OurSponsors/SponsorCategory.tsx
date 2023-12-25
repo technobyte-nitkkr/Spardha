@@ -12,7 +12,7 @@ const SponsorCategory = ({ category, sponsors }: { category: string, sponsors: S
 
   return (
     <div className={`${sponsors.length>2?'col-span-2':''} flex flex-col items-center gap-2 category md:m-5 m-2`}>
-      <div className='md:text-2xl text-xl text-center'>{category}</div>
+      <div className='md:text-2xl text-md text-center'>{category}</div>
       <div className='flex justify-evenly w-5/6 flex-wrap h-fit gap-3 '>
         {sponsors.map((item: SponsorData,index:number) => {
           return(

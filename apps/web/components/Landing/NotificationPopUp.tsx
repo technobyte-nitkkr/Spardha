@@ -110,7 +110,7 @@ const PopUp: React.FC<{
         </div>
       </div>
       <div
-        className="flex justify-center items-center w-[1485.666px] h-[953.507px] scale-90"
+        className="flex justify-center items-center xl:w-[1485.666px] xl:h-[953.507px] lg:w-[1130px] lg:h-[870px] md:w-[840px] sm:w-[700px] custom-sm:w-[420px] custom-xsm:w-[350px] w-[1280px] h-[900px] scale-90"
         style={{
           backgroundImage: `url(${panel.src})`,
           backgroundRepeat: "no-repeat",
@@ -123,9 +123,9 @@ const PopUp: React.FC<{
             clipPath:
               "polygon( 0 14%,7% 0,100% 0,100% 100%,100% 100%,100% 100%,10% 100%,0% 100%,0% 100%)",
           }}
-          className="w-[1280px] h-[737px] shrink-0 flex flex-row items-center justify-start"
+          className="w-[1280px] h-[737px] xl:scale-100 lg:scale-[80%] md:scale-[58%] sm:scale-[48%] custom-sm:scale-[28%] custom-xsm:scale-[24%] shrink-0 flex flex-row items-center justify-start"
         >
-          <div className="w-[340px] h-full shrink-0 bg-[rgba(0,0,33,0.60)] flex flex-col items-start overflow-y-auto">
+          <div className="w-1/4 h-full shrink-0 bg-[rgba(0,0,33,0.60)] flex flex-col items-start overflow-y-auto">
             <h1 className="text-white text-4xl tracking-[1px] font-starlord mb-10 mt-24 ml-10">
               Notifications
             </h1>
@@ -172,7 +172,7 @@ const PopUp: React.FC<{
               ))}
             </div>
           </div>
-          <div className="inline-flex w-[940px] h-[737px] flex-col items-center gap-6 shrink-0 pb-4">
+          <div className="inline-flex w-3/4 h-full flex-col items-center gap-6 shrink-0 pb-4">
             <div className="overflow-y-auto px-2">
               <h1 className="text-white text-3xl tracking-[1px] font-starlord text-center mb-3">
                 {ActiveNotification.notification.title?ActiveNotification.notification.title:""}

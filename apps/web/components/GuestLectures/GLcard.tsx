@@ -21,11 +21,11 @@ const GLcard: React.FC<{
   key: number;
 }> = ({ forwardedRef, item }) => {
   return (
-    <div className="h-full xl:w-1/3 lg:w-1/2 w-full flex-shrink-0 px-3"
+    <div className="h-full xl:w-1/3 lg:w-1/2 w-full  flex-shrink-0 px-3 snap-start"
     ref={forwardedRef}
     >
       <div
-        className="h-full w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3 snap-start"
+        className="h-full w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3"
         style={{
           backgroundColor: "rgb(54, 124, 255, 0.25)",
           border: "1px solid rgb(54, 124, 255)",

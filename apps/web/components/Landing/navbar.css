@@ -3,8 +3,14 @@
     top:90px;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: fit-content;
+    margin-left: 2px;
+    margin-right: 2px;
     display: flex;
     justify-content: space-around;
     margin: 0;
+}
+.open a {
+    padding-left: 1px;
+    padding-right: 1px;
 }
