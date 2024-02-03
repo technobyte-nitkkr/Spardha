@@ -93,7 +93,12 @@ const Landing: React.FC<{
           <h1>Tech Odyssey where</h1>
           <h1>innovation meets infinity.</h1>
         </div>
-        <Image alt="Techspardha" className="mb-[2vh]" src={presented} />
+        {/* ################################################################################################ */}
+
+        {/* Notifications and Notification card */}
+
+        <h1 className="text-3xl font-bold my-2">Notifications</h1>
+
         <div
           className="sm:min-w-[480px] min-w-[350px] sm:min-h-[300px] min-h-[200px] flex justify-center items-center mb-[2vh]"
           style={{
