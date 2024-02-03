@@ -1,0 +1,10 @@
+@media screen and (max-height: 622px)
+{
+    .category_card{
+        margin: 1rem;
+    }
+    .category_title{
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+}
