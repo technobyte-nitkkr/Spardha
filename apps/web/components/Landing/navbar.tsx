@@ -3,6 +3,7 @@ import Image from "next/image";
 import logo from "../../public/assets/logo.png";
 import menu from "../../public/menu.svg";
 import "./navbar.css";
+import Link from "next/link";
 
 const Navbar = (): JSX.Element => {
   const navtoggle = (): void => {
@@ -36,21 +37,21 @@ const Navbar = (): JSX.Element => {
           X
         </button>
         <div className="navbar links flex-row bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 h-full font-orbitron md:text-xl hidden md:flex text-[8px]">
+          <a className="px-6 items-center flex" href="/#Events">
+            Events
+          </a>
           <a className="px-6 items-center flex" href="/#Sponsors">
             Sponsors
           </a>
           <a className="px-6 items-center flex" href="/#GuestLectures">
             Lectures
           </a>
-          <a className="px-6 items-center flex" href="/About">
+          <Link className="px-6 items-center flex" href={"/About"}>
             About
-          </a>
-          <a className="px-6 items-center flex" href="/#Discord">
-            Discord
-          </a>
-          <a className="px-6 items-center flex" href="/Teams">
+          </Link>
+          <Link className="px-6 items-center flex" href={"/Teams"}>
             Teams
-          </a>
+          </Link>
         </div>
         <div className="login flex items-center h-full">
           <button
