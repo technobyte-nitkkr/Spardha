@@ -1,0 +1,288 @@
+
+.nav{
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    text-decoration-style: none;
+    box-sizing: border-box;
+    background: rgba(13, 13, 13, 0.6);
+    border: 1px solid #8B949E;
+    backdrop-filter: blur(24px);
+    position: fixed;
+    max-width: 95vw;
+    margin: auto;
+    left: 2vw;
+    top: 24px;
+    z-index: 100;
+}
+
+.navMenus {
+    font-family: 'JetBrainsMono';
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    font-style: normal;
+    text-transform: uppercase;
+    height: 100%;
+}
+
+
+.navbarItem {
+    /* padding: 0.5em;
+    margin: 0.5em; */
+    font-size: 16px;
+}
+
+.navbar-links {
+    height: 100%;
+}
+
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+.navbar-links li button {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding-bottom: 20px;
+}
+.btnContainer{
+    margin-top: 0;
+    margin-bottom: 15px;
+    height: 50px;
+
+}
+.Button1{
+    margin-bottom: 20px;
+}
+
+.logoLink {
+    width: 25%;
+}
+
+.nav a{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+}
+
+
+.navbar-links li:hover {
+    background-color: #555;
+}
+
+.nav-button:hover{
+    background-color: transparent !important;
+}
+
+.toggle-button {
+    position: absolute;
+    right: 1rem;
+    display:none;
+    flex-direction: column;
+   /* justify-content: space-between; */
+    width: 15px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 15px;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    display: none;
+}
+
+.Buttonclose{
+    display: none;
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+    .logoLink {
+        width: 100%;
+    }
+    
+    .toggle-button {
+        display: flex;
+        align-items: center;
+    }
+
+    .toggle-button .bar {
+        height: 3px;
+        width: 15px;
+        background-color: white;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        display: inline;
+    }
+    .navbar-links {
+        visibility: hidden;
+        /* display: none; */
+        width: 100%;  
+        position: relative;
+    }
+
+    .navMenus {
+        position: absolute;
+        right: -1rem;
+        background-color: #555;
+        opacity: 80%;
+        align-items: unset;
+        top: calc(100% + 1rem);
+        height: auto;
+        padding:20px;
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+    }
+
+    .Buttonclose{
+        font-size:20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor:pointer
+    }
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+    .btnContainer{
+        display: none;
+        width: 150px;
+        margin-left: 15%;
+    }
+    .navbar-links ul li {
+        text-align: center;
+        height: 60px;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .tb-logo {
+        width: 100%;
+    }
+
+    .nav {
+        height: 75px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .nav-button button{
+        padding: 0px !important;
+        margin: 0px 10% !important;
+        width: 90%;
+        
+    }
+}
+
+@media (max-width:700px){
+
+    .logoLink {
+        width: 100%;
+    }
+    
+    .toggle-button {
+        display: flex;
+        align-items: center;
+    }
+
+    .toggle-button .bar {
+        height: 3px;
+        width: 15px;
+        background-color: white;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        display: inline;
+    }
+    
+    .navbar-links {
+        visibility: hidden;
+        width: 100%;  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 2rem;
+    }
+
+    .navMenus {
+        background-color: #555;
+        opacity: 80%;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        position: absolute;
+        align-items: unset;
+        top: calc(100% + 1rem);
+        left:10px;
+        height: auto;
+        padding:20px;
+    }
+
+    .Buttonclose{
+        font-size:20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor:pointer;
+    }
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+    .btnContainer{
+        display: none;
+        width: 150px;
+        margin-left: 15%;
+    }
+    .navbar-links ul li {
+        text-align: center;
+        height: 60px;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .tb-logo {
+        width: 100%;
+    }
+
+    .nav {
+        height: 75px;
+        display: flex;
+        
+    }
+    .nav-button button{
+        padding: 0px !important;
+        margin: 0px 10% !important;
+        width: 90%;
+        
+    }
+}

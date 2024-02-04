@@ -14,3 +14,9 @@
     padding-left: 1px;
     padding-right: 1px;
 }
+@media (max-width: 768px) {
+  
+    .register-btn {
+      display: none;
+    }
+  }
