@@ -93,8 +93,8 @@ const Navbar = (): JSX.Element => {
         </div>
         {/* Register button visible only on screens larger than md */}
         <div className="hidden md:block">
-          <Link
-            className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-outline-05 font-orbitron"
+        <Link
+            className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
             href={"/Register"}
           >
             Register
