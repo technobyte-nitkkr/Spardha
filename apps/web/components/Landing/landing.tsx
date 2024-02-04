@@ -3,7 +3,7 @@ import Image from "next/image";
 import Panel from "../../public/assets/PANEL.png";
 import presented from "../../public/assets/presented.png";
 import "../../app/page.module.css";
-
+import './landing.css';
 interface NotificationsData {
   success: boolean;
   data: {
@@ -86,16 +86,16 @@ const Landing: React.FC<{
   return (
     <div className="w-screen h-[85%] flex justify-center items-center font-orbitron">
       <div className="flex flex-col justify-start items-center lg:w-[50%] md:w-[70%] sm:w-[75%] w-[80%] ">
-        <h1 className="font-starlord-1 lg:text-9xl md:text-8xl sm:text-7xl text-4xl">
+        <h1 className="Heading font-starlord-1 lg:text-9xl md:text-8xl sm:text-7xl text-4xl">
           TECHSPARDHA
         </h1>
         <div className="text-center w-[100%] mb-[2vh] font-orbitron-1 lg:text-2xl md:text-xl sm:text-lg text-[10px]">
           <h1>Tech Odyssey where</h1>
           <h1>innovation meets infinity.</h1>
         </div>
-        <Image alt="Techspardha" className="mb-[2vh]" src={presented} />
+        <Image alt="Techspardha" className="presented_by mb-[2vh]" src={presented} />
         <div
-          className="sm:min-w-[480px] min-w-[350px] sm:min-h-[300px] min-h-[200px] flex justify-center items-center mb-[2vh]"
+          className="panel_card sm:min-w-[480px] min-w-[350px] sm:min-h-[300px] min-h-[200px] flex justify-center items-center mb-[2vh]"
           style={{
             backgroundImage: `url(${Panel.src})`,
             backgroundRepeat: "no-repeat",
@@ -108,7 +108,7 @@ const Landing: React.FC<{
               if (i > 4) return;
               return (
                 <div
-                  className="py-1.5 opacity-70 hover:opacity-100 cursor-pointer w-full overflow-hidden flex justify-start"
+                  className="date_card py-1.5 opacity-70 hover:opacity-100 cursor-pointer w-full overflow-hidden flex justify-start"
                   key={i}
                   onClick={() => {
                     setVisibleNotifications(true);
