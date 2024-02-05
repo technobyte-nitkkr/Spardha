@@ -69,7 +69,7 @@ const Landing: React.FC<{
     const time = new Date(Number.parseInt(ms));
     return time.getDate() + " " + toMonth(time.getMonth());
   };
-  const nthNumber = (n:string) => {
+  const nthNumber = (n: string) => {
     const nn = parseInt(n);
     if (nn > 3 && nn < 21) return "th";
     switch (nn % 10) {
@@ -89,6 +89,7 @@ const Landing: React.FC<{
         <h1 className="Heading font-starlord-1 lg:text-9xl md:text-8xl sm:text-7xl text-4xl">
           TECHSPARDHA
         </h1>
+
         <div className="text-center w-[100%] mb-[2vh] font-orbitron-1 lg:text-2xl md:text-xl sm:text-lg text-[10px]">
           <h1>Tech Odyssey where</h1>
           <h1>innovation meets infinity.</h1>
@@ -122,9 +123,9 @@ const Landing: React.FC<{
                 >
                   <span className="text-md mr-2">&gt;&gt;</span>
                   <div className="flex w-full">
-                    <span className="text-md">{giveDate(item.time).substring(0,2)}{nthNumber(giveDate(item.time).substring(0,2))}</span>
+                    <span className="text-md">{giveDate(item.time).substring(0, 2)}{nthNumber(giveDate(item.time).substring(0, 2))}</span>
                     -
-                    <span className="text-md">{giveDate(item.time).substring(0,2)}{nthNumber(giveDate(item.time).substring(0,2))}{giveDate(item.time).substring(2)}</span>
+                    <span className="text-md">{giveDate(item.time).substring(0, 2)}{nthNumber(giveDate(item.time).substring(0, 2))}{giveDate(item.time).substring(2)}</span>
                   </div>
                 </div>
               );
@@ -137,11 +138,11 @@ const Landing: React.FC<{
           onClick={
             !visibleNotifications
               ? () => {
-                  setVisibleNotifications(true);
-                }
+                setVisibleNotifications(true);
+              }
               : () => {
-                  setVisibleNotifications(false);
-                }
+                setVisibleNotifications(false);
+              }
           }
         >
           View Them All

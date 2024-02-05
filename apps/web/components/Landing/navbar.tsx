@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../public/assets/logo.png";
 import menu from "../../public/menu.svg";
 import Link from "next/link";
-
+import './navbar.css';
 const Drawer = ({ onClose, isDrawerOpen }: { onClose: () => void; isDrawerOpen: boolean }) => (
   <AnimatePresence>
     {isDrawerOpen && (
@@ -70,24 +70,24 @@ const Navbar = (): JSX.Element => {
 
   return (
     <div className="w-screen flex flex-row justify-center p-5 h-[15%]">
-      <div className="w-[80vw] flex flex-row justify-between items-center max-h-[60px]">
+      <div className="nav_flex w-[80vw] flex flex-row justify-between items-center max-h-[60px]">
         <div className="logo h-full">
           <Image alt="logo" className="h-[50px] w-[50px] bgGlow" src={logo} />
         </div>
-        <div className={`navbar links bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 font-orbitron md:text-xl hidden md:flex`}>
-          <Link className="px-6 text-lg text-white hover:text-gray-300" href="/#Events">
+        <div className={`navbar links anchor_class bg-[#367cff3e] rounded-[90px] py-2 text-center border-2 border-[#367cff3e] m-2 font-orbitron md:text-xl hidden md:flex`}>
+          <Link className="anchor_links px-6 text-lg text-white hover:text-gray-300" href="/#Events">
             Events
           </Link>
-          <Link className="px-6 text-lg text-white hover:text-gray-300" href="/#Sponsors">
+          <Link className="anchor_links px-6 text-lg text-white hover:text-gray-300" href="/#Sponsors">
             Sponsors
           </Link>
-          <Link className="px-6 text-lg text-white hover:text-gray-300" href="/#GuestLectures">
+          <Link className="anchor_links px-6 text-lg text-white hover:text-gray-300" href="/#GuestLectures">
             Lectures
           </Link>
-          <Link className="px-6 text-lg text-white hover:text-gray-300" href={"/About"}>
+          <Link className="anchor_links px-6 text-lg text-white hover:text-gray-300" href={"/About"}>
             About
           </Link>
-          <Link className="px-6 text-lg text-white hover:text-gray-300" href={"/Teams"}>
+          <Link className="anchor_links px-6 text-lg text-white hover:text-gray-300" href={"/Teams"}>
             Teams
           </Link>
         </div>

@@ -12,8 +12,8 @@ import PopUp from "../components/PopUp/PopUp";
 import NotificationsPopUp from "../components/Landing/NotificationPopUp";
 import Loading from "./loading";
 import darkEarth from "../public/assets/darkearth.jpg";
-import "@fontsource/orbitron"; // Defaults to weight 400
-import "@fontsource/orbitron/400.css"; // Specify weight
+import "@fontsource/orbitron";
+import "@fontsource/orbitron/400.css"; 
 
 const ThreeScene = () => {
   if (typeof window !== "undefined") {
@@ -234,6 +234,7 @@ const ThreeScene = () => {
       useState<boolean>(false);
 
     return (
+      
       <div className="w-screen h-screen m-0 p-0">
         <PopUp visible={visible} setVisible={setVisible} />
         <NotificationsPopUp
