@@ -10,7 +10,7 @@ import T from "../public/twitter.svg";
 const Footer = (): JSX.Element => {
   return (
     <>
-      <div className="text-white bg-black h-3/5 flex text-md justify-around items-center flex-row">
+      <div className="text-white bg-black h-3/5 flex text-md justify-around items-center flex-row mt-11">
         <div className="flex flex-row text-2xl items-center">
           <div>
             <Image alt="logo" src={logo} className="h-[60px] w-[60px]" />
