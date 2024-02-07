@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@fontsource/orbitron": "^5.0.18",
+    "framer-motion": "^11.0.3",
     "next": "^13.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
+    "react-spring": "^9.7.3",
     "sass": "^1.69.5",
     "swiper": "^11.0.5",
     "three": "^0.158.0",

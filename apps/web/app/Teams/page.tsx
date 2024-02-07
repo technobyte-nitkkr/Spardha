@@ -1,5 +1,6 @@
 "use client";
 import TeamAnimation from "../../components/Teams/Animation/TeamAnimation";
+import stars from "../../public/assets/stars.jpg";
 import TeamDetails from "../../components/Teams/Details/TeamDetails";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,11 @@ import "./Team.css";
 
 const Team = (): JSX.Element => {
   return (
-    <div className="parent">
+    <div 
+      className="parent"
+      style={{
+        backgroundImage: `url(${stars.src})`,
+      }}>
       <div className="h-24 w-full flex justify-around">
         <Link href="/" className="h-full w-auto flex justify-center items-center">
           <Image
