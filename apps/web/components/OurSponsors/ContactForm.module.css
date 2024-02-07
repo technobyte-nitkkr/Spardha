@@ -1,0 +1,20 @@
+.contactForm {
+  width: 80%;
+}
+
+.contactForm h2 {
+  text-align: center;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: calc(100% - 20px);
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contactForm button:hover {
+  background-color: #0056b3;
+}
