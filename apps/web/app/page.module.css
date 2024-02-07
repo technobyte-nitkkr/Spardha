@@ -322,3 +322,8 @@
     font-size: 10px; 
   }
 } */
+@media screen and (max-width: 1300px) {
+  .jugaad_image {
+    display: none;
+  }
+}
