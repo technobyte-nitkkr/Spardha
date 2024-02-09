@@ -16,9 +16,10 @@ const Drawer = ({ onClose, isDrawerOpen }: { onClose: () => void; isDrawerOpen: 
       style={{ opacity: 0.9, transition: 'opacity 0.1s ease-in-out' }} 
       
       >
-        <span className="close-btn absolute top-4 right-4 text-4xl text-white" onClick={onClose}>
+        <button className="close-btn absolute top-4 right-4 text-4xl text-white" onClick={onClose}>
           &times;
-        </span>
+        </button>
+
         <Link className="block mb-4 text-lg text-white hover:text-gray-300" href="/#Events" onClick={onClose}>
           Events
         </Link>

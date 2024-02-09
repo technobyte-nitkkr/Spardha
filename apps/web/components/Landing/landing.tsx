@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import Panel from "../../public/assets/PANEL.png";
-import presented from "../../public/assets/presented.png";
+// import presented from "../../public/assets/presented.png";
 import "../../app/page.module.css";
 import './landing.css';
 interface NotificationsData {
