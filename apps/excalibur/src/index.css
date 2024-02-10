@@ -9,7 +9,8 @@ body{
   /* overflow-y: hidden; */
   width: 100%;
   min-height: 100svh;
-  background-image: url(/images/Home\ Page.jpg);
+  /* background-image: url(/images/Home\ Page.jpg); */
+  /* background-color: black; */
   position: relative;
   scroll-behavior: smooth;
 }

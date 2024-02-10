@@ -8,6 +8,7 @@ import Themes from './Themes/Themes'
 import Sponsors from './Sponsors/Sponsors'
 import Footer from './Footer/Footer'
 import Rules from './Rules/Rules'
+import ContactUs from './ContactUs/ContactUs'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Themes />
       <TimeLine />
       <Rules />
+      <ContactUs />
       <Background />
       <Footer />
     </div>
