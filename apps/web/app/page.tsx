@@ -183,7 +183,7 @@ const ThreeScene = () => {
       const handleScroll = (): void => {
         const secRefs = [sec1ref, sec2ref, sec3ref, sec4ref];
         const scroll: number | undefined = parentDiv.current?.scrollTop;
-        const height: number = window.innerHeight;
+        // const height: number = window.innerHeight;
   
         if (scroll !== undefined) {
           secRefs.forEach((secRef, index) => {

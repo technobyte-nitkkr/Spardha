@@ -4,14 +4,23 @@
     width: 100svw;
     margin-top: auto;
     bottom: 0;
-    z-index: -10;
+    margin-bottom: -10px;
+    z-index: -9;
     filter: drop-shadow(10px 30px 20px rgb(255, 145, 226));
     /* box-shadow: 10px 30px 20px rgb(255, 145, 226); */
 }
 .background_graphics>img{
     width: 100%;
 }
-
+.background{
+    overflow: clip;
+    position: fixed;
+    width: 100svw;
+    z-index: -11;
+}
+.background>img{
+    width: 100%;
+}
 @media (max-width: 960px) {
     .background_graphics{
         bottom: 0;
