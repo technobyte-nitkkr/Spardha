@@ -1,19 +1,20 @@
 import React from "react";
 import Image from "next/image";
-type props = {
-  ActiveNotification: {
-    notification: {
-      android_channel_id: string;
-      body: string;
-      image: string;
-      link: string;
-      title: string;
-    };
-    time: string;
+interface Notification {
+  notification: {
+    android_channel_id: string;
+    body: string;
+    image: string;
+    link: string;
+    title: string;
   };
+  time: string;
+}
+interface PROPS {
+  ActiveNotification: Notification;
   giveDate: (time: string) => string;
-};
-export default function DatesAbout({ ActiveNotification, giveDate }: props) {
+}
+const DatesAbout: React.FC<PROPS> = ({ ActiveNotification, giveDate }) => {
   return (
     <div className="inline-flex w-3/4 h-full flex-col items-center gap-6 shrink-0 pb-4">
       <div className="overflow-y-auto px-2">
@@ -69,4 +70,5 @@ export default function DatesAbout({ ActiveNotification, giveDate }: props) {
       </div>
     </div>
   );
-}
+};
+export default DatesAbout;

@@ -44,17 +44,17 @@ const GuestLectures = (): JSX.Element => {
   useEffect(() => {
      if(window.innerWidth < 800) {
       setShiftby(1);
-      if(guestList.length == 1) 
+      if(guestList.length === 1) 
         setDisabledBTN(true);
     }
     else if(window.innerWidth < 1280) {
       setShiftby(2);
-      if(guestList.length == 2) 
+      if(guestList.length === 2) 
         setDisabledBTN(true);
     }
     else {
       setShiftby(3);
-      if(guestList.length == 3) 
+      if(guestList.length === 3) 
         setDisabledBTN(true);
     }
     if (scrollRef.current && cardRef.current !== null) {
@@ -123,7 +123,7 @@ const GuestLectures = (): JSX.Element => {
           aria-hidden="true"
           className="border-2  w-2/5 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tr-2xl cursor-pointer"
           onClick={scrollNext}
-          style={{ cursor : cardIndex === (scrollRef.current?.children?.length ?? 0) - numberOfCards || disabledBTN ? "not-allowed" : "pointer" }}
+          style={{ cursor : cardIndex === (scrollRef.current?.children.length ?? 0) - numberOfCards || disabledBTN ? "not-allowed" : "pointer" }}
         >
           Next
         </div>

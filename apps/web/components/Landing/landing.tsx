@@ -4,7 +4,6 @@ import Panel from "../../public/assets/PANEL.png";
 // import presented from "../../public/assets/presented.png";
 import "../../app/page.module.css";
 import './landing.css';
-import { json } from "stream/consumers";
 interface NotificationsData {
   success: boolean;
   data: {

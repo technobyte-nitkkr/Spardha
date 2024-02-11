@@ -5,7 +5,7 @@ import Events from "../../Events/Events";
 import GuestLectures from "../../GuestLectures/GuestLectures";
 import OurSponsors from "../../OurSponsors/OurSponsors";
 import Footer from "../../Footer/Footer";
-type props = {
+interface PROPS {
   parentDiv: React.RefObject<HTMLDivElement>;
   handleScroll: (e: React.UIEvent<HTMLDivElement>) => void;
   sec1ref: React.RefObject<HTMLDivElement>;
@@ -28,7 +28,7 @@ const Sections = ({
   sec2ref,
   sec3ref,
   sec4ref,
-}: props) => {
+}: PROPS) => {
   return (
     <div
       className="absolute overflow-y-scroll w-full h-full scroll-smooth snap-y snap-mandatory font-orbitron-l z-1"

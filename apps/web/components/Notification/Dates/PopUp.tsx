@@ -10,15 +10,14 @@ interface NotificationsData {
   };
 }
 interface Notification {
-  notification: NotificationDetails;
+  notification: {
+    android_channel_id: string;
+    body: string;
+    image: string;
+    link: string;
+    title: string;
+  };
   time: string;
-}
-interface NotificationDetails {
-  android_channel_id: string;
-  body: string;
-  image: string;
-  link: string;
-  title: string;
 }
 const PopUp: React.FC<{
   visibleNotifications: boolean;
@@ -50,9 +49,7 @@ const PopUp: React.FC<{
     time: "1674883109528",
   };
   useEffect(() => {
-    fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/notification`
-    )
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/notification`)
       .then((res) => res.json())
       .then((data: NotificationsData) => {
         setNotifications(data.data.notifications);

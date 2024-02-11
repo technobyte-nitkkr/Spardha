@@ -59,6 +59,8 @@ const OurSponsors = (): JSX.Element => {
         <div
           className="border-2 text-center p-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer"
           onClick={handleContactClick}
+          onKeyUp={handleContactClick}
+          role="presentation"
         >
           Contact Us
         </div>

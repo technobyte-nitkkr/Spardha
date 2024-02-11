@@ -38,11 +38,11 @@ const ThreeScene = () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
         containerRef.current?.appendChild(renderer.domElement);
         camera.position.set(0, 100, 60);
-        var targetZoom = new THREE.Vector3(0, 30, 60);
-        var initialTime = Date.now();
+        const targetZoom = new THREE.Vector3(0, 30, 60);
+        const initialTime = Date.now();
 
-        var sphereGeometry = new THREE.SphereGeometry(40, 64, 32);
-        var sphereMaterial = new THREE.MeshPhysicalMaterial({
+        const sphereGeometry = new THREE.SphereGeometry(40, 64, 32);
+        const sphereMaterial = new THREE.MeshPhysicalMaterial({
           map: diffuseMap,
           normalMap: normalMap,
           displacementMap: displacementMap,
@@ -51,7 +51,7 @@ const ThreeScene = () => {
           side: THREE.FrontSide,
           shadowSide: THREE.DoubleSide,
         });
-        var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
         scene.add(sphere);
 
         directionalLight.castShadow = true;
@@ -70,12 +70,12 @@ const ThreeScene = () => {
         animate();
 
         const zoomToTarget = () => {
-          var currentTime = Date.now();
-          var elapsedTime = currentTime - initialTime;
+          const currentTime = Date.now();
+          const elapsedTime = currentTime - initialTime;
 
-          var progress = Math.min(elapsedTime / 15000, 1); // change 20000 to adjust the duration
+          const progress = Math.min(elapsedTime / 15000, 1); // change 20000 to adjust the duration
 
-          var newPosition = new THREE.Vector3();
+          const newPosition = new THREE.Vector3();
           newPosition.x = THREE.MathUtils.lerp(
             camera.position.x,
             targetZoom.x,
