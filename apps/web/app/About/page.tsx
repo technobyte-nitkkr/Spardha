@@ -12,32 +12,41 @@ import "./About.css";
 
 const About = () => {
   return (
-    <div 
-      className="parent"
+    <div
+      className="parent h-screen w-full overflow-y-auto bg-black bg-cover bg-center bg-no-repeat relative"
       style={{
         backgroundImage: `url(${stars.src})`,
-      }}>
-            <div className="h-24 w-full flex justify-around">
-        <Link href="/" className="h-full w-auto flex justify-center items-center">
+      }}
+    >
+      <div className="h-24 w-full flex justify-around items-center">
+        <div className="h-2/3 w-3/5 flex flex-row justify-between bg-[#367cff3e] rounded-[90px] p-2">
+          <Link
+            href="/"
+            className="h-full w-auto flex justify-center items-center"
+          >
+            <Image
+              className="cursor-pointer rotate-90"
+              src={expand as string}
+              alt="category"
+              width={50}
+              height={50}
+            />
+          </Link>
           <Image
-            className="cursor-pointer rotate-90"
-            src={expand as string}
+            className="w-auto "
+            src={logo as unknown as string}
             alt="category"
             width={50}
             height={50}
           />
-        </Link>
-          <Image
-            className="w-auto h-full"
-            src={logo as unknown as string}
-            alt="category"
-            width={1000}
-            height={1000}
-          />
+        </div>
       </div>
-      <div className="aboutPageContainer"  >
+      <div className="aboutPageContainer">
         <span id="aboutElementHelper1"></span>
-        <Homecontainer heading={"About Techspardha"} element={<Registration />} />
+        <Homecontainer
+          heading={"About Techspardha"}
+          element={<Registration />}
+        />
         <Homecontainer
           heading={"Install the Techspardha app"}
           element={<InstallApp />}
@@ -49,7 +58,7 @@ const About = () => {
         <Homecontainer
           heading={"Checkout Techspardha'18 aftermovie"}
           element={
-            <div >
+            <div>
               <div className="video-responsive">
                 <iframe
                   width="360"
@@ -62,7 +71,6 @@ const About = () => {
               </div>
             </div>
           }
-
         />
       </div>
     </div>

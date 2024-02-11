@@ -52,7 +52,7 @@ const GLcard: React.FC<{
           </div>
         </div>
 
-        <div className="w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv">
+        <div className="w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv pointer-events-none">
           {item.desc}
         </div>
 

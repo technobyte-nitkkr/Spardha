@@ -4,6 +4,7 @@ import Panel from "../../public/assets/PANEL.png";
 // import presented from "../../public/assets/presented.png";
 import "../../app/page.module.css";
 import './landing.css';
+import { json } from "stream/consumers";
 interface NotificationsData {
   success: boolean;
   data: {
@@ -29,7 +30,7 @@ const Landing: React.FC<{
   const [notifications, setNotifications] = useState<Notification[]>([]);
   useEffect(() => {
     fetch(
-      "https://us-central1-techspardha-87928.cloudfunctions.net/api2/notification"
+      `${process.env.NEXT_PUBLIC_BASE_URL}/notification`
     )
       .then((res) => res.json())
       .then((data: NotificationsData) => {

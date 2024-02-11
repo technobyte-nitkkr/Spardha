@@ -10,21 +10,26 @@ import "./Team.css";
 
 const Team = (): JSX.Element => {
   return (
-    <div 
-      className="parent"
+    <div
+      className="parent h-screen w-full overflow-y-auto bg-black bg-cover bg-center bg-no-repeat relative"
       style={{
         backgroundImage: `url(${stars.src})`,
-      }}>
-      <div className="h-24 w-full flex justify-around">
-        <Link href="/" className="h-full w-auto flex justify-center items-center">
-          <Image
-            className="cursor-pointer rotate-90"
-            src={Expand as string}
-            alt="category"
-            width={50}
-            height={50}
-          />
-        </Link>
+      }}
+    >
+      <div className="h-24 w-full flex justify-around items-center">
+        <div className="h-2/3 w-3/5 flex flex-row justify-between bg-[#367cff3e] rounded-[90px] p-2">
+          <Link
+            href="/"
+            className="h-full w-auto flex justify-center items-center"
+          >
+            <Image
+              className="cursor-pointer rotate-90"
+              src={Expand as string}
+              alt="category"
+              width={50}
+              height={50}
+            />
+          </Link>
           <Image
             className="w-auto h-full"
             src={logo as unknown as string}
@@ -32,6 +37,7 @@ const Team = (): JSX.Element => {
             width={1000}
             height={1000}
           />
+        </div>
       </div>
       <div className="team">
         <div className="headingGL font-starlord-1">Team Techspardha</div>

@@ -28,7 +28,7 @@ function setNextNextCardStyle(
   if (i === cards.length - 2) i = 0;
   cards[i + 2].style.display = "block";
   cards[i + 2].style.transform = "translatex(30%) scale(0.6)";
-  cards[i + 2].style.opacity = "0.2";
+  cards[i + 2].style.opacity = "0.6";
   cards[i + 2].style.zIndex = "0";
 }
 function setNextCardStyle(
@@ -39,7 +39,7 @@ function setNextCardStyle(
   if (i === cards.length - 1) i = -1;
   cards[i + 1].style.display = "block";
   cards[i + 1].style.transform = "translatex(15%) scale(0.8)";
-  cards[i + 1].style.opacity = "0.4";
+  cards[i + 1].style.opacity = "0.8";
   cards[i + 1].style.zIndex = "0";
 }
 function setCurrentCardStyle(
@@ -58,7 +58,7 @@ function removePreviousCardStyle(
   let i: number = currentIndex;
   if (i <= 0) i = cards.length;
   cards[i - 1].style.transform = "translatex(30%) scale(0.0)";
-  cards[i - 1].style.opacity = "0.2";
+  cards[i - 1].style.opacity = "0.6";
   cards[i - 1].style.zIndex = "0";
 }
 
@@ -73,7 +73,7 @@ const Events: React.FC<{
   }, [categories]);
   useEffect(() => {
     fetch(
-      "https://us-central1-techspardha-87928.cloudfunctions.net/api2/events/categories",
+      `${process.env.NEXT_PUBLIC_BASE_URL}/events/categories`,
       {
         method: "GET",
         headers: {
@@ -127,7 +127,13 @@ const Events: React.FC<{
         <div
           className="border-2 w-full md:w-2/5 sm:w-1/2 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer mr-2"
           onClick={
-            !visible? () => {setVisible(true) }: () => {setVisible(false)}
+            !visible
+              ? () => {
+                  setVisible(true);
+                }
+              : () => {
+                  setVisible(false);
+                }
           }
           role="presentation"
         >

@@ -27,7 +27,7 @@ const TeamDetails = () => {
 
     useEffect(() => {
         const getData = () => {
-            fetch("https://us-central1-techspardha-87928.cloudfunctions.net/api2/contacts")
+            fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/contacts`)
                 .then(res => res.json())
                 .then((res: ContactsResponse) => {
                     setData(res.data.contacts.reverse());
