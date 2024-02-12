@@ -24,7 +24,7 @@ const GuestLectures = (): JSX.Element => {
   const [cardIndex, setCardIndex] = useState(0);
   const [guestList, setGuestList] = useState<Guest[]>([]);
   const [numberOfCards, setNumberOfCards] = useState(3);
-
+  const [disabledBTN , setDisabledBTN] = useState<boolean>(false);
 
   const scrollNext = (): void => {
     if (
@@ -42,14 +42,20 @@ const GuestLectures = (): JSX.Element => {
   };
   const [shiftBY,setShiftby] = useState<number>(3);
   useEffect(() => {
-     if(window.innerWidth < 1024) {
+     if(window.innerWidth < 800) {
       setShiftby(1);
+      if(guestList.length === 1) 
+        setDisabledBTN(true);
     }
     else if(window.innerWidth < 1280) {
       setShiftby(2);
+      if(guestList.length === 2) 
+        setDisabledBTN(true);
     }
     else {
       setShiftby(3);
+      if(guestList.length === 3) 
+        setDisabledBTN(true);
     }
     if (scrollRef.current && cardRef.current !== null) {
       const gap = (scrollRef.current.offsetWidth - numberOfCards*cardRef.current.offsetWidth)/2; //removed ? and ! to correct build errors
@@ -70,7 +76,7 @@ const GuestLectures = (): JSX.Element => {
   //fetching data for guest lectures section
   useEffect(() => {
     fetch(
-      "https://us-central1-techspardha-87928.cloudfunctions.net/api2/lectures",
+      `${process.env.NEXT_PUBLIC_BASE_URL}/lectures`,
       {
         method: "GET",
         headers: {
@@ -109,6 +115,7 @@ const GuestLectures = (): JSX.Element => {
           aria-hidden="true"
           className="border-2 w-2/5 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer mr-2"
           onClick={scrollPrev}
+          style={{ cursor : cardIndex === 0 || disabledBTN ? "not-allowed" : "pointer" }}
         >
           Prev
         </div>
@@ -116,6 +123,7 @@ const GuestLectures = (): JSX.Element => {
           aria-hidden="true"
           className="border-2  w-2/5 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tr-2xl cursor-pointer"
           onClick={scrollNext}
+          style={{ cursor : cardIndex === (scrollRef.current?.children.length ?? 0) - numberOfCards || disabledBTN ? "not-allowed" : "pointer" }}
         >
           Next
         </div>
