@@ -4,7 +4,7 @@ import * as THREE from "three";
 import Loading from "../../app/loading";
 import Sections from "./Sections/Sections";
 import stars from "public/assets/stars.jpg";
-import Notification from "../Notification/Notification";
+import Notification from "../PopUps/Notification";
 import mars_displacement from "public/assets/displacement.jpeg";
 import mars2 from "public/assets/mars2.jpg";
 import mars_normal from "public/assets/mars_normal1.png";
@@ -22,7 +22,7 @@ const ThreeScene = () => {
     const sec3ref = useRef<HTMLDivElement>(null);
     const sec4ref = useRef<HTMLDivElement>(null);
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, 1920 / 1080, 0.1, 10000);
+    const camera = new THREE.PerspectiveCamera(90, 1920 / 1080, 0.1, 10000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     const directionalLight = new THREE.DirectionalLight(0x000000, 2); // red
     const directionalLight2 = new THREE.DirectionalLight(0x000000, 1); // blue
@@ -46,21 +46,24 @@ const ThreeScene = () => {
           map: diffuseMap,
           normalMap: normalMap,
           displacementMap: displacementMap,
-          roughness: 0.7,
-          metalness: 0.5,
+          roughness: 0.4,
+          metalness: 0.1,
+          displacementScale: 1,
+          displacementBias: -0.9,
           side: THREE.FrontSide,
           shadowSide: THREE.DoubleSide,
+          
         });
         const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
         scene.add(sphere);
 
         directionalLight.castShadow = true;
-        directionalLight.position.set(0, 40, 0);
-        directionalLight2.position.set(0, -40, 0);
+        directionalLight.position.set(0, -40, 0);
+        directionalLight2.position.set(0, 40, 0);
         scene.add(directionalLight);
         scene.add(directionalLight2);
-        directionalLight.color.set(0x4d4dff);
-        directionalLight2.color.set(0x4d4dff);
+        directionalLight.color.set(0xFA9C1C);
+        directionalLight2.color.set(0x367CFF);
 
         const animate = () => {
           requestAnimationFrame(animate);
@@ -120,7 +123,8 @@ const ThreeScene = () => {
     const Gscroll: number | undefined = parentDiv.current?.scrollTop;
     useEffect(() => {
       handleScroll();
-    }, [Gscroll]);
+      parentDiv.current?.addEventListener("scroll", handleScroll);
+    }, [Gscroll ,visible ,visibleNotifications]);
     const handleScroll = () => {
       const sec1: number | undefined = sec1ref.current?.offsetTop;
       const sec2: number | undefined = sec2ref.current?.offsetTop;
