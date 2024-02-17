@@ -7,7 +7,7 @@ import Image from "next/image";
 const InstallApp = () => {
   return (
     <div>
-      <div className="Heading">Install the Techspardh App Now!</div>
+      <div className="HeadingAbout">Install the Techspardh App Now!</div>
 
       <div className="aboutscroll1">
         <div className="wrapper">
