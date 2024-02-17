@@ -16,20 +16,30 @@ interface PROPS {
 }
 const DatesAbout: React.FC<PROPS> = ({ ActiveNotification, giveDate }) => {
   return (
-    <div className="inline-flex w-3/4 h-full flex-col items-center gap-6 shrink-0 pb-4">
-      <div className="overflow-y-auto px-2">
+    <div className="inline-flex w-3/4 h-full flex-col items-center gap-6 shrink-0 pb-4 max-w-[100%]">
+      <div className="overflow-y-auto px-2 w-full">
         <h1 className="text-white text-3xl tracking-[1px] font-starlord text-center mb-3">
           {ActiveNotification.notification.title
             ? ActiveNotification.notification.title
             : ""}
         </h1>
-        <Image
-          className="mb-3"
-          src={ActiveNotification.notification.image}
-          width={1000}
-          height={1000}
-          alt="image"
-        />
+        {ActiveNotification.notification.image !== "" ? (
+          <Image
+            className="mb-3 max-w-full"
+            src={ActiveNotification.notification.image}
+            width={1000}
+            height={1000}
+            alt="image"
+          />
+        ) : (
+          <Image
+            className="mb-3 min-w-full"
+            src={"/assets/NoImage.png"}
+            width={1000}
+            height={1000}
+            alt="image"
+          />
+        )}
         <h1 className="text-[15px] leading-6 tracking-[1px] font-orbitron-1 text-start w-full mb-3">
           <span className="text-blue-200">ABOUT:</span>
           {ActiveNotification.notification.body

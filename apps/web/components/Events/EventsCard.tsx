@@ -14,11 +14,11 @@ const EventsCard: React.FC<EventCardProps> = ({ image, eventName }) => {
     <div
       className="h-full w-full flex justify-items-center items-center card transition ease-in-out duration-1000 absolute cursor-pointer cardHover"
       style={{
-        backgroundImage: `url(${Panel.src})`,
+        background: `url(${Panel.src})`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
-        backfaceVisibility: "hidden",
+        backgroundBlendMode: "invert",
       }}
     >
       <Image

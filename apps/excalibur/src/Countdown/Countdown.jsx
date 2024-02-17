@@ -52,7 +52,6 @@ export default function Countdown() {
         setLeft(()=>countdown(timeLeftSec));
     }, 1000);
 
-    // console.log(left);
 
 // ### Message for Future Contributors
 

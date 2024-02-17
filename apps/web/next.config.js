@@ -2,6 +2,7 @@ module.exports = {
   reactStrictMode: true,
   transpilePackages: ["ui"],
   images: {
+    domains: ['i.pinimg.com'],
     remotePatterns: [
       {
         // used to add images in guest lectures section

@@ -37,24 +37,13 @@ const PopUp: React.FC<{
   const [angle, setAngle] = useState<boolean[]>(
     new Array(notifications.length).fill(true)
   );
-  const initData: Notification = {
-    notification: {
-      android_channel_id: "technobyte",
-      body: "Techspardha is electrified ⚡ by the enunciation of highly experienced and skilled speech-makers.Excited to know that this techspardha who is felicitating us as our guest ? 🥳 Here we present our first guest – Mr. Ankush Singla 🔥Ankush is currently working as the Co-founder & CEO at Coding Ninjas. Before Starting the Coding Ninjas he was the co founder of Coding Blocks. He has worked in other companies like Facebook, 100Percentile and Amazon. He has graduation degree from Indian Institute of Technology, Delhi and Master's degree from Stanford University.Get a chance to know about his journey and learn how to code your way through “rat in a maze”👾 on 28th January , 10:00 AM at Senate Hall.Mark Your Calenders.👻",
-      image:
-        "https://res.cloudinary.com/techspardha8/image/upload/v1674836467/techspardha22/events/rah2zpo41bmyqlksztvk.jpg",
-      link: "https://www.instagram.com/p/Cn6FD5rvGHI/",
-      title: "Guest Lecture by Ankush Singla Starting Soon",
-    },
-    time: "1674883109528",
-  };
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/notification`)
       .then((res) => res.json())
       .then((data: NotificationsData) => {
         setNotifications(data.data.notifications);
         setAngle(data.data.notifications.map((_, index) => index !== 0));
-        setActiveNotification(initData);
+        setActiveNotification(data.data.notifications[0]);
       })
       .catch((err: Error) => err);
   }, []);
