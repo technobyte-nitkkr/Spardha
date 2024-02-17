@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 interface Notification {
   notification: {
@@ -15,9 +15,6 @@ interface PROPS {
   giveDate: (time: string) => string;
 }
 const DatesAbout: React.FC<PROPS> = ({ ActiveNotification, giveDate }) => {
-  useEffect(() => {
-    console.log(ActiveNotification);
-  }, []);
   return (
     <div className="inline-flex w-3/4 h-full flex-col items-center gap-6 shrink-0 pb-4 max-w-[100%]">
       <div className="overflow-y-auto px-2 w-full">

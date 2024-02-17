@@ -44,7 +44,6 @@ const PopUp: React.FC<{
         setNotifications(data.data.notifications);
         setAngle(data.data.notifications.map((_, index) => index !== 0));
         setActiveNotification(data.data.notifications[0]);
-        console.log(data.data.notifications);
       })
       .catch((err: Error) => err);
   }, []);
