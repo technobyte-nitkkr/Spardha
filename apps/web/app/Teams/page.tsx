@@ -1,5 +1,4 @@
 "use client";
-import TeamAnimation from "../../components/Teams/Animation/TeamAnimation";
 import stars from "../../public/assets/stars.jpg";
 import TeamDetails from "../../components/Teams/Details/TeamDetails";
 import Image from "next/image";
@@ -11,12 +10,12 @@ import "./Team.css";
 const Team = (): JSX.Element => {
   return (
     <div
-      className="parent h-screen w-full overflow-y-auto bg-black bg-cover bg-center bg-no-repeat relative"
+      className="parentTeam h-screen w-full overflow-y-auto bg-black bg-cover bg-center bg-no-repeat relative overflow-x-hidden"
       style={{
         backgroundImage: `url(${stars.src})`,
       }}
     >
-      <div className="h-24 w-full flex justify-around items-center">
+      <div className="h-24 w-full flex justify-around items-center ">
         <div className="h-2/3 w-3/5 flex flex-row justify-between bg-[#367cff3e] rounded-[90px] p-2">
           <Link
             href="/"
@@ -41,12 +40,11 @@ const Team = (): JSX.Element => {
       </div>
       <div className="team">
         <div className="headingGL font-starlord-1">Team Techspardha</div>
-        <div className="sub-team-heading">
+        <div className="sub-team-heading bg-[#367cff3e] p-3" >
           &quot;Meet the People who worked countless hours behind the scenes to
           bring you the Spectacle,
           <br></br>that is Techspardha, the tech-fest of NIT kurukshetra.&quot;
         </div>
-        <TeamAnimation />
         <TeamDetails />
       </div>
     </div>

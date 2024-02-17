@@ -4,7 +4,7 @@
   font-family: Starlord;
 } */
 
-.parent{
+.parentTeam{
   background: #1f0641;
   background-position: center;
   background-size: cover;
@@ -50,7 +50,7 @@
 .sub-team-heading {
   color: #fff;
   font-size: 20px;
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   /* width: 50%; */
   /* margin-left: 8%; */
