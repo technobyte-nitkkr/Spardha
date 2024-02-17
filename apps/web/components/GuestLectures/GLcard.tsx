@@ -21,8 +21,9 @@ const GLcard: React.FC<{
   key: number;
 }> = ({ forwardedRef, item }) => {
   return (
-    <div className="h-full xl:w-1/3 lg:w-1/2 w-full  flex-shrink-0 px-3 snap-start"
-    ref={forwardedRef}
+    <div
+      className="h-full xl:w-1/3 custom-md:w-1/2 w-full  flex-shrink-0 px-3 snap-start"
+      ref={forwardedRef}
     >
       <div
         className="h-full w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3"
@@ -34,7 +35,7 @@ const GLcard: React.FC<{
         <div className="w-full h-[20%] flex">
           <Image
             alt="abstract"
-            className="rounded-tl-2xl mr-1 h-full w-1/3"
+            className="rounded-tl-2xl mr-1 h-full w-1/3 max-w-[120px] max-h-[120px]"
             height={1000}
             src={item.imageUrl}
             width={1000}
@@ -52,26 +53,26 @@ const GLcard: React.FC<{
           </div>
         </div>
 
-        <div className="w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv pointer-events-none">
+        <div className="w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv">
           {item.desc}
         </div>
 
         <div className="w-full h-[7%] flex justify-start">
-          <Link className="h-full w-1/6" href={item.insta} target="_blank">
+          <Link className="h-full w-1/6 max-w-12" href={item.insta} target="_blank">
             <Image
               alt="instagram"
               className="h-full w-full text-left"
               src={Instagram as string}
             />
           </Link>
-          <Link className="h-full w-1/6" href={item.facebook} target="_blank">
+          <Link className="h-full w-1/6 max-w-12" href={item.facebook} target="_blank">
             <Image
               alt="facebook"
               className="h-full w-full text-left"
               src={Facebook as string}
             />
           </Link>
-          <Link className="h-full w-1/6" href={item.linkedin} target="_blank">
+          <Link className="h-full w-1/6 max-w-12" href={item.linkedin} target="_blank">
             <Image
               alt="linkedin"
               className="h-full w-full text-left"

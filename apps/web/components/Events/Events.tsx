@@ -9,6 +9,10 @@ function startAnimation(
   i: number,
   cards: NodeListOf<HTMLLabelElement> | undefined
 ): void {
+  cards?.forEach((_, idx) => {
+    if (idx !== 0 && idx !== 1 && idx !== 2)
+      removePreviousCardStyle(cards, idx);
+  });
   let currentIndex = i % cards!.length;
   setInterval(() => {
     if (Number.isNaN(currentIndex) || cards === undefined) return;
@@ -24,11 +28,11 @@ function setNextNextCardStyle(
   currentIndex: number
 ): void {
   let i = currentIndex;
-  if (i === cards.length - 1) i = 1;
-  if (i === cards.length - 2) i = 0;
+  if (i === cards.length - 1) i = -1; //i+2==1 ==> i==-1
+  if (i === cards.length - 2) i = -2; //i+2==0 ==> i==-2
   cards[i + 2].style.display = "block";
   cards[i + 2].style.transform = "translatex(30%) scale(0.6)";
-  cards[i + 2].style.opacity = "0.6";
+  cards[i + 2].style.opacity = "0.8";
   cards[i + 2].style.zIndex = "0";
 }
 function setNextCardStyle(
@@ -36,11 +40,11 @@ function setNextCardStyle(
   currentIndex: number
 ): void {
   let i = currentIndex;
-  if (i === cards.length - 1) i = -1;
+  if (i === cards.length - 1) i = -1; //i+1==0 ==> i==-1
   cards[i + 1].style.display = "block";
   cards[i + 1].style.transform = "translatex(15%) scale(0.8)";
-  cards[i + 1].style.opacity = "0.8";
-  cards[i + 1].style.zIndex = "0";
+  cards[i + 1].style.opacity = "0.9";
+  cards[i + 1].style.zIndex = "1";
 }
 function setCurrentCardStyle(
   cards: NodeListOf<HTMLLabelElement>,
@@ -49,7 +53,7 @@ function setCurrentCardStyle(
   cards[i].style.display = "block";
   cards[i].style.transform = "translatex(0) scale(1)";
   cards[i].style.opacity = "1";
-  cards[i].style.zIndex = "1";
+  cards[i].style.zIndex = "5";
 }
 function removePreviousCardStyle(
   cards: NodeListOf<HTMLLabelElement>,
@@ -58,7 +62,7 @@ function removePreviousCardStyle(
   let i: number = currentIndex;
   if (i <= 0) i = cards.length;
   cards[i - 1].style.transform = "translatex(30%) scale(0.0)";
-  cards[i - 1].style.opacity = "0.6";
+  cards[i - 1].style.opacity = "0";
   cards[i - 1].style.zIndex = "0";
 }
 
@@ -67,21 +71,19 @@ const Events: React.FC<{
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ visible, setVisible }) => {
   const [categories, setCategories] = useState<CategoriesElement[]>([]);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   useEffect(() => {
     cards = document.querySelectorAll(".card");
     startAnimation(0, cards);
   }, [categories]);
   useEffect(() => {
-    fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/events/categories`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    )
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/events/categories`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((res) => res.json())
       .then(
         (data: {
@@ -90,6 +92,7 @@ const Events: React.FC<{
           data: { categories: CategoriesElement[] };
         }) => {
           setCategories(data.data.categories);
+          setIsLoaded(true);
         }
       )
       .catch((err: Error) => err);
@@ -113,15 +116,23 @@ const Events: React.FC<{
         }
         role="presentation"
       >
-        {categories.map((category, i) => {
-          return (
-            <EventsCard
-              image={category.imgUrl}
-              eventName={category.categoryName}
-              key={i}
-            />
-          );
-        })}
+        {isLoaded ? (
+          <>
+            {categories.map((category, i) => {
+              return (
+                <EventsCard
+                  image={category.imgUrl}
+                  eventName={category.categoryName}
+                  key={i}
+                />
+              );
+            })}
+          </>
+        ) : (
+          <div className="w-full h-full flex justify-center items-center">
+            <h1 className="text-3xl">Loading...</h1>
+          </div>
+        )}
       </div>
       <div className="w-1/2 sm:w-full pt-2 flex justify-evenly">
         <div

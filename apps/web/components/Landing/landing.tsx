@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-// import Image from "next/image";
+import Image from "next/image";
 import Panel from "../../public/assets/PANEL.png";
 // import presented from "../../public/assets/presented.png";
 import "../../app/page.module.css";
-import './landing.css';
+import "./landing.css";
 interface NotificationsData {
   success: boolean;
   data: {
@@ -27,13 +27,13 @@ const Landing: React.FC<{
   setVisibleNotifications: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ visibleNotifications, setVisibleNotifications }) => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   useEffect(() => {
-    fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/notification`
-    )
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/notification`)
       .then((res) => res.json())
       .then((data: NotificationsData) => {
         setNotifications(data.data.notifications);
+        setIsLoaded(true);
       })
       .catch((err: Error) => err);
   }, []);
@@ -110,26 +110,44 @@ const Landing: React.FC<{
           }}
         >
           <div className="w-auto h-[70%] md:text-xl sm:text-xl text-[10px] overflow-hidden font-orbitron-l ">
-            {notifications.map((item: Notification, i: number) => {
-              if (i > 4) return;
-              return (
-                <div
-                  className="date_card py-1.5 opacity-70 hover:opacity-100 cursor-pointer w-full overflow-hidden flex justify-start"
-                  key={i}
-                  onClick={() => {
-                    setVisibleNotifications(true);
-                  }}
-                  role="presentation"
-                >
-                  <span className="text-md mr-2">&gt;&gt;</span>
-                  <div className="flex w-full">
-                    <span className="text-md">{giveDate(item.time).substring(0, 2)}{nthNumber(giveDate(item.time).substring(0, 2))}</span>
-                    -
-                    <span className="text-md">{giveDate(item.time).substring(0, 2)}{nthNumber(giveDate(item.time).substring(0, 2))}{giveDate(item.time).substring(2)}</span>
-                  </div>
-                </div>
-              );
-            })}
+            {isLoaded ? (
+              <>
+                {notifications.map((item: Notification, i: number) => {
+                  if (i > 4) return;
+                  return (
+                    <div
+                      className="date_card py-1.5 opacity-70 hover:opacity-100 cursor-pointer w-full overflow-hidden flex justify-start"
+                      key={i}
+                      onClick={() => {
+                        setVisibleNotifications(true);
+                      }}
+                      role="presentation"
+                    >
+                      <span className="text-md mr-2">&gt;&gt;</span>
+                      <div className="flex w-full">
+                        <span className="text-md">
+                          {giveDate(item.time).substring(0, 2)}
+                          {nthNumber(giveDate(item.time).substring(0, 2))}
+                        </span>
+                        -
+                        <span className="text-md">
+                          {giveDate(item.time).substring(0, 2)}
+                          {nthNumber(giveDate(item.time).substring(0, 2))}
+                          {giveDate(item.time).substring(2)}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </>
+            ) : (
+              <Image
+                src="/assets/loader.gif"
+                alt="loading"
+                width={100}
+                height={100}
+              />
+            )}
           </div>
         </div>
         <button
@@ -138,11 +156,11 @@ const Landing: React.FC<{
           onClick={
             !visibleNotifications
               ? () => {
-                setVisibleNotifications(true);
-              }
+                  setVisibleNotifications(true);
+                }
               : () => {
-                setVisibleNotifications(false);
-              }
+                  setVisibleNotifications(false);
+                }
           }
         >
           View Them All

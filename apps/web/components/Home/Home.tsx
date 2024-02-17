@@ -22,7 +22,7 @@ const ThreeScene = () => {
     const sec3ref = useRef<HTMLDivElement>(null);
     const sec4ref = useRef<HTMLDivElement>(null);
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(90, 1920 / 1080, 0.1, 10000);
+    const camera = new THREE.PerspectiveCamera(45, 1920 / 1080, 0.1, 10000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     const directionalLight = new THREE.DirectionalLight(0x000000, 2); // red
     const directionalLight2 = new THREE.DirectionalLight(0x000000, 1); // blue
@@ -58,8 +58,8 @@ const ThreeScene = () => {
         scene.add(sphere);
 
         directionalLight.castShadow = true;
-        directionalLight.position.set(0, -40, 0);
-        directionalLight2.position.set(0, 40, 0);
+        directionalLight.position.set(0, 40, 0);
+        directionalLight2.position.set(0, -40, 0);
         scene.add(directionalLight);
         scene.add(directionalLight2);
         directionalLight.color.set(0xFA9C1C);

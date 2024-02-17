@@ -1,36 +1,50 @@
-@media screen and (max-height: 730px) {
-    h1{
-        font-size:medium;
+@media screen and (min-height: 730px) and (max-width: 640px) {
+    h1 {
+        font-size: medium;
     }
-    .Heading{
-        font-size: 5rem;
+
+    .Heading {
+        font-size: 3rem;
     }
-    .panel_card{
+
+    .panel_card {
         min-height: 225px;
     }
 }
-@media screen and (min-height: 561px) and (max-height: 730px) {
-    .Heading{
-        font-size: 4rem;
-    }
-  }
-  @media screen and (max-height: 560px) {
-    h1{
-        font-size:small;
-    }
-    .Heading{
+
+@media screen and (min-height: 561px) and (max-height: 730px)  and (max-width: 640px) {
+    .Heading {
         font-size: 3rem;
     }
-    .panel_card{
-        min-height: 225px;
+}
+@media screen and (min-height: 561px) and (max-height: 730px) {
+    .Heading {
+        font-size: 5rem;
     }
-    span{
+}
+
+@media screen and (max-height: 560px) {
+    h1 {
         font-size: small;
     }
-    .panel_card{
+
+    .Heading {
+        font-size: 3rem;
+    }
+
+    .panel_card {
+        min-height: 225px;
+    }
+
+    span {
+        font-size: small;
+    }
+
+    .panel_card {
         min-height: 200px;
     }
-    .date_card{
+
+    .date_card {
         padding: 0;
     }
 }
