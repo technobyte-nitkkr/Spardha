@@ -99,7 +99,12 @@ const TeamDetails = () => {
                       : ""}
                   </h2>
                   <hr />
-                  <p className="person-post font-orbitron1">{x.post}</p>
+                  <p className="person-post font-orbitron1">
+                    {x.post.split(" ")[0]}
+                    <br />
+                    {x.post.split(" ")[1]}{" "}
+                    {x.post.split(" ")[2] ? x.post.split(" ")[2] : ""}
+                  </p>
                 </div>
               </div>
             );
