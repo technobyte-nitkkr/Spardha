@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import GLcard from "./GLcard";
-
+import Image from "next/image";
 interface Guest {
   name: string;
   time: string;
@@ -24,6 +24,7 @@ const GuestLectures = (): JSX.Element => {
   const [guestList, setGuestList] = useState<Guest[]>([]);
   const [numberOfCards, setNumberOfCards] = useState(3);
   const [disabledBTN, setDisabledBTN] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   const scrollNext = (): void => {
     if (
@@ -80,6 +81,7 @@ const GuestLectures = (): JSX.Element => {
       .then((data: ParentGuest) => {
         const lectures: Guest[] = data.data.lectures;
         setGuestList(lectures);
+        setIsLoaded(true);
       })
       .catch((err: Error) => err);
   }, []);
@@ -92,11 +94,137 @@ const GuestLectures = (): JSX.Element => {
         className="h-3/5 w-4/5 flex overflow-x-auto gCardResponsive snap-x snap-mandatory"
         ref={scrollRef}
       >
-        {guestList.map((item, index) => {
-          return <GLcard forwardedRef={cardRef} item={item} key={index} />;
-        })}
-      </div>
+        {isLoaded ? (
+          <>
+            {guestList.map((item, index) => {
+              return <GLcard forwardedRef={cardRef} item={item} key={index} />;
+            })}
+          </>
+        ) : (
+          <>
+            <div className="h-full xl:w-1/3 custom-md:w-1/2 w-full  flex-shrink-0 px-3 snap-start">
+              <div
+                className="h-full w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3"
+                style={{
+                  backgroundColor: "rgb(54, 124, 255, 0.25)",
+                  border: "1px solid rgb(54, 124, 255)",
+                }}
+              >
+                <div className="w-full h-[20%] flex">
+                  <Image
+                    alt="abstract"
+                    className="rounded-tl-2xl mr-1 h-full w-1/3 max-w-[120px] max-h-[120px]"
+                    height={1000}
+                    src={"/assets/loader.gif"}
+                    width={1000}
+                  />
+                  <div className="h-full flex-1 pl-3 sm:flex sm:flex-col custom-sm:flex custom-sm:flex-col custom-xsm:flex custom-xsm:flex-col">
+                    <div
+                      className="text-[1.5rem] h-1/3 sm:h-auto sm:text-[1.4rem] custom-xsm:h-auto custom-xsm:text-[1.3rem] 
+          md:h-auto md:text-[1.5rem] md:mb-0 custom-sm:h-auto custom-sm:text-[1.6rem] "
+                    >
+                      Loading...
+                    </div>
+                    <div className="text-[0.8] h-1/3 sm:h-auto sm:mt-2 sm:text-[0.8rem] sm:mb-2 opacity-60 custom-xsm:h-auto custom-xsm:text-[0.8rem] md:h-auto md:text-[0.8rem] md:mt-0  custom-sm:h-auto custom-sm:text-[0.8rem] ">
+                      Loading....
+                    </div>
+                  </div>
+                </div>
 
+                <div className="w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv">
+                  Loading.....
+                </div>
+
+                <div className="w-full h-[7%] flex justify-start gap-5">
+                  <div className="h-12 w-12 animate-pulse bg-gray-700 rounded-xl"></div>
+                  <div className="h-12 w-12 animate-pulse bg-gray-700 rounded-xl"></div>
+                  <div className="h-12 w-12 animate-pulse bg-gray-700 rounded-xl"></div>
+                </div>
+              </div>
+            </div>
+            <div className="h-full xl:w-1/3 custom-md:w-1/2 w-full  flex-shrink-0 px-3 snap-start">
+              <div
+                className="h-full w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3"
+                style={{
+                  backgroundColor: "rgb(54, 124, 255, 0.25)",
+                  border: "1px solid rgb(54, 124, 255)",
+                }}
+              >
+                <div className="w-full h-[20%] flex">
+                  <Image
+                    alt="abstract"
+                    className="rounded-tl-2xl mr-1 h-full w-1/3 max-w-[120px] max-h-[120px]"
+                    height={1000}
+                    src={"/assets/loader.gif"}
+                    width={1000}
+                  />
+                  <div className="h-full flex-1 pl-3 sm:flex sm:flex-col custom-sm:flex custom-sm:flex-col custom-xsm:flex custom-xsm:flex-col">
+                    <div
+                      className="text-[1.5rem] h-1/3 sm:h-auto sm:text-[1.4rem] custom-xsm:h-auto custom-xsm:text-[1.3rem] 
+          md:h-auto md:text-[1.5rem] md:mb-0 custom-sm:h-auto custom-sm:text-[1.6rem] "
+                    >
+                      Loading...
+                    </div>
+                    <div className="text-[0.8] h-1/3 sm:h-auto sm:mt-2 sm:text-[0.8rem] sm:mb-2 opacity-60 custom-xsm:h-auto custom-xsm:text-[0.8rem] md:h-auto md:text-[0.8rem] md:mt-0  custom-sm:h-auto custom-sm:text-[0.8rem] ">
+                      Loading....
+                    </div>
+                  </div>
+                </div>
+
+                <div className="w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv">
+                  Loading.....
+                </div>
+
+                <div className="w-full h-[7%] flex justify-start gap-5">
+                  <div className="h-12 w-12 animate-pulse bg-gray-700 rounded-xl"></div>
+                  <div className="h-12 w-12 animate-pulse bg-gray-700 rounded-xl"></div>
+                  <div className="h-12 w-12 animate-pulse bg-gray-700 rounded-xl"></div>
+                </div>
+              </div>
+            </div>
+            <div className="h-full xl:w-1/3 custom-md:w-1/2 w-full  flex-shrink-0 px-3 snap-start">
+              <div
+                className="h-full w-full flex-shrink-0 rounded-tl-3xl flex flex-col items-center justify-between p-3"
+                style={{
+                  backgroundColor: "rgb(54, 124, 255, 0.25)",
+                  border: "1px solid rgb(54, 124, 255)",
+                }}
+              >
+                <div className="w-full h-[20%] flex">
+                  <Image
+                    alt="abstract"
+                    className="rounded-tl-2xl mr-1 h-full w-1/3 max-w-[120px] max-h-[120px]"
+                    height={1000}
+                    src={"/assets/loader.gif"}
+                    width={1000}
+                  />
+                  <div className="h-full flex-1 pl-3 sm:flex sm:flex-col custom-sm:flex custom-sm:flex-col custom-xsm:flex custom-xsm:flex-col">
+                    <div
+                      className="text-[1.5rem] h-1/3 sm:h-auto sm:text-[1.4rem] custom-xsm:h-auto custom-xsm:text-[1.3rem] 
+          md:h-auto md:text-[1.5rem] md:mb-0 custom-sm:h-auto custom-sm:text-[1.6rem] "
+                    >
+                      Loading...
+                    </div>
+                    <div className="text-[0.8] h-1/3 sm:h-auto sm:mt-2 sm:text-[0.8rem] sm:mb-2 opacity-60 custom-xsm:h-auto custom-xsm:text-[0.8rem] md:h-auto md:text-[0.8rem] md:mt-0  custom-sm:h-auto custom-sm:text-[0.8rem] ">
+                      Loading....
+                    </div>
+                  </div>
+                </div>
+
+                <div className="w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv">
+                  Loading.....
+                </div>
+
+                <div className="w-full h-[7%] flex justify-start gap-5">
+                  <div className="h-12 w-12 animate-pulse bg-gray-700 rounded-xl"></div>
+                  <div className="h-12 w-12 animate-pulse bg-gray-700 rounded-xl"></div>
+                  <div className="h-12 w-12 animate-pulse bg-gray-700 rounded-xl"></div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
       <div className="lg:w-1/4 md:w-1/3 w-1/2 pt-2 flex justify-evenly">
         <div
           aria-hidden="true"

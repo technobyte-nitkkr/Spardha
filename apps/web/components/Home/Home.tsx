@@ -6,7 +6,7 @@ import Sections from "./Sections/Sections";
 import stars from "public/assets/stars.jpg";
 import Notification from "../PopUps/Notification";
 import mars_displacement from "public/assets/displacement.jpeg";
-import mars2 from "public/assets/mars2.jpg";
+import mars2 from "public/assets/texture.jpg";
 import mars_normal from "public/assets/mars_normal1.png";
 import "@fontsource/orbitron";
 import "@fontsource/orbitron/400.css";
@@ -52,7 +52,6 @@ const ThreeScene = () => {
           displacementBias: -0.9,
           side: THREE.FrontSide,
           shadowSide: THREE.DoubleSide,
-          
         });
         const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
         scene.add(sphere);
@@ -62,8 +61,8 @@ const ThreeScene = () => {
         directionalLight2.position.set(0, -40, 0);
         scene.add(directionalLight);
         scene.add(directionalLight2);
-        directionalLight.color.set(0xFA9C1C);
-        directionalLight2.color.set(0x367CFF);
+        directionalLight.color.set(0xfa9c1c); //dark
+        directionalLight2.color.set(0x367cff); //blue
 
         const animate = () => {
           requestAnimationFrame(animate);
@@ -124,7 +123,7 @@ const ThreeScene = () => {
     useEffect(() => {
       handleScroll();
       parentDiv.current?.addEventListener("scroll", handleScroll);
-    }, [Gscroll ,visible ,visibleNotifications]);
+    }, [Gscroll, visible, visibleNotifications]);
     const handleScroll = () => {
       const sec1: number | undefined = sec1ref.current?.offsetTop;
       const sec2: number | undefined = sec2ref.current?.offsetTop;
@@ -221,7 +220,10 @@ const ThreeScene = () => {
         camera.fov = 45;
       }
     };
-
+    const [mounted, setMounted] = useState<boolean>(false);
+    useEffect(() => {
+      setMounted(true);
+    }, []);
     return (
       <div className="w-screen h-screen m-0 p-0">
         <div
@@ -231,12 +233,14 @@ const ThreeScene = () => {
             backgroundImage: `url(${stars.src})`,
           }}
         >
-          <Notification
-            visible={visible}
-            setVisible={setVisible}
-            visibleNotifications={visibleNotifications}
-            setVisibleNotifications={setVisibleNotifications}
-          />
+          {mounted && (
+            <Notification
+              visible={visible}
+              setVisible={setVisible}
+              visibleNotifications={visibleNotifications}
+              setVisibleNotifications={setVisibleNotifications}
+            />
+          )}
           <Sections
             parentDiv={parentDiv}
             handleScroll={handleScroll}

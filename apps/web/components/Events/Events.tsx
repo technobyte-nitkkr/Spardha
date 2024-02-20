@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EventsCard from "./EventsCard";
+import Image from "next/image";
+import Panel from "../../public/assets/PANEL.png";
 interface CategoriesElement {
   categoryName: string;
   imgUrl: string;
@@ -129,9 +131,37 @@ const Events: React.FC<{
             })}
           </>
         ) : (
-          <div className="w-full h-full flex justify-center items-center">
-            <h1 className="text-3xl">Loading...</h1>
-          </div>
+          <div
+      className="h-full w-full flex justify-items-center items-center absolute cursor-pointer"
+      style={{
+        background: `url(${Panel.src})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+        backgroundBlendMode: "invert",
+      }}
+    >
+      <Image
+        alt=""
+        className="absolute w-auto h-auto max-w-[50%] max-h-[50%] top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2"
+        style={{
+          clipPath:
+            "polygon( 0 25%,12% 0,100% 0,100% 100%,100% 100%,100% 100%,10% 100%,0% 100%,0% 100%)",
+        }}
+        height={450}
+        src="/assets/loader.gif"
+        width={450}
+      />
+      <h1
+        style={{
+          clipPath:
+            "polygon( 0 25px,20px 0,100% 0,100% 100%,100% 100%,100% 100%,10% 100%,0% 100%,0% 100%)",
+        }}
+        className="absolute bottom-[38%] sm:bottom-1/3 md:bottom-1/4 lg:bottom-[20%] left-[max(3rem,20%)] md:left-[18%] lg:left-[26%] text-xl sm:text-3xl md:text-5xl font-bold  text-[#DEDEDE] bg-[#367cff] py-2 px-4"
+      >
+        Loading....
+      </h1>
+    </div>
         )}
       </div>
       <div className="w-1/2 sm:w-full pt-2 flex justify-evenly">
