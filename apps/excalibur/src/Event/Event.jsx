@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import "./Event.css";
+import img1 from '../assets/photos/IMG_0499.jpg'
+import img2 from '../assets/photos/IMG_0532.jpg'
+import img3 from '../assets/photos/IMG_0540.jpg'
+import img4 from '../assets/photos/IMG_5583.jpg'
+import img5 from '../assets/photos/IMG_5587.jpg'
+import img6 from '../assets/photos/IMG_5592.jpg'
 
-const imgUrls = [
-    "https://res.cloudinary.com/devex/image/fetch/https://lh4.googleusercontent.com/VQyrPPyh-FGdV2BJtlcwDphesnxERD6SLWvGtARygLDVNSsXhFF0kzG_yXvLyiARZbKIG3VYF_CIbF4_B-Wy3Eu7kKhHKKR3pq_2ob2pdZgxt_Wz_uqXjRMrhIBKREQnJo--Ui9b",
-    "https://blog-c7ff.kxcdn.com/blog/wp-content/uploads/2019/09/Capture_HAckathon_wordpress.jpg",
-    "https://assets.website-files.com/5b3dd54182ecae4d1602962f/609e33e18c5000af6211f094_HR%20Hackathon%20-%20Section%202.jpg"
-]
-
-
+const imgUrls = [img1, img2, img3, img4, img5, img6]
 export default function Event(){
     let idx = 0;
     useEffect(()=>{
@@ -15,6 +15,8 @@ export default function Event(){
             idx = (idx+1)%imgUrls.length
             document.querySelector(".image-holder").querySelector("img").src = imgUrls[idx];
         }, 4000)
+        
+        console.log(imgUrls);
 
     }, [])
     return (
@@ -26,7 +28,10 @@ export default function Event(){
                         What is Excalibur?
                     </p>
                     <p className="answer">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam eos impedit maxime iure, voluptatibus saepe culpa accusamus voluptates veritatis hic odit minima officiis tempore laudantium voluptas et numquam sint expedita!
+                        Excalibur is a software development team event.
+                        Students from the first, second, pre-final years of all branches and programs are eleigible to participate.
+                        Each team will comprise of 3 to 4 members and
+                        inclusion of at least one female member is compulsory for each team.
                     </p>
                 </div>
                 <div className="glimpses">

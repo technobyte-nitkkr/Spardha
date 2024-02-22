@@ -6,7 +6,7 @@
     bottom: 0;
     margin-bottom: -10px;
     z-index: -9;
-    filter: drop-shadow(10px 30px 20px rgb(255, 145, 226));
+    /* filter: drop-shadow(10px 30px 20px rgb(255, 145, 226)); */
     /* box-shadow: 10px 30px 20px rgb(255, 145, 226); */
 }
 .background_graphics>img{
@@ -19,7 +19,8 @@
     z-index: -11;
 }
 .background>img{
-    width: 100%;
+    height: 100svh;
+    min-width: 100svw;
 }
 @media (max-width: 960px) {
     .background_graphics{

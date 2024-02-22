@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Countdown.css"
-import Typeform from "../Typeform/MyTypeform";
+import Register from "../Register/Register";
+
 
 export default function Countdown() {
     // function countdown(sec){
@@ -40,7 +41,7 @@ export default function Countdown() {
         };
     }
     
-    const eventDate = new Date('2024-03-05T08:00:00');
+    const eventDate = new Date('2024-02-29T08:00:00');
     let now = new Date();
     let timeLeftSec = Math.floor((eventDate - now) / 1000);
     
@@ -84,7 +85,7 @@ export default function Countdown() {
                     <span   className="text">Seconds</span>
                 </span>
             </div>
-            <Typeform />
+            <Register />
         </div>
     )
 }

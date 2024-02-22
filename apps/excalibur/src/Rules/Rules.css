@@ -46,7 +46,7 @@
 
 
 .rules-container>ul{
-    list-style-type: "> ";
+    list-style-type: "🔹";
 }
 .rules-container>ul>li{
     margin: 10px auto;
@@ -56,12 +56,12 @@
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.352);
     backdrop-filter: blur(20px);
-    box-shadow: 0px 0px 22px rgba(152, 152, 152, 0.2);
+    box-shadow: 0px 0px 2px rgba(152, 152, 152, 0.2);
 }
 .rules-container>ul>li::marker{
     font-size: 1.2rem;
     font-weight: 800;
-    font-family: poppins;
+    /* font-family: poppins; */
     box-shadow: 0 0 .2rem #fff,
     0 0 .2rem #fff,
     0 0 2rem #bc13fe,

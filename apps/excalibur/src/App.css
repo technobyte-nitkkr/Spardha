@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Poppins:wght@300&display=swap');
+@font-face {
+  font-family: starlord;
+  src: url(../src/assets/fonts/Starlord.otf);
+}
 #root{
   width: 100%;
   height: fit-content;
@@ -15,6 +19,14 @@
   margin: 0 auto;
   overflow-x: hidden;
   /* overflow-y: hidden; */
+}
+.slogan{
+  font-family: starlord;
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.797);
+  margin-top: -1.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1.5px;
 }
 h1{
   margin-left: 2.0625rem;
@@ -55,6 +67,14 @@ h1{
     letter-spacing: 1.2rem;
     text-shadow: -8px -8px pink;
   }
+  .slogan{
+    font-family: starlord;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.797);
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1.5px;
+  }
 }
 
 @media (max-width: 960px) {
@@ -81,6 +101,14 @@ h1{
     letter-spacing: 0.5rem;
     text-shadow: -5px -5px pink;
   }
+  .slogan{
+    font-family: starlord;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.797);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.8px;
+  }
 }
 
 @media (max-width: 660px) {
@@ -105,6 +133,14 @@ h1{
     font-weight: 400;
     letter-spacing: 0.02rem;
     text-shadow: -3px -3px pink;
+  }
+  .slogan{
+    font-family: starlord;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.797);
+    margin-top: 1.5rem;
+    /* margin-bottom: 1.5rem; */
+    letter-spacing: 1.5px;
   }
 }
 

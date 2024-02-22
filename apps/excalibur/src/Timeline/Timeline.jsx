@@ -49,49 +49,49 @@ export default function Timeline(){
                 <Card
                     key={1} 
                     initial={2000}
-                    date={"10th Jan 10:00 AM"}
+                    date={"22th Feb 10:00 AM"}
                     name={"Registration Starts"}
                     detail={"Register using the register button by submitting your details."}
                 />
                 <Card
                     key={2} 
                     initial={-2000}
-                    date={"14th Jan 10:00 AM"}
+                    date={"29th Feb 10:00 AM"}
                     name={"Registration Ends"}
                     detail={"We will be starting the ideation round right after."}
                 />
                 <Card
                     key={3} 
                     initial={2000}
-                    date={"14th Jan 10:00 AM"}
-                    name={"Ideation Round"}
-                    detail={"Present your ideas in form of a ppt, including solution approach and techstacks"}
+                    date={"29th Feb 10:00 AM"}
+                    name={"PPT Submission"}
+                    detail={"Submit your ideas in form of a ppt, including solution approach and techstacks, at unstop"}
                 />
                 <Card
                     key={4} 
                     initial={-2000}
-                    date={"16th Jan 12:00 NOON"}
+                    date={"1st March 12:00 NOON"}
                     name={"Ideation Results"}
-                    detail={"Selected teams can start there coding."}
+                    detail={"Selected teams can start there coding. Mentors will be assigned to selected teams."}
                 />
                 <Card
                     key={5} 
                     initial={2000}
-                    date={"21st Jan 10:00 AM"}
-                    name={"Mid Evaluation 1"}
-                    detail={"This will be the first progress check of the teams."}
+                    date={"07th March 10:00 AM"}
+                    name={"Mentor's Evaluation"}
+                    detail={"This will be the first progress check of the team's mentor."}
                 />
                 <Card
                     key={6} 
                     initial={-2000}
-                    date={"25th Jan 10:00 AM"}
-                    name={"Mid Evaluation 2"}
-                    detail={"This will be the final progress check of the teams."}
+                    date={"07th March 10:00 AM"}
+                    name={"Mentor's Evaluation Results"}
+                    detail={"Selected teams head for the finale. Teams need to be present on campus for finale."}
                 />
                 <Card
                     key={7} 
                     initial={2000}
-                    date={"29th Jan 10:00 AM"}
+                    date={"15th March 10:00 AM"}
                     name={"Excalibur Finale"}
                     detail={"Submit and present your project before our judges."}
                 />
