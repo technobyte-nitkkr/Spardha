@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
 
 nav{
     color: #FFF;
-    font-family: Plaster;
+    font-family: Kode Mono;
     font-style: normal;
     font-weight: 400;
     margin-top: 3rem;
@@ -31,7 +32,7 @@ nav>.nav-sections{
     padding: 0.8rem 0.8rem;
     align-self: center;
     color: #FFF;
-    font-family: poppins;
+    font-family: Kode Mono;
     border-radius: 4.5rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.08);

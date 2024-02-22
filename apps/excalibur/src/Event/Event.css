@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&family=Quicksand:wght@300&display=swap');
 .about-event-container{
     width: 100%;
@@ -62,7 +63,7 @@
 
 .event-glimpses>.about-event>.answer{
     color: #E2E8F0;
-    font-family: Quicksand;
+    font-family: Kode Mono;
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 400;
@@ -83,7 +84,7 @@
 .event-glimpses>.about-event>.question_title{
     color: #E2E8F0;
     background-color: blueviolet;
-    font-family: Quicksand;
+    font-family: Kode Mono;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;

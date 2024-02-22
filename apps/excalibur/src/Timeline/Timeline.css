@@ -16,6 +16,9 @@
 
 .schedule>h2{
   margin: 3rem;
+  font-family: starlord;
+    letter-spacing: 2px;
+    font-weight: 400;
 }
 
 .schedule>.timeline-container{
@@ -37,7 +40,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   flex-shrink: 0;
-  background-color: rgba(0, 0, 0, 0.553);
+  background-color: rgba(0, 0, 0, 0.776);
   border-radius: 10px;
   /* box-shadow: 0 0 15px #D946EF; */
   /* box-shadow: 0 0 .2rem #fff,
@@ -48,12 +51,18 @@
               inset 0 0 1.3rem #bc13fe; */
 }
 .focused{
-  box-shadow: 0 0 .2rem #fff,
+  /* box-shadow: 0 0 .2rem #fff,
               0 0 .2rem #fff,
               0 0 2rem #bc13fe,
               0 0 0.8rem #bc13fe,
               0 0 2.8rem #bc13fe,
-              inset 0 0 1.3rem #bc13fe;
+              inset 0 0 1.3rem #bc13fe; */
+  box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 0.5rem #bc13fe,
+              0 0 0.1rem #bc13fe,
+              0 0 0.4rem #bc13fe,
+              inset 0 0 0.8rem #bc13fe;
 }
 .timeline-container>.timeline-extra-card>.timeline-card>.event-detail{
   color: #FFF;
@@ -66,7 +75,7 @@
 
 .timeline-container>.timeline-extra-card>.timeline-card>.event-name{
   color: #FFF;
-  font-family: Quicksand;
+  font-family: Kode Mono;
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 600;
@@ -78,7 +87,7 @@
   font-family: Quicksand;
   font-size: 1.3125rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 800;
   line-height: 1.75rem; /* 133.333% */
 }
 
@@ -152,6 +161,6 @@
 }
 
 .focused::before{
-  box-shadow: 0 0 10px #db40f3;
+  box-shadow: 0 0 5px #db40f3;
 }
 

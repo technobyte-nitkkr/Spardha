@@ -6,7 +6,7 @@ function Normalnav(){
     return (
         <>
             <div className='nav-sections'>
-                <a href='#sponsors'>Sponsors</a>
+                {/* <a href='#sponsors'>Sponsors</a> */}
                 <a href='#about'>About</a>
                 <a href='#themes'>Themes</a>
                 <a href='#schedule'>Schedule</a>
@@ -28,7 +28,7 @@ function Blocknav({clickHandle}){
         <>
             <Droparrow clickHandle={clickHandle}/>
             <div className='dropnav'>
-                <a href='#sponsors' onClick={clickHandle}>Sponsors</a>
+                {/* <a href='#sponsors' onClick={clickHandle}>Sponsors</a> */}
                 <a href='#about'    onClick={clickHandle}>About</a>
                 <a href='#themes'   onClick={clickHandle}>Themes</a>
                 <a href='#schedule' onClick={clickHandle}>Schedule</a>

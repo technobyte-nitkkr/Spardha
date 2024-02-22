@@ -1,5 +1,6 @@
 footer{
     background-color: rgba(0, 0, 0, 0.694);
+    font-family: kode mono;
     backdrop-filter: blur(30px);
     width: fit-content;
     padding: 0.5rem 2rem;
