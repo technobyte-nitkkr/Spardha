@@ -12,6 +12,7 @@
     font-size: 1.5rem;
     margin: 10px;
     text-align: center;
+    font-family: pirata one;
 }
 .countdown-container>.countdown{
     display: flex;
@@ -34,7 +35,7 @@
 .countdown-container>.countdown>span>.text{
     color: #9CA3AF;
     text-align: center;
-    font-family: Quicksand;
+    font-family: Pirata One;
     font-size: 1.3125rem;
     font-style: normal;
     font-weight: 300;
@@ -42,7 +43,7 @@
 .days-left{
     color: #4ADE80;
     text-align: center;
-    font-family: Quicksand;
+    font-family: Pirata One;
     font-size: 3.375rem;
     font-style: normal;
     font-weight: 700;
@@ -50,7 +51,7 @@
 .hours-left{
     color: #EAB308;
     text-align: center;
-    font-family: Quicksand;
+    font-family: Pirata One;
     font-size: 3.375rem;
     font-style: normal;
     font-weight: 700;
@@ -58,7 +59,7 @@
 .minutes-left{
     color: #60A5FA;
     text-align: center;
-    font-family: Quicksand;
+    font-family: Pirata One;
     font-size: 3.375rem;
     font-style: normal;
     font-weight: 700;
@@ -66,7 +67,7 @@
 .seconds-left{
     color: #F87171;
     text-align: center;
-    font-family: Quicksand;
+    font-family: Pirata One;
     font-size: 3.375rem;
     font-style: normal;
     font-weight: 700;

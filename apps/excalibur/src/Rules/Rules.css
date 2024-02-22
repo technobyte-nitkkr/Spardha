@@ -14,6 +14,9 @@
 .rules>h2{
     margin: 1.5rem;
     margin-bottom: calc(1.5rem - 20px);
+    font-family: starlord;
+    letter-spacing: 2px;
+    font-weight: 400;
 }
 .rules>.rules-container{
     max-height: 70svh;
@@ -23,7 +26,7 @@
     text-align: justify;
     font-size: 1.2rem;
     border-radius: 20px;
-    font-family: Quicksand;
+    font-family: Kode Mono;
 }
 
 .rules>.rules-container::-webkit-scrollbar-track{

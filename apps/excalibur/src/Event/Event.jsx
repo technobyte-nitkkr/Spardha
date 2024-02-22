@@ -24,9 +24,9 @@ export default function Event(){
             <h2>What is <span>Excalibur</span>?</h2>
             <div className="event-glimpses">
                 <div className="about-event">
-                    <p className="question-title">
+                    {/* <p className="question-title">
                         What is Excalibur?
-                    </p>
+                    </p> */}
                     <p className="answer">
                         Excalibur is a software development team event.
                         Students from the first, second, pre-final years of all branches and programs are eleigible to participate.

@@ -16,6 +16,9 @@
 
 .schedule>h2{
   margin: 3rem;
+  font-family: starlord;
+    letter-spacing: 2px;
+    font-weight: 400;
 }
 
 .schedule>.timeline-container{
@@ -72,7 +75,7 @@
 
 .timeline-container>.timeline-extra-card>.timeline-card>.event-name{
   color: #FFF;
-  font-family: Quicksand;
+  font-family: Kode Mono;
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 600;
@@ -84,7 +87,7 @@
   font-family: Quicksand;
   font-size: 1.3125rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 800;
   line-height: 1.75rem; /* 133.333% */
 }
 
