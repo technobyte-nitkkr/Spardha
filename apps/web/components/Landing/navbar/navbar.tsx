@@ -5,12 +5,27 @@ import logo from "public/assets/logo.png";
 import menu from "public/menu.svg";
 import Link from "next/link";
 import "./navbar.css";
+import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { auth } from "../../../firebaseconfig";
+
+const handleGoogleSignIn = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    await signInWithRedirect(auth, provider);
+    // console.log("User signed in");
+  } catch (error) {
+    // console.error(error.message);
+  }
+};
+
 const Drawer = ({
   onClose,
   isDrawerOpen,
+  handleGoogleSignIn,
 }: {
   onClose: () => void;
   isDrawerOpen: boolean;
+  handleGoogleSignIn: () => void;
 }) => (
   <AnimatePresence>
     {isDrawerOpen && (
@@ -64,12 +79,12 @@ const Drawer = ({
           Teams
         </Link>
         <div className="mt-4">
-          <Link
+          <button
             className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
-            href={"/Register"}
+            onClick={handleGoogleSignIn}
           >
             Register
-          </Link>
+          </button>
         </div>
       </motion.div>
     )}
@@ -139,12 +154,12 @@ const Navbar = (): JSX.Element => {
         </div>
         {/* Register button visible only on screens larger than md */}
         <div className="hidden md:block">
-          <Link
+          <button
             className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
-            href={"/Register"}
+            onClick={handleGoogleSignIn}
           >
             Register
-          </Link>
+          </button>
         </div>
         {/* Toggle button for smaller screens */}
         <button
@@ -162,7 +177,11 @@ const Navbar = (): JSX.Element => {
           )}
         </button>
         {/* Drawer component */}
-        <Drawer onClose={navtoggle} isDrawerOpen={isDrawerOpen} />
+        <Drawer
+          onClose={navtoggle}
+          isDrawerOpen={isDrawerOpen}
+          handleGoogleSignIn={handleGoogleSignIn}
+        />
       </div>
     </div>
   );
