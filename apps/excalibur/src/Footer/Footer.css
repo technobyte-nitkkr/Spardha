@@ -8,7 +8,7 @@ footer{
     color: beige;
     text-align: center;
     margin-top: auto;
-    margin-bottom: 10px;
+    margin-bottom: -10px;
     border-radius: 30px;
     word-spacing: clamp(10px, 1rem, 20px);
     justify-self: flex-end;

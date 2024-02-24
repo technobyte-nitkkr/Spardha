@@ -1,7 +1,7 @@
 import "./Rules.css"
 export default function Rules(){
     return (
-        <section className="rules" id="rules">
+        <section className="rules">
             <h2>Rules and Guidelines</h2>
             <div className="rules-container">
                 <ul>

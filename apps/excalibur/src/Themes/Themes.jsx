@@ -1,7 +1,7 @@
 import "./Themes.css"
 export default function Themes(){
     return (
-        <div className="themes-section" id="themes">
+        <div className="themes-section">
             <h2>Themes</h2>
             <div className="themes-holder">
                 <div className="theme-tile">

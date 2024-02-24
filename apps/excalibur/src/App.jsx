@@ -13,18 +13,31 @@ import ContactUs from './ContactUs/ContactUs'
 function App() {
   return (
     <div className='excalibur'>
+
       <Navbar />
-      <h1>EXCALIBUR</h1>
-      <div className="slogan">DESIGN | DEVELOP | DOMINATE</div>
-      <Countdown />
-      {/* <Sponsors /> */}
-      <Event />
-      <Themes />
+      <section className="details">
+        <h1>EXCALIBUR</h1>
+        <div className="slogan">DESIGN | DEVELOP | DOMINATE</div>
+        <Countdown />
+        {/* <Sponsors /> */}
+      </section>
+
+      <section className="middle" id="about">
+        <Event />
+      </section>
+
+      <section  className="middle-2" id="themes">
+        <Themes />
+      </section>
+      
       <TimeLine />
-      <Rules />
-      <ContactUs />
+      <section className="end" id="rules">
+        <Rules />
+        <ContactUs />
+        <Footer />
+      </section>
+      
       <Background />
-      <Footer />
     </div>
   )
 }

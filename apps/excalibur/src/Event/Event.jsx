@@ -20,7 +20,7 @@ export default function Event(){
 
     }, [])
     return (
-        <div className="about-event-container" id="about">
+        <div className="about-event-container">
             <h2>What is <span>Excalibur</span>?</h2>
             <div className="event-glimpses">
                 <div className="about-event">

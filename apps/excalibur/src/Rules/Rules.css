@@ -6,7 +6,7 @@
     text-align: center;
     color: #d5d5d5;
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     background-color: rgba(0, 0, 0, 0.324);
     backdrop-filter: blur(30px);
     box-shadow: 0px 0px 22px rgba(255, 255, 255, 0.2);
@@ -19,7 +19,7 @@
     font-weight: 400;
 }
 .rules>.rules-container{
-    max-height: 70svh;
+    max-height: 60svh;
     margin-bottom: 1.5rem;
     overflow-y: auto;
     text-align: left;
@@ -52,6 +52,7 @@
     list-style-type: "🔹";
 }
 .rules-container>ul>li{
+    text-align: left;
     margin: 10px auto;
     width: 98%;
     padding: 20px;

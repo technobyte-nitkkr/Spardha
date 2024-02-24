@@ -8,6 +8,7 @@ nav{
     font-style: normal;
     font-weight: 400;
     margin-top: 3rem;
+    margin-bottom: auto;
     width: 95%;
     display: flex;
     justify-content: space-between;
@@ -132,6 +133,7 @@ nav>span>svg{
     nav{
         margin-top: 2rem;
         margin-bottom: 2.5rem;
+        margin-bottom: auto;
     }
     nav>span>img{
         height: 43px;
@@ -146,6 +148,8 @@ nav>span>svg{
     nav{
         margin-top: 2rem;
         margin-bottom: 4rem;
+        margin-bottom: auto;
+
     }
     nav>span>img{
         height: 40px;
@@ -159,6 +163,7 @@ nav>span>svg{
   @media (max-width: 360px) {
     nav{
         margin-top: 1rem;
+        margin-bottom: auto;
     }
     nav>span>img{
         height: 36px;
