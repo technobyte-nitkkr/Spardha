@@ -71,6 +71,7 @@ h1{
     font-family: starlord;
     font-size: 2rem;
     color: rgba(255, 255, 255, 0.797);
+    text-align: center;
     margin-top: -1rem;
     margin-bottom: 1rem;
     letter-spacing: 1.5px;
@@ -152,4 +153,41 @@ h1{
     font-weight: 400;
     text-shadow: -2px -2px pink;
   }
+}
+
+
+/* VERSION 2 */
+.excalibur>.details{
+  min-height: 88svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-type: y mandatory;
+}
+.excalibur>.middle{
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-type: y mandatory;
+}
+.excalibur>.middle-2{
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-type: y mandatory;
+}
+.excalibur>.end{
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  scroll-snap-type: y mandatory;
 }

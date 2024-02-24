@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Plaster&family=Poppins:wght@300;400&family=Quicksand:wght@300&display=swap');
 
 .schedule{
-  max-width: 960px;
+  max-width: 760px;
   width: 98%;
   background-color: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(20px);

@@ -2,7 +2,7 @@
 
 .themes-section{
     width: 100%;
-    max-width: 700px;
+    max-width: 760px;
     background-color: rgba(0, 0, 0, 0.212);
     backdrop-filter: blur(2px);
     border-radius: 20px;
@@ -22,7 +22,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: 1rem;
+    margin: 1.5rem;
 }
 .themes-holder>.theme-tile{
     width: 150px;
