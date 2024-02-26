@@ -8,17 +8,6 @@ import "./navbar.css";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { auth } from "../../../firebaseconfig";
 
-const handleGoogleSignIn = async (): Promise<void> => {
-  const provider = new GoogleAuthProvider();
-  try {
-    await signInWithRedirect(auth, provider);
-    // console.log("User signed in");
-  } catch (error) {
-    // console.error(error.message);
-  }
-  return; // Explicitly return void
-};
-
 const Drawer = ({
   onClose,
   isDrawerOpen,
@@ -98,6 +87,17 @@ const Navbar = (): JSX.Element => {
   const navtoggle = (): void => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+  const [result, setResult] = useState<boolean>(false);
+  const handleGoogleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithRedirect(auth, provider)
+      .then((_) => {
+        setResult(true);
+      })
+      .catch((_) => {
+        setResult(false);
+      });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -155,12 +155,16 @@ const Navbar = (): JSX.Element => {
         </div>
         {/* Register button visible only on screens larger than md */}
         <div className="hidden md:block">
-          <button
-            className="bg-[hsl(219,100%,61%)] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
-            onClick={handleGoogleSignIn}
-          >
-            Register
-          </button>
+          {!result ? (
+            <button
+              className="bg-[hsl(219,100%,61%)] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
+              onClick={handleGoogleSignIn}
+            >
+              Register
+            </button>
+          ) : (
+            "Registered"
+          )}
         </div>
         {/* Toggle button for smaller screens */}
         <button
