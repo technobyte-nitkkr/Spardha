@@ -156,8 +156,8 @@ const Navbar = (): JSX.Element => {
         {/* Register button visible only on screens larger than md */}
         <div className="hidden md:block">
           <button
-            className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
-            onClick={()=>handleGoogleSignIn}
+            className="bg-[hsl(219,100%,61%)] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
+            onClick={handleGoogleSignIn}
           >
             Register
           </button>
@@ -181,7 +181,7 @@ const Navbar = (): JSX.Element => {
         <Drawer
           onClose={navtoggle}
           isDrawerOpen={isDrawerOpen}
-          handleGoogleSignInProp={()=>handleGoogleSignIn}
+          handleGoogleSignInProp={handleGoogleSignIn}
         />
       </div>
     </div>
