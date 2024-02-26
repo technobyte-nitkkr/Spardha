@@ -157,7 +157,7 @@ const Navbar = (): JSX.Element => {
         <div className="hidden md:block">
           <button
             className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
-            onClick={handleGoogleSignIn}
+            onClick={()=>handleGoogleSignIn}
           >
             Register
           </button>
@@ -181,7 +181,7 @@ const Navbar = (): JSX.Element => {
         <Drawer
           onClose={navtoggle}
           isDrawerOpen={isDrawerOpen}
-          handleGoogleSignInProp={handleGoogleSignIn}
+          handleGoogleSignInProp={()=>handleGoogleSignIn}
         />
       </div>
     </div>
