@@ -12,9 +12,9 @@ const handleGoogleSignIn = async () => {
   const provider = new GoogleAuthProvider();
   try {
     await signInWithRedirect(auth, provider);
-    // console.log("User signed in");
+    console.log("User signed in");
   } catch (error) {
-    // console.error(error.message);
+    console.error(error.message);
   }
 };
 

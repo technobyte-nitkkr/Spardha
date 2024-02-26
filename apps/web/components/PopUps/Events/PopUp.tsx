@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import panel from '../../../public/assets/PANEL.png'
-import expand from "../../../public/assets/expand.svg";
+import panel from 'public/assets/PANEL.png'
+import expand from "public/assets/expand.svg";
 import EventAbout from "./EventAbout";
 interface CategoriesElement {
   categoryName: string;

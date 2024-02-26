@@ -8,8 +8,7 @@ import Notification from "../PopUps/Notification";
 import mars_displacement from "public/assets/displacement.jpeg";
 import mars2 from "public/assets/texture.jpg";
 import mars_normal from "public/assets/mars_normal1.png";
-import "@fontsource/orbitron";
-import "@fontsource/orbitron/400.css";
+
 const ThreeScene = () => {
   if (typeof window !== "undefined") {
     const [visible, setVisible] = useState<boolean>(false);
@@ -46,16 +45,15 @@ const ThreeScene = () => {
           map: diffuseMap,
           normalMap: normalMap,
           displacementMap: displacementMap,
-          roughness: 0.4,
+          roughness: 0.1,
           metalness: 0.1,
           displacementScale: 1,
-          displacementBias: -0.9,
+          displacementBias: -0.1,
           side: THREE.FrontSide,
           shadowSide: THREE.DoubleSide,
         });
         const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
         scene.add(sphere);
-
         directionalLight.castShadow = true;
         directionalLight.position.set(0, 40, 0);
         directionalLight2.position.set(0, -40, 0);
@@ -63,10 +61,9 @@ const ThreeScene = () => {
         scene.add(directionalLight2);
         directionalLight.color.set(0xfa9c1c); //dark
         directionalLight2.color.set(0x367cff); //blue
-
         const animate = () => {
           requestAnimationFrame(animate);
-          sphere.rotation.y += 0.001;
+          sphere.rotation.y += 0.003;
           renderer.render(scene, camera);
         };
         animate();
@@ -75,7 +72,7 @@ const ThreeScene = () => {
           const currentTime = Date.now();
           const elapsedTime = currentTime - initialTime;
 
-          const progress = Math.min(elapsedTime / 15000, 1); // change 20000 to adjust the duration
+          const progress = Math.min(elapsedTime / 20000, 1); // change 20000 to adjust the duration
 
           const newPosition = new THREE.Vector3();
           newPosition.x = THREE.MathUtils.lerp(

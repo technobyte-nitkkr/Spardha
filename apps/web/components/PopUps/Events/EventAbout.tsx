@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Loader from "../../../components/Loader/Loader";
 import Image from "next/image";
 
 interface EventsElement {
@@ -38,6 +39,7 @@ const EventAbout: React.FC<{
 }> = ({ item }) => {
   const [event, setEvent] = useState<EventsAboutElement | null>(initData);
   const [loading, setLoading] = useState<boolean>(false);
+  const [fetching, setFetching] = useState<boolean>(false);
   useEffect(() => {
     setLoading(true);
     fetch(
@@ -58,40 +60,38 @@ const EventAbout: React.FC<{
           data: EventsAboutElement;
         }) => {
           setEvent(data.data);
+          setLoading(false);
         }
       )
       .catch((err: Error) => err);
-    setLoading(false);
   }, [item]);
   return (
     <div className="h-full w-full flex-shrink-0 overflow-y-auto">
-      {event && !loading ? (
-        <>
-          <div className=" w-full">
-            {event.poster ? (
-              <Image
-                alt="Poster"
-                className="w-full"
-                src={event.poster}
-                width={1000}
-                height={1000}
-              />
-            ) : (
-              <div className="h-[300px] w-auto p-2 bg-[rgba(137,137,137,0.69)] animate-pulse"></div>
-            )}
-          </div>
-          <div className="w-full p-2">
-            <p>{event.description}</p>
-          </div>
-        </>
+      {!loading ? (
+        event && (
+          <>
+            <div className="w-full">
+              {event.poster ? (
+                <Image
+                  alt="Poster"
+                  className="w-full"
+                  src={event.poster}
+                  width={1000}
+                  height={1000}
+                  unoptimized
+                />
+              ) : (
+                <Loader />
+              )}
+            </div>
+            <div className="w-full p-2">
+              <p>{event.description}</p>
+            </div>
+          </>
+        )
       ) : (
         <>
-          <div className="h-full w-full flex-shrink-0 overflow-y-auto">
-            <div className="h-2/3 w-auto p-2 bg-[rgba(137,137,137,0.69)] animate-pulse"></div>
-            <div className="w-full p-2 ">
-              <p className="animate-pulse">Loading....</p>
-            </div>
-          </div>
+          <Loader />
         </>
       )}
     </div>

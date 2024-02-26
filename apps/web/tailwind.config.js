@@ -15,7 +15,11 @@ module.exports = {
         'custom-xsm': '200px',   
         'custom-lsm': '640px',
         'custom-md': '930px', 
-      }
+      },
+      fontFamily: {
+        Orbitron: ['var(--font-Orbitron)'],
+        starlord: ['var(--font-starlord)'],
+      },
     },
   },
   plugins: [],

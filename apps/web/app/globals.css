@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css?family=Orbitron');
-
-@import url('https://fonts.cdnfonts.com/css/galactic-vanguardian-ncv');
 
 @font-face {
   font-family: "Orbitron";
@@ -20,22 +17,15 @@
   font-style: normal;
   font-weight: 700;
 }
+.font-orbitron-style {
+  text-align: center;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 6.3px;
+}
 @layer base {
-  .font-outline-05 {
-    -webkit-text-stroke: 0.7px black;
-  }
-
-  .font-outline-4 {
-    -webkit-text-stroke: 4px black;
-  }
-
-  .font-orbitron {
-    font-family: "Orbitron";
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: 2px;
-  }
-
   .font-orbitron-1 {
     text-align: center;
     font-family: 'Orbitron';
@@ -45,7 +35,21 @@
     line-height: normal;
     letter-spacing: 6.3px;
   }
-
+  .font-outline-05 {
+    -webkit-text-stroke: 0.7px black;
+  }
+  
+  .font-outline-4 {
+    -webkit-text-stroke: 4px black;
+  }
+  
+  .font-orbitron {
+    font-family: "Orbitron";
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+  
   .font-orbitron-l {
     font-family: "Orbitron";
     font-style: normal;
@@ -53,7 +57,7 @@
   }
 
   .font-starlord {
-    font-family: starlord, sans-serif;
+    font-family: starlord;
     font-style: normal;
     font-weight: 300;
   }
