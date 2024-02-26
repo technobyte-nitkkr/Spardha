@@ -1,5 +1,6 @@
 "use client";
-import Glimpses from "../../components/About/Glimpses/Glimpses";
+import dynamic from "next/dynamic";
+// import Glimpses from "../../components/About/Glimpses/Glimpses";
 import stars from "../../public/assets/stars.jpg";
 import InstallApp from "../../components/About/InstallApp/InstallApp";
 import Homecontainer from "../../components/Homecontainer/Homecontainer";
@@ -9,6 +10,8 @@ import Link from "next/link";
 import logo from "../../public/assets/logo.png";
 import expand from "../../public/assets/expand.svg";
 import "./About.css";
+
+const Glimpses = dynamic(() => import('../../components/About/Glimpses/Glimpses'), { ssr: false })
 
 const About = () => {
   return (

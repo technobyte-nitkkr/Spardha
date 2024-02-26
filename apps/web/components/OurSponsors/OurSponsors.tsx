@@ -29,14 +29,14 @@ const OurSponsors = (): JSX.Element => {
     })
       .then((res) => res.json())
       .then((data: IncomingData) => {
-        const allsponsors: ArraySponsors[] = data.data.sponsors;
+        const allsponsors: ArraySponsors[] = data.data.sponsors.sort((a, b)=>{return (a.sponsors.length > b.sponsors.length?-1:0)});
         setSponsors(allsponsors);
         setIsLoaded(true);
       })
       .catch((err: Error) => err);
   }, []);
   const handleContactClick = () => {
-    window.location.href = "mailto:mail@example.org";
+    window.location.href = "mailto:technobyte@nitkkr.ac.in";
   };
   return (
     <div className="w-full h-full flex flex-col items-center justify-evenly">
