@@ -40,8 +40,8 @@ const OurSponsors = (): JSX.Element => {
   };
   return (
     <div className="w-full h-full flex flex-col items-center justify-evenly">
-      <div className="md:text-5xl text-4xl font-starlord-1">Our Sponsors</div>
-      <div className="w-[80%] grid auto-rows-auto grid-cols-2 gap-1 justify-items-center justify-self-center justify-center">
+      <div className="text-[1.8rem] md:text-5xl text-4xl font-starlord-1">Our Sponsors</div>
+      <div className="w-[80%] grid auto-rows-auto grid-cols-2 md:gap-1 justify-items-center justify-self-center justify-center">
         {isLoaded ? (
           <>
             {sponsors.map((item, index) => {
@@ -181,9 +181,9 @@ const OurSponsors = (): JSX.Element => {
       </div>
 
       <div className="flex sm:flex-col flex-row items-center gap-2">
-        <div className="text-center text-xl">Want to Sponsor?</div>
+        <div className="text-center text-[1rem] md:text-xl">Want to Sponsor?</div>
         <div
-          className="border-2 text-center p-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer"
+          className="border-2 text-center p-1 text-[1rem] md:p-3 md:text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer"
           onClick={handleContactClick}
           onKeyUp={handleContactClick}
           role="presentation"
