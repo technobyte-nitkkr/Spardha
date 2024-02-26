@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Loader from "../../../components/Loader/Loader";
+import Loader from "../../Loader/Loader";
 import Image from "next/image";
 
 interface EventsElement {
@@ -39,7 +39,6 @@ const EventAbout: React.FC<{
 }> = ({ item }) => {
   const [event, setEvent] = useState<EventsAboutElement | null>(initData);
   const [loading, setLoading] = useState<boolean>(false);
-  const [fetching, setFetching] = useState<boolean>(false);
   useEffect(() => {
     setLoading(true);
     fetch(

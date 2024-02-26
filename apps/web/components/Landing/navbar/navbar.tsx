@@ -8,24 +8,26 @@ import "./navbar.css";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { auth } from "../../../firebaseconfig";
 
-const handleGoogleSignIn = async () => {
-  const provider = new GoogleAuthProvider();
-  try {
-    await signInWithRedirect(auth, provider);
-    console.log("User signed in");
-  } catch (error) {
-    console.error(error.message);
-  }
+const handleGoogleSignIn = () => {
+  async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithRedirect(auth, provider);
+      // console.log("User signed in");
+    } catch (error) {
+      // console.error(error.message);
+    }
+  };
 };
 
 const Drawer = ({
   onClose,
   isDrawerOpen,
-  handleGoogleSignIn,
+  handleGoogleSignIn1,
 }: {
   onClose: () => void;
   isDrawerOpen: boolean;
-  handleGoogleSignIn: () => void;
+  handleGoogleSignIn1: () => void;
 }) => (
   <AnimatePresence>
     {isDrawerOpen && (
@@ -81,7 +83,7 @@ const Drawer = ({
         <div className="mt-4">
           <button
             className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
-            onClick={handleGoogleSignIn}
+            onClick={handleGoogleSignIn1}
           >
             Register
           </button>
@@ -180,7 +182,7 @@ const Navbar = (): JSX.Element => {
         <Drawer
           onClose={navtoggle}
           isDrawerOpen={isDrawerOpen}
-          handleGoogleSignIn={handleGoogleSignIn}
+          handleGoogleSignIn1={handleGoogleSignIn}
         />
       </div>
     </div>
