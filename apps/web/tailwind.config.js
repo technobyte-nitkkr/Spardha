@@ -18,7 +18,6 @@ module.exports = {
       },
       fontFamily: {
         Orbitron: ['var(--font-Orbitron)'],
-        starlord: ['var(--font-starlord)'],
       },
     },
   },
