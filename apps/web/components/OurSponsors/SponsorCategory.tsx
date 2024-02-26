@@ -16,7 +16,7 @@ const SponsorCategory = ({ category, sponsors }: { category: string, sponsors: S
       <div className='flex justify-evenly w-[70%] md:w-5/6 flex-wrap h-fit gap-[0.1rem] md:gap-3 '>
         {sponsors.map((item: SponsorData,index:number) => {
           return(
-            <SponsorCard key={index} sponsor={item} corrLength={sponsors.length}/>
+            <SponsorCard key={index} sponsor={item} />
           );
         })}
       </div>
