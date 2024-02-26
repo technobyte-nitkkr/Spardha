@@ -23,7 +23,6 @@ const GuestLectures = (): JSX.Element => {
   const [cardIndex, setCardIndex] = useState(0);
   const [guestList, setGuestList] = useState<Guest[]>([]);
   const [numberOfCards, setNumberOfCards] = useState(3);
-  const [disabledBTN, setDisabledBTN] = useState<boolean>(false);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   const scrollNext = (): void => {
