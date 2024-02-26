@@ -58,21 +58,21 @@ const GLcard: React.FC<{
         </div>
 
         <div className="w-full h-[7%] flex justify-start">
-          <Link className="h-full w-1/6 max-w-12" href={item.insta} target="_blank">
+          <Link className="h-full w-1/6 max-w-12" href={item.insta||""} target="_blank">
             <Image
               alt="instagram"
               className="h-full w-full text-left"
               src={Instagram as string}
             />
           </Link>
-          <Link className="h-full w-1/6 max-w-12" href={item.facebook} target="_blank">
+          <Link className="h-full w-1/6 max-w-12" href={item.facebook||""} target="_blank">
             <Image
               alt="facebook"
               className="h-full w-full text-left"
               src={Facebook as string}
             />
           </Link>
-          <Link className="h-full w-1/6 max-w-12" href={item.linkedin} target="_blank">
+          <Link className="h-full w-1/6 max-w-12" href={item.linkedin||""} target="_blank">
             <Image
               alt="linkedin"
               className="h-full w-full text-left"
