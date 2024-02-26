@@ -8,15 +8,14 @@ import "./navbar.css";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { auth } from "../../../firebaseconfig";
 
-const handleGoogleSignIn = async (): Promise<void> => {
+const handleGoogleSignIn = (): void => {
   const provider = new GoogleAuthProvider();
   try {
-    await signInWithRedirect(auth, provider);
+    signInWithRedirect(auth, provider);
     // console.log("User signed in");
   } catch (error) {
     // console.error(error.message);
-  }
-  return; // Explicitly return void
+  } // Explicitly return void
 };
 
 const Drawer = ({
