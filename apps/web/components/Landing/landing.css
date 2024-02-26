@@ -1,51 +1,9 @@
-@media screen and (min-height: 730px) and (max-width: 640px) {
-    h1 {
+@media screen and (max-width: 640px)
+{
+    .Theme{
         font-size: medium;
     }
-
-    .Heading {
-        font-size: 3rem;
-    }
-
-    .panel_card {
-        min-height: 225px;
-    }
-}
-
-@media screen and (min-height: 561px) and (max-height: 730px) and (max-width: 640px) {
-    .Heading {
-        font-size: 3rem;
-    }
-}
-
-@media screen and (min-height: 561px) and (max-height: 730px) {
-    .Heading {
-        font-size: 5rem;
-    }
-}
-
-@media screen and (max-height: 560px) {
-    h1 {
-        font-size: small;
-    }
-
-    .Heading {
-        font-size: 3rem;
-    }
-
-    .panel_card {
-        min-height: 225px;
-    }
-
-    span {
-        font-size: small;
-    }
-
-    .panel_card {
-        min-height: 200px;
-    }
-
-    .date_card {
-        padding: 0;
-    }
+    /* .Heading{
+        font-size:large;
+    } */
 }
