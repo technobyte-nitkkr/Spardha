@@ -8,26 +8,25 @@ import "./navbar.css";
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import { auth } from "../../../firebaseconfig";
 
-const handleGoogleSignIn = () => {
-  async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-      await signInWithRedirect(auth, provider);
-      // console.log("User signed in");
-    } catch (error) {
-      // console.error(error.message);
-    }
-  };
+const handleGoogleSignIn = async (): Promise<void> => {
+  const provider = new GoogleAuthProvider();
+  try {
+    await signInWithRedirect(auth, provider);
+    // console.log("User signed in");
+  } catch (error) {
+    // console.error(error.message);
+  }
+  return; // Explicitly return void
 };
 
 const Drawer = ({
   onClose,
   isDrawerOpen,
-  handleGoogleSignIn1,
+  handleGoogleSignInProp,
 }: {
   onClose: () => void;
   isDrawerOpen: boolean;
-  handleGoogleSignIn1: () => void;
+  handleGoogleSignInProp: () => void;
 }) => (
   <AnimatePresence>
     {isDrawerOpen && (
@@ -83,7 +82,7 @@ const Drawer = ({
         <div className="mt-4">
           <button
             className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
-            onClick={handleGoogleSignIn1}
+            onClick={handleGoogleSignInProp}
           >
             Register
           </button>
@@ -182,7 +181,7 @@ const Navbar = (): JSX.Element => {
         <Drawer
           onClose={navtoggle}
           isDrawerOpen={isDrawerOpen}
-          handleGoogleSignIn1={handleGoogleSignIn}
+          handleGoogleSignInProp={handleGoogleSignIn}
         />
       </div>
     </div>
