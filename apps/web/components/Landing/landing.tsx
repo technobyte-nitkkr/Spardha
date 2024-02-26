@@ -50,10 +50,10 @@ const Landing: React.FC<{
   return (
     <div className="w-screen h-[85%] flex justify-center items-center font-orbitron">
       <div className="flex flex-col justify-start items-center lg:w-[50%] md:w-[70%] sm:w-[75%] w-[80%] ">
-        <h1 className={`${Orbitron.variable} Heading font-starlord-1 lg:text-9xl md:text-8xl sm:text-7xl text-4xl`}>
+        <h1 className={`${Orbitron.variable} Heading font-starlord-1 lg:text-9xl md:text-8xl sm:text-7xl text-5xl`}>
           TECHSPARDHA
         </h1>
-        <div className={`${starlord.variable} text-center w-[100%] mb-[2vh] font-orbitron-style lg:text-2xl md:text-xl sm:text-lg text-[10px]`}>
+        <div className={`${starlord.variable} Theme text-center w-[100%] mb-[2vh] font-orbitron-style lg:text-2xl md:text-xl sm:text-lg text-[10px]`}>
           <h1>INFINITE IMAGINATIONS</h1>
         </div>
         <h1 className="text-3xl font-bold my-2">Notifications</h1>

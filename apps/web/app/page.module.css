@@ -301,29 +301,3 @@
   height: 1000px;
   opacity: 0.15;
 }
-
-/* @media screen and (max-height: 600px) {
-  #Home #Events #GuestLectures #Sponsors {
-    height: 25vh;
-    font-size: 8px; 
-  }
-}
-
-@media screen and (min-height: 601px) and (max-height: 900px) {
-  #Home #Events #GuestLectures #Sponsors {
-    height: 25vh;
-    font-size: 8px; 
-  }
-}
-
-@media screen and (min-height: 901px) {
-  #Home #Events #GuestLectures #Sponsors {
-    height: 25vh;
-    font-size: 10px; 
-  }
-} */
-@media screen and (max-width: 1300px) {
-  .jugaad_image {
-    display: none;
-  }
-}
