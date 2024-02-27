@@ -12,16 +12,16 @@ const Footer = (): JSX.Element => {
   return (
     <>
       <div className="text-white bg-[#121212] flex text-md justify-between items-center flex-row h-full px-5">
-        <div className="sm:text-md md:text-2xl text-[10px] mr-2">
+        <div className="sm:text-md md:text-xl text-[10px] mr-2 basis-1/3 ">
           Developed with ❤️ by Technobyte
         </div>
-        <div className="basis-1/4 flex items-center justify-center">
+        <div className="basis-1/3  flex items-center justify-center">
           <a className="primary-btn w-fit" href="/#Home">
-            <Image src={up as string} alt="up" height={20} width={20} />
+            <Image src={up as string} alt="up" height={20} width={20} className="min-w-4 min-h-4"/>
           </a>
         </div>
-        <div className="basis-1/4 flex items-center justify-center">
-          <div className="flex justify-around gap-8">
+        <div className="ml-1 basis-1/3 flex items-center justify-end flex-wrap">
+          <div className="flex justify-around md:gap-8 gap-1">
             <a
               className="hover:scale-150"
               href="https://www.facebook.com/techn0byte/"
@@ -33,6 +33,7 @@ const Footer = (): JSX.Element => {
                 height={20}
                 src={facebook as string}
                 width={20}
+                className="min-w-4 min-h-4"
               />
             </a>
             <a
@@ -46,6 +47,7 @@ const Footer = (): JSX.Element => {
                 height={20}
                 src={instagram as string}
                 width={20}
+                className="min-w-4 min-h-4"
               />
             </a>
             <a
@@ -59,6 +61,7 @@ const Footer = (): JSX.Element => {
                 height={20}
                 src={twitter as string}
                 width={20}
+                className="min-w-4 min-h-4"
               />
             </a>
             <a
@@ -72,6 +75,7 @@ const Footer = (): JSX.Element => {
                 height={20}
                 src={linkedin as string}
                 width={20}
+                className="min-w-4 min-h-4"
               />
             </a>
           </div>

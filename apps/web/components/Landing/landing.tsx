@@ -56,7 +56,7 @@ const Landing: React.FC<{
         <div className={`${starlord.variable} Theme text-center w-[100%] mb-[2vh] font-orbitron-style lg:text-2xl md:text-xl sm:text-lg text-[10px]`}>
           <h1>INFINITE IMAGINATIONS</h1>
         </div>
-        <h1 className="text-3xl font-bold my-2">Notifications</h1>
+        <h1 className="text-3xl font-bold my-2 notificationTitle">Notifications</h1>
 
         <div
           className="panel_card sm:min-w-[480px] min-w-[350px] sm:min-h-[300px] min-h-[200px] sm:h-[300px] h-[200px] flex justify-center items-center mb-[2vh]"
@@ -105,7 +105,7 @@ const Landing: React.FC<{
           )}
         </div>
         <button
-          className="border-t-2 border-x-2 border-b-8 border-[#367CFF] rounded-tl-[16px] text-center py-[5px] px-[8px] font-orbitron-l"
+          className="ViewButton border-t-2 border-x-2 border-b-8 border-[#367CFF] rounded-tl-[16px] text-center py-[5px] px-[8px] font-orbitron-l"
           type="button"
           onClick={
             !visibleNotifications

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import "./loading.css";
 
 export const loading = (): JSX.Element => {
@@ -12,10 +13,16 @@ export const loading = (): JSX.Element => {
               <div className="planet venus"></div>
               <div className="mercury-orbit orbit">
                 <div className="planet mercury"></div>
-                <div className="sun"></div>
               </div>
             </div>
           </div>
+      <Image
+        src="/favicon.ico"
+        alt="sun"
+        height={50}
+        width={50}
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 backdrop-blur-2xl" 
+      />
         </div>
       </div>
     </>

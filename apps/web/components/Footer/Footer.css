@@ -13,8 +13,8 @@
     align-items: center;
     gap: 8px;
     border-radius: 6px;
-    background: #8361FE;
-    border-color: #8361FE;
+    background: #367CFF;
+    border-color: #367CFF;
     border: none;
     height: 44px;
     color: #FBFBFB;
@@ -24,6 +24,6 @@
     line-height: 24px;
 }
 .primary-btn:hover{
-    background: linear-gradient(97deg, #613AF3 1.63%, #7551F6 42.35%, #A790FE 95.2%);
+    background: linear-gradient(97deg, #367CFF 1.63%, #465a80 42.35%, #2e4775 95.2%);
     box-shadow: 0px 4px 12px 0px rgba(88, 82, 246, 0.45);
 }

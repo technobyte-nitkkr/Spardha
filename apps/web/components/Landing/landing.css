@@ -1,9 +1,69 @@
-@media screen and (max-width: 640px)
-{
-    .Theme{
+@media screen and (max-width: 640px) {
+    .Theme {
         font-size: medium;
     }
+
     /* .Heading{
         font-size:large;
     } */
+}
+
+.Heading {
+    opacity: 0;
+    animation: titleAnimation 0.5s ease-in 1s 1 forwards;
+}
+
+@keyframes titleAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.Theme {
+    opacity: 0;
+    animation: themeFlash 1s ease-in 1.5s 1 forwards;
+}
+
+.notificationTitle {
+    opacity: 0;
+    animation: themeFlash 1.5s ease-in 2s 1 forwards;
+}
+.panel_card,.ViewButton {
+    opacity: 0;
+    animation: titleAnimation 0.5s ease-in 1s 1 forwards;
+}
+
+@keyframes themeFlash {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
