@@ -29,7 +29,7 @@ const ThreeScene = () => {
     const diffuseMap = textureLoader.load(mars2.src);
     const normalMap = textureLoader.load(mars_normal.src);
     const displacementMap = textureLoader.load(mars_displacement.src);
-    const [first, setFirst] = useState<Date>(new Date());
+    const first: Date = new Date();
 
     useEffect(() => {
       if (typeof window !== "undefined") {
@@ -121,8 +121,6 @@ const ThreeScene = () => {
     useEffect(() => {
       handleScroll();
       parentDiv.current?.addEventListener("scroll", handleScroll);
-      parentDiv.current?.addEventListener("scroll", () => {
-      });
     }, [Gscroll, visible, visibleNotifications]);
     const handleScroll = () => {
       const sec1: number | undefined = sec1ref.current?.offsetTop;
@@ -213,7 +211,7 @@ const ThreeScene = () => {
         camera.fov = 30 + ((45 - 30) * (scroll - sec3!)) / height; // 30 to 45
 
         camera.updateProjectionMatrix();
-      } else if (scroll && scroll < (sec1!+height)) {
+      } else if (scroll && scroll < sec1! + height) {
         camera.position.set(0, 30, 60);
         directionalLight.position.set(0, 40, 0);
         directionalLight2.position.set(0, -40, 0);

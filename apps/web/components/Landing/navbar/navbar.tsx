@@ -112,7 +112,7 @@ const Navbar = (): JSX.Element => {
   };
   useEffect(() => {
     setUser(localStorage.getItem("user")?.substring(1, 8) ?? "");
-    setResult(localStorage.getItem("user") ? true : false);
+    setResult(Boolean(localStorage.getItem("user")));
   }, []);
   useEffect(() => {
     const handleScroll = () => {
