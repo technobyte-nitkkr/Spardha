@@ -113,7 +113,7 @@ const PopUp: React.FC<{
             </h1>
             <div className="flex flex-col justify-center items-center w-full">
               {categories.map((category, index) => (
-                <>
+                <div key={index}>
                   <div
                     key={index}
                     className={
@@ -184,7 +184,7 @@ const PopUp: React.FC<{
                       ""
                     )}
                   </div>
-                </>
+                </div>
               ))}
             </div>
           </div>

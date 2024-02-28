@@ -5,7 +5,10 @@ import logo from "public/assets/logo.png";
 import menu from "public/menu.svg";
 import Link from "next/link";
 import "./navbar.css";
-import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "../../../firebaseconfig";
 
 const Drawer = ({
@@ -19,7 +22,7 @@ const Drawer = ({
   isDrawerOpen: boolean;
   handleGoogleSignInProp: () => void;
   result: boolean;
-  user: string;
+  user: { name: string; photo: string };
 }) => (
   <AnimatePresence>
     {isDrawerOpen && (
@@ -81,7 +84,18 @@ const Drawer = ({
               Register
             </button>
           ) : (
-            <>{user}</>
+            <div className="flex h-full justify-center items-center gap-2">
+              <p className="h-full flex justify-end items-center text-end w-fit">
+                {user.name}
+              </p>
+              <Image
+                className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+                src={user.photo}
+                alt="Bordered avatar"
+                width={40}
+                height={40}
+              />
+            </div>
           )}
         </div>
       </motion.div>
@@ -96,23 +110,35 @@ const Navbar = (): JSX.Element => {
     setIsDrawerOpen(!isDrawerOpen);
   };
   const [result, setResult] = useState<boolean>(false);
-  const [user, setUser] = useState<string>("");
+  const [user, setUser] = useState<{ name: string; photo: string }>({
+    name: "",
+    photo: "",
+  });
   const handleGoogleSignIn = () => {
     const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider)
+    signInWithPopup(auth, provider)
       .then((_) => {
-        localStorage.setItem(
-          "user",
-          "Welcome" //logic for user name
-        );
+        localStorage.setItem("userNameSpardha", auth.currentUser?.displayName ?? ""); //logic for user name
+        localStorage.setItem("userImageSpardha", auth.currentUser?.photoURL ?? ""); //logic for user photo
+        setResult(true);
+        setUser({
+          name: auth.currentUser?.displayName ?? "",
+          photo: auth.currentUser?.photoURL ?? "",
+        });
       })
       .catch((_) => {
         setResult(false);
       });
   };
   useEffect(() => {
-    setUser(localStorage.getItem("user")?.substring(1, 8) ?? "");
-    setResult(Boolean(localStorage.getItem("user")));
+    setUser({
+      name: localStorage.getItem("userNameSpardha") ?? "",
+      photo: localStorage.getItem("userImageSpardha") ?? "",
+    });
+    setResult(
+      localStorage.getItem("userNameSpardha") !== null &&
+        localStorage.getItem("userImageSpardha") !== null
+    );
   }, []);
   useEffect(() => {
     const handleScroll = () => {
@@ -169,7 +195,7 @@ const Navbar = (): JSX.Element => {
           </Link>
         </div>
         {/* Register button visible only on screens larger than md */}
-        <div className="hidden md:block">
+        <div className="hidden md:block h-full">
           {!result ? (
             <button
               className="bg-[hsl(219,100%,61%)] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
@@ -178,7 +204,18 @@ const Navbar = (): JSX.Element => {
               Register
             </button>
           ) : (
-            <>{user}</>
+            <div className="flex h-full justify-center items-center gap-2">
+              <p className="h-full flex justify-end items-center">
+                {user.name}
+              </p>
+              <Image
+                className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+                src={user.photo}
+                alt="Bordered avatar"
+                width={40}
+                height={40}
+              />
+            </div>
           )}
         </div>
         {/* Toggle button for smaller screens */}
