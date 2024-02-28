@@ -14,8 +14,8 @@ function App() {
   return (
     <div className='excalibur'>
 
-      <Navbar />
       <section className="details">
+        <Navbar />
         <h1>EXCALIBUR</h1>
         <div className="slogan">DESIGN | DEVELOP | DOMINATE</div>
         <Countdown />
@@ -24,19 +24,18 @@ function App() {
 
       <section className="middle" id="about">
         <Event />
-      </section>
-
-      <section  className="middle-2" id="themes">
         <Themes />
       </section>
-      
-      <TimeLine />
+
+      <section className="middle-2" id="rules">
+        <TimeLine />
+      </section>
       <section className="end" id="rules">
         <Rules />
         <ContactUs />
         <Footer />
       </section>
-      
+
       <Background />
     </div>
   )
