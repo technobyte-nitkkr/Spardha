@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../../Loader/Loader";
 import Image from "next/image";
+import AdditionalInfo from "./AdditionalInfo";
 
 interface EventsElement {
   eventName: string;
@@ -39,6 +40,7 @@ const EventAbout: React.FC<{
 }> = ({ item }) => {
   const [event, setEvent] = useState<EventsAboutElement | null>(initData);
   const [loading, setLoading] = useState<boolean>(false);
+  const Info: React.VoidFunctionComponent | null = AdditionalInfo[item.eventName] as (React.VoidFunctionComponent | null);
   useEffect(() => {
     setLoading(true);
     fetch(
@@ -86,6 +88,7 @@ const EventAbout: React.FC<{
             <div className="w-full p-2">
               <p>{event.description}</p>
             </div>
+            <div>{Info ? <Info/> : null}</div>
           </>
         )
       ) : (
