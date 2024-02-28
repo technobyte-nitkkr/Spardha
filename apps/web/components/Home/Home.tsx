@@ -21,7 +21,7 @@ const ThreeScene = () => {
     const sec3ref = useRef<HTMLDivElement>(null);
     const sec4ref = useRef<HTMLDivElement>(null);
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, 1920 / 1080, 0.1, 10000);
+    const camera = new THREE.PerspectiveCamera(50, 1920 / 1080, 0.1, 10000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     const directionalLight = new THREE.DirectionalLight(0x000000, 2); // red
     const directionalLight2 = new THREE.DirectionalLight(0x000000, 1); // blue
@@ -29,6 +29,7 @@ const ThreeScene = () => {
     const diffuseMap = textureLoader.load(mars2.src);
     const normalMap = textureLoader.load(mars_normal.src);
     const displacementMap = textureLoader.load(mars_displacement.src);
+    const first: Date = new Date();
 
     useEffect(() => {
       if (typeof window !== "undefined") {
@@ -210,6 +211,16 @@ const ThreeScene = () => {
         camera.fov = 30 + ((45 - 30) * (scroll - sec3!)) / height; // 30 to 45
 
         camera.updateProjectionMatrix();
+      } else if (scroll && scroll < sec1! + height) {
+        camera.position.set(0, 30, 60);
+        directionalLight.position.set(0, 40, 0);
+        directionalLight2.position.set(0, -40, 0);
+        camera.fov = 45;
+      } else if (Date.now() - first.getTime() < 1000) {
+        camera.position.set(0, 30, 120);
+        directionalLight.position.set(0, 40, 0);
+        directionalLight2.position.set(0, -40, 0);
+        camera.fov = 45;
       } else {
         camera.position.set(0, 30, 60);
         directionalLight.position.set(0, 40, 0);

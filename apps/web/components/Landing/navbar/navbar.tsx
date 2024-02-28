@@ -12,10 +12,14 @@ const Drawer = ({
   onClose,
   isDrawerOpen,
   handleGoogleSignInProp,
+  result,
+  user,
 }: {
   onClose: () => void;
   isDrawerOpen: boolean;
   handleGoogleSignInProp: () => void;
+  result: boolean;
+  user: string;
 }) => (
   <AnimatePresence>
     {isDrawerOpen && (
@@ -69,12 +73,16 @@ const Drawer = ({
           Teams
         </Link>
         <div className="mt-4">
-          <button
-            className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
-            onClick={handleGoogleSignInProp}
-          >
-            Register
-          </button>
+          {!result ? (
+            <button
+              className="bg-[#367CFF] rounded-tl-[16px] text-center py-[8px] px-[12px] gap-8 w-full font-orbitron"
+              onClick={handleGoogleSignInProp}
+            >
+              Register
+            </button>
+          ) : (
+            <>{user}</>
+          )}
         </div>
       </motion.div>
     )}
@@ -88,17 +96,24 @@ const Navbar = (): JSX.Element => {
     setIsDrawerOpen(!isDrawerOpen);
   };
   const [result, setResult] = useState<boolean>(false);
+  const [user, setUser] = useState<string>("");
   const handleGoogleSignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider)
       .then((_) => {
-        setResult(true);
+        localStorage.setItem(
+          "user",
+          "Welcome" //logic for user name
+        );
       })
       .catch((_) => {
         setResult(false);
       });
   };
-
+  useEffect(() => {
+    setUser(localStorage.getItem("user")?.substring(1, 8) ?? "");
+    setResult(Boolean(localStorage.getItem("user")));
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       if (isDrawerOpen) {
@@ -163,7 +178,7 @@ const Navbar = (): JSX.Element => {
               Register
             </button>
           ) : (
-            "Registered"
+            <>{user}</>
           )}
         </div>
         {/* Toggle button for smaller screens */}
@@ -186,6 +201,8 @@ const Navbar = (): JSX.Element => {
           onClose={navtoggle}
           isDrawerOpen={isDrawerOpen}
           handleGoogleSignInProp={handleGoogleSignIn}
+          result={result}
+          user={user}
         />
       </div>
     </div>
