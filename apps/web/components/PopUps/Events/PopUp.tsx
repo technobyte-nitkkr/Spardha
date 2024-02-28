@@ -19,7 +19,7 @@ const PopUp: React.FC<{
   const [categories, setCategories] = useState<CategoriesElement[]>([]);
   const [Events, setEvents] = useState<EventsElement[]>([]);
   const [ActiveEvent, setActiveEvent] = useState<EventsElement>({
-    eventName: "Excalibur",
+    eventName: "Hackshetra",
     eventCategory: "Programming",
   });
   const [angle, setAngle] = useState<boolean[]>(
@@ -46,7 +46,7 @@ const PopUp: React.FC<{
           setCategories(data.data.categories);
           setAngle(data.data.categories.map((_, index) => index !== 0));
           setActiveEvent({
-            eventName: "Black Box",
+            eventName: "Hackshetra",
             eventCategory: "Programming",
           } as EventsElement);
         }
@@ -73,6 +73,14 @@ const PopUp: React.FC<{
         }
       )
       .catch((err: Error) => err);
+    const script = document.createElement('script');
+    script.src = 'https://apply.devfolio.co/v2/sdk.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    }
   }, []);
   return (
     <div

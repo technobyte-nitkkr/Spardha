@@ -8,12 +8,14 @@ import Notification from "../PopUps/Notification";
 import mars_displacement from "public/assets/displacement.jpeg";
 import mars2 from "public/assets/texture.jpg";
 import mars_normal from "public/assets/mars_normal1.png";
+import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
 
 const ThreeScene = () => {
   if (typeof window !== "undefined") {
     const [visible, setVisible] = useState<boolean>(false);
     const [visibleNotifications, setVisibleNotifications] =
       useState<boolean>(false);
+    const searchParams: ReadonlyURLSearchParams = useSearchParams();
     const containerRef = useRef<HTMLDivElement>(null);
     const parentDiv = useRef<HTMLDivElement>(null);
     const sec1ref = useRef<HTMLDivElement>(null);
@@ -231,6 +233,7 @@ const ThreeScene = () => {
     const [mounted, setMounted] = useState<boolean>(false);
     useEffect(() => {
       setMounted(true);
+      setVisible(Boolean(searchParams.get("event")));
     }, []);
     return (
       <div className="w-screen h-screen m-0 p-0">
