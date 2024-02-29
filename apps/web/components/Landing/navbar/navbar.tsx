@@ -195,7 +195,7 @@ const Navbar = (): JSX.Element => {
   }, [isDrawerOpen]);
 
   return (
-    <div className="w-screen flex flex-row justify-center p-5 h-[15%]">
+    <div className="w-screen flex flex-row justify-center p-5 h-[15%] relative z-10">
       <div className="nav_flex w-[80vw] flex flex-row justify-between items-center max-h-[60px]">
         <div className="logo h-full">
           <Image alt="logo" className="h-[50px] w-[50px] bgGlow" src={logo} />
