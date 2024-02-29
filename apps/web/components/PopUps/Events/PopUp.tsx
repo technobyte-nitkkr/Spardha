@@ -90,13 +90,13 @@ const PopUp: React.FC<{
     >
       <div className="absolute w-full h-full bg-[rgba(0,0,0,0.86)] z-5">
         <div
-          className="w-14 h-14 right-0 absolute text-center flex flex-col justify-center  hover:scale-105 cursor-pointer"
+          className="w-auto h-auto right-0 absolute text-center flex flex-col justify-center  hover:scale-105 cursor-pointer"
           onClick={() => {
             setVisible(false);
           }}
           role="presentation"
         >
-          <h1 className="font-starlord-1 text-5xl">X</h1>
+          <h1 className="font-starlord-1 text-8xl lg:text-6xl md:text-7xl">X</h1>
         </div>
       </div>
       <div

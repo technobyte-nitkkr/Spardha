@@ -47,13 +47,13 @@ const GLcard: React.FC<{
             >
               {item.name}
             </div>
-            <div className="text-[0.8] h-1/3 sm:h-auto sm:mt-2 sm:text-[0.8rem] sm:mb-2 opacity-60 custom-xsm:h-auto custom-xsm:text-[0.8rem] md:h-auto md:text-[0.8rem] md:mt-0  custom-sm:h-auto custom-sm:text-[0.8rem] ">
+            <div className="text-[0.8] h-1/3 sm:h-auto sm:mt-2 sm:text-[0.8rem] sm:mb-2 opacity-60 custom-xsm:h-auto custom-xsm:text-[0.8rem] md:h-auto md:text-[0.8rem] md:mt-0  custom-sm:h-auto custom-sm:text-[0.8rem] tracking-widest">
               {item.date} {item.time}
             </div>
           </div>
         </div>
 
-        <div className="w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv">
+        <div className="w-full h-[70%] bg-black text-white overflow-y-scroll px-2 py-1 CardScrollDiv tracking-wide">
           {item.desc}
         </div>
 
