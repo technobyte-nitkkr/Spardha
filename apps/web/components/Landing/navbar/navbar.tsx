@@ -27,7 +27,7 @@ const Drawer = ({
   <AnimatePresence>
     {isDrawerOpen && (
       <motion.div
-        className="drawer fixed top-0 left-0 w-full bg-[#1A2487bf] p-8 text-center font-orbitron md:text-xl rounded-md backdrop-blur-md"
+        className="drawer fixed top-0 left-0 w-full bg-[#1A2487bf] p-8 text-center font-orbitron md:text-xl rounded-md backdrop-blur-md z-[1000]"
         initial={{ y: -200, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -200, opacity: 0 }}
@@ -130,6 +130,11 @@ const Navbar = (): JSX.Element => {
         setResult(false);
       });
   };
+  const logout = (): void => {
+    localStorage.removeItem("userNameSpardha");
+    localStorage.removeItem("userImageSpardha");
+    window.location.reload();
+  }
   useEffect(() => {
     setUser({
       name: localStorage.getItem("userNameSpardha") ?? "",
@@ -155,7 +160,7 @@ const Navbar = (): JSX.Element => {
   }, [isDrawerOpen]);
 
   return (
-    <div className="w-screen flex flex-row justify-center p-5 h-[15%]">
+    <div className="w-screen flex flex-row justify-center p-5 h-[15%] relative z-[1000]">
       <div className="nav_flex w-[80vw] flex flex-row justify-between items-center max-h-[60px]">
         <div className="logo h-full">
           <Image alt="logo" className="h-[50px] w-[50px] bgGlow" src={logo} />
@@ -214,6 +219,8 @@ const Navbar = (): JSX.Element => {
                 alt="Bordered avatar"
                 width={40}
                 height={40}
+                title="Logout"
+                onClick={logout}
               />
             </div>
           )}
