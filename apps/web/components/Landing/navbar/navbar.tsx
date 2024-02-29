@@ -116,6 +116,7 @@ const Drawer = ({
                   localStorage.removeItem("userEmailSpardha");
                 }}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer tracking-wider"
+                role="presentation"
               >
                 Sign out
               </div>
@@ -251,7 +252,7 @@ const Navbar = (): JSX.Element => {
                 alt="Bordered avatar"
                 width={40}
                 height={40}
-                onClick={() => setOpenDD(!openDD)}
+                onClick={() => {setOpenDD(!openDD)}}
               />
               <div
                 id="dropdownInformation"
@@ -271,6 +272,7 @@ const Navbar = (): JSX.Element => {
                       localStorage.removeItem("userEmailSpardha");
                     }}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer tracking-wider rounded-lg"
+                    role="presentation"
                   >
                     Sign out
                   </div>
