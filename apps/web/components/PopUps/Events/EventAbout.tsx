@@ -68,34 +68,36 @@ const EventAbout: React.FC<{
   }, [item]);
   return (
     <div className="h-full w-full flex-shrink-0 overflow-y-auto">
-      {!loading ? (
-        event && (
-          <>
-            <div className="w-full">
-              {event.poster ? (
-                <Image
-                  alt="Poster"
-                  className="w-full"
-                  src={event.poster}
-                  width={1000}
-                  height={1000}
-                  unoptimized
-                />
-              ) : (
-                <Loader />
-              )}
-            </div>
-            <div className="w-full p-2">
-              <p>{event.description}</p>
-            </div>
-            <div>{Info ? <Info/> : null}</div>
+      <div>
+        {!loading ? (
+          event && (
+            <>
+              <div className="w-full">
+                {event.poster ? (
+                  <Image
+                    alt="Poster"
+                    className="w-full"
+                    src={event.poster}
+                    width={1000}
+                    height={1000}
+                    unoptimized
+                  />
+                ) : (
+                  <Loader />
+                )}
+              </div>
+              <div className="w-full p-2">
+                <p>{event.description}</p>
+              </div>
+            </>
+          )
+          ) : (
+            <>
+            <Loader />
           </>
-        )
-      ) : (
-        <>
-          <Loader />
-        </>
-      )}
+        )}
+      </div>
+      <div>{Info ? <Info/> : null}</div>
     </div>
   );
 };
