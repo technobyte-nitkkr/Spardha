@@ -6,7 +6,7 @@ const Hackshetra: React.FC<void> = () => {
         <div 
             className="apply-button p-2" 
             data-button-theme="light"
-            data-hackathon-slug="YOUR-HACKATHON-SLUG" 
+            data-hackathon-slug="hackshetra-24" 
             style={{height: "44px", width: "312px"}}
         >Apply with Devfolio</div>
     </div>
