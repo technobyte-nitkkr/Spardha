@@ -247,22 +247,33 @@ const Navbar = (): JSX.Element => {
           ) : (
             <div className="flex h-full justify-center items-center gap-2 relative">
               <Image
-                className="UserImage w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 cursor-pointer"
+                className={`${openDD ? "hidden" : ""} UserImage w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500 cursor-pointer`}
                 src={user.photo}
                 alt="Bordered avatar"
                 width={40}
                 height={40}
-                onClick={() => {setOpenDD(!openDD)}}
+                onClick={() => {
+                  setOpenDD(!openDD);
+                }}
               />
               <div
                 id="dropdownInformation"
-                className={`${openDD ? "top-[90%]" : "hidden"} UserMenu z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-auto dark:bg-gray-700 dark:divide-gray-600`}
+                className={`${openDD ? "top-[90%]" : "hidden"} UserMenu z-10  bg-white divide-y divide-gray-100 rounded-lg shadow w-auto dark:bg-gray-700 dark:divide-gray-600 flex flex-row`}
               >
                 <div className="px-4 py-3 text-sm text-gray-900 dark:text-white font-mono">
                   <div>{user.name}</div>
                   <div className="font-medium truncate">{user.email}</div>
                 </div>
-                <div className="py-2">
+                <div className="py-2 px-2 border-l-2">
+                  <div
+                    onClick={() => {
+                      setOpenDD(!openDD);
+                    }}
+                    className="block text-center px-4 w-auto text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer tracking-wider rounded-lg"
+                    role="presentation"
+                  >
+                    Close
+                  </div>
                   <div
                     onClick={() => {
                       setUser({ name: "", photo: "", email: "" });
@@ -271,7 +282,7 @@ const Navbar = (): JSX.Element => {
                       localStorage.removeItem("userImageSpardha");
                       localStorage.removeItem("userEmailSpardha");
                     }}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer tracking-wider rounded-lg"
+                    className="block px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer tracking-wider rounded-lg"
                     role="presentation"
                   >
                     Sign out

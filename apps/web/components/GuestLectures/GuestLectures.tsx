@@ -28,7 +28,8 @@ const GuestLectures = (): JSX.Element => {
   const scrollNext = (): void => {
     if (
       scrollRef.current &&
-      cardIndex < scrollRef.current.children.length - numberOfCards
+      cardIndex < (scrollRef.current.children.length - numberOfCards) &&
+      cardIndex < (guestList.length / numberOfCards - 1)
     ) {
       setCardIndex(cardIndex + 1);
     }
@@ -225,6 +226,9 @@ const GuestLectures = (): JSX.Element => {
         <div
           aria-hidden="true"
           className="border-2 w-2/5 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tl-2xl cursor-pointer mr-2"
+          style={{
+            cursor : cardIndex > 0 ? "pointer" : "not-allowed"
+          }}
           onClick={scrollPrev}
         >
           Prev
@@ -232,6 +236,9 @@ const GuestLectures = (): JSX.Element => {
         <div
           aria-hidden="true"
           className="border-2  w-2/5 text-center py-3 text-xl border-b-8 border-blue-500 rounded-tr-2xl cursor-pointer"
+          style={{
+            cursor : cardIndex < (guestList.length / numberOfCards - 1) ? "pointer" : "not-allowed"
+          }}
           onClick={scrollNext}
         >
           Next
