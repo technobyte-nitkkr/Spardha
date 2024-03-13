@@ -42,13 +42,15 @@ const GLcard: React.FC<{
           />
           <div className="h-full flex-1 pl-3 sm:flex sm:flex-col custom-sm:flex custom-sm:flex-col custom-xsm:flex custom-xsm:flex-col">
             <div
-              className="text-[1.5rem] h-1/3 sm:h-auto sm:text-[1.4rem] custom-xsm:h-auto custom-xsm:text-[1.3rem] 
-          md:h-auto md:text-[1.5rem] md:mb-0 custom-sm:h-auto custom-sm:text-[1.6rem] "
+              className="text-[1.5rem] h-1/3 sm:h-auto sm:text-[1.2rem] custom-xsm:h-auto custom-xsm:text-[1.1rem] 
+          md:h-auto md:text-[1.5rem] md:mb-0 custom-sm:h-auto custom-sm:text-[1.3rem] "
             >
               {item.name}
             </div>
             <div className="text-[0.8] h-1/3 sm:h-auto sm:mt-2 sm:text-[0.8rem] sm:mb-2 opacity-60 custom-xsm:h-auto custom-xsm:text-[0.8rem] md:h-auto md:text-[0.8rem] md:mt-0  custom-sm:h-auto custom-sm:text-[0.8rem] tracking-widest">
-              {item.date} {item.time}
+              {item.date}
+              <br/>
+              {item.time}
             </div>
           </div>
         </div>

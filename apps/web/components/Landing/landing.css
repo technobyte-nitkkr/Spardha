@@ -67,3 +67,25 @@
         opacity: 1;
     }
 }
+
+.popUpNotificationScreen {
+    right: -100%;
+    animation:  popAndLeave 10s ease-in 1s 1 forwards;
+}
+
+@keyframes popAndLeave {
+    0% {
+        right: -100%;
+    }
+    10%{
+        right: 8px;
+    }
+    95%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        right: 8px;
+        display: none;
+    }
+}
